@@ -134,7 +134,9 @@ plot_svc_decision_function(clf)
 
 令分類線 $l ：W^T \cdot x + b = 0$ ，則
 
-$a_1 = W^T \cdot x + b \ge \delta$ ，a_2 = W^T \cdot x + b \le -\delta$ 
+```math
+a_1 = W^T \cdot x + b \ge \delta$ ，a_2 = W^T \cdot x + b \le - \delta$ 
+```
 
 同時令
 ```math
@@ -153,7 +155,7 @@ y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
 ```
 ![SVM_4](img/SVM_4.png)
 
-接著從兩邊各取一點（即**支持向量機**） $\vec{x_\text{x}}$、$\vec{x_\text{Ｏ}}$ ，找出想要的Margin Width(上圖中的紅線長度)；即透過 $\overrightarrow{\vec{x_\text{x}} - \vec{x_\text{Ｏ}}}$ 的垂直於方向 $l$ 方向的投影得到長度
+接著從兩邊各取一點（即**支持向量機**） $\vec{x_\text{x}}$、 $\vec{x_\text{Ｏ}}$ ，找出想要的Margin Width(上圖中的紅線長度)；即透過 $\overrightarrow{\vec{x_\text{x}} - \vec{x_\text{Ｏ}}}$ 的垂直於方向 $l$ 方向的投影得到長度
 ```math
 \begin{equation}
 \begin{split}
@@ -170,20 +172,23 @@ y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
 ```math
 \alpha_{i} = \left\{
 \begin{array}{rr}
-0, & y^{(i)}(W^T \cdot x^{(i)} + b) \ge \delta\\
+0, & y^{(i)}(W^T \cdot x^{(i)} + b) \ge \delta \\
 \ge 0, & y^{(i)}(W^T \cdot x^{(i)} + b) = \delta
-\end{array}
-\right. \label{alpha}
+\end{array} ---(2)
+\right.
 ```
+
 Lagrange 表達式
 ```math
-min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta]\\
+min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] \\
 \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
 ```
-接著對 $b$、$w$ 求偏導數
+接著對 $b$、 $w$ 求偏導數
 ```math
+\begin{array}{cc}
 \frac{\partial \mathcal{L}}{\partial b} = & - \sum^{m}_{i=1} \alpha_iy^{(i)} \\
 \frac{\partial \mathcal{L}}{\partial w} = & w - \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
+\end{array}
 ```
 令兩式等於 $0$ ，則可得到
 ```math
@@ -194,7 +199,7 @@ w =& \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
 \end{split}
 \end{equation}
 ```
-因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如$\eqref{alpha}$所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
+因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 $(2)$ 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
 
 ## Reference
 
