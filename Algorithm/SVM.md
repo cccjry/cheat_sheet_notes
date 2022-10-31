@@ -134,7 +134,12 @@ plot_svc_decision_function(clf)
 令分類線 $l ：W^T \cdot x + b = 0$ ，則
 
 ```math
-a_1 = W^T \cdot x + b \ge \delta$ ，a_2 = W^T \cdot x + b \le - \delta$ 
+\begin{equation}
+\begin{split}
+a_1 &= W^T \cdot x + b \ge \delta \\
+a_2 &= W^T \cdot x + b \le - \delta
+\end{split}
+\end{equation}
 ```
 
 同時令
