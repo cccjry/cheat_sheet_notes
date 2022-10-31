@@ -148,9 +148,11 @@ y^{(i)} = \left\{
 ```
 ![SVM_3](img/SVM_3.png)
 
-則 $a_1$ 、 $a_2$ 區域可以表示成
+則 $a_1$ 、 $a_2$ 區域可以表示成 Condition1
 ```math
-y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
+\begin{equation}
+y^{(i)}(W^T \cdot x + b) \ge \delta
+\end{equation}
 ```
 ![SVM_4](img/SVM_4.png)
 
@@ -165,16 +167,18 @@ y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
 \end{split}
 \end{equation}
 ```
-因預期使得 Margin越寬越好（兩類分得越開），因此希望 $\lVert \vec{w} \lVert$ 越小越好。結合限制式 $(1)$ ，透過 [**Lagrange Multiplier Method & Karush-Kuhn-Tucker (KKT) Conditions**](https://engineering.purdue.edu/ME697Y/KKT.pdf) 方法可以得到最佳解。做法：
+因預期使得 Margin越寬越好（兩類分得越開），因此希望 $\lVert \vec{w} \lVert$ 越小越好。結合限制式 Condition1 ，透過 [**Lagrange Multiplier Method & Karush-Kuhn-Tucker (KKT) Conditions**](https://engineering.purdue.edu/ME697Y/KKT.pdf) 方法可以得到最佳解。做法：
 
-令
+令 Condition2
 ```math
+\begin{equation}
 \alpha_{i} = \left\{
 \begin{array}{rr}
 0, & y^{(i)}(W^T \cdot x^{(i)} + b) \ge \delta \\
 \ge 0, & y^{(i)}(W^T \cdot x^{(i)} + b) = \delta
-\end{array} ---(2)
+\end{array} 
 \right.
+\end{equation}
 ```
 
 Lagrange 表達式
@@ -200,7 +204,7 @@ w =& \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
 \end{split}
 \end{equation}
 ```
-因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 $(2)$ 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
+因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 Condition2 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
 
 ## Reference
 
