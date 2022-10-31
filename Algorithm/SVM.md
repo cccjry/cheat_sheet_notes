@@ -66,7 +66,6 @@ import numpy as np
 import pandas as pd
 
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 from sklearn.svm import SVC
 from sklearn.datasets import make_classification
@@ -180,14 +179,16 @@ y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
 
 Lagrange 表達式
 ```math
+\begin{array}{c}
 min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] \\
-\sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
+\sum_{i=1}^{m} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
+\end{array}
 ```
 接著對 $b$、 $w$ 求偏導數
 ```math
 \begin{array}{cc}
-\frac{\partial \mathcal{L}}{\partial b} = & - \sum^{m}_{i=1} \alpha_iy^{(i)} \\
-\frac{\partial \mathcal{L}}{\partial w} = & w - \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
+\frac{\partial \mathcal{L}}{\partial b} = & - \sum_{i=1}^{m} \alpha_iy^{(i)} \\
+\frac{\partial \mathcal{L}}{\partial w} = & w - \sum_{i=1}^{m} \alpha_iy^{(i)} x^{(i)}
 \end{array}
 ```
 令兩式等於 $0$ ，則可得到
