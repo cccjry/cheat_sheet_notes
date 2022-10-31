@@ -132,29 +132,29 @@ plot_svc_decision_function(clf)
 
 ### 數學理論(線性)
 
-令分類線 $l$ ：$W^T \cdot \bold{x} + b = 0$ ，則
+令分類線 $l ：W^T \cdot x + b = 0$ ，則
 
-$a_1 = W^T \cdot \bold{x} + b \ge \delta$ ，$a_2 = W^T \cdot \bold{x} + b \le -\delta$ 
+$a_1 = W^T \cdot x + b \ge \delta$ ，a_2 = W^T \cdot x + b \le -\delta$ 
 
 同時令
-$$
+```math
 y^{(i)} = \left\{
 \begin{array}{rr}
 1, & x^{(i)}=O\\
 -1, & x^{(i)}=X
 \end{array}
 \right.
-$$
+```
 ![SVM_3](img/SVM_3.png)
 
-則 $a_1$、$a_2$ 區域可以表示成
-$$
-y^{(i)}(W^T \cdot \bold{x} + b) \ge \delta \label{condition}
-$$
+則 $a_1$ 、 $a_2$ 區域可以表示成
+```math
+y^{(i)}(W^T \cdot x + b) \ge \delta ---(1)
+```
 ![SVM_4](img/SVM_4.png)
 
-接著從兩邊各取一點（即**支持向量機**）$\vec{x_\text{x}}$、$\vec{x_\text{Ｏ}}$，找出想要的Margin Width(上圖中的紅線長度)；即透過 $\overrightarrow{\vec{x_\text{x}} - \vec{x_\text{Ｏ}}}$ 的垂直於方向 $l$ 方向的投影得到長度
-$$
+接著從兩邊各取一點（即**支持向量機**） $\vec{x_\text{x}}$、$\vec{x_\text{Ｏ}}$ ，找出想要的Margin Width(上圖中的紅線長度)；即透過 $\overrightarrow{\vec{x_\text{x}} - \vec{x_\text{Ｏ}}}$ 的垂直於方向 $l$ 方向的投影得到長度
+```math
 \begin{equation}
 \begin{split}
 2 * \text{Margin} & = \frac{\vec{w} \cdot (\vec{x_\text{x}} - \vec{x_\text{Ｏ}})}{\lVert \vec{w} \lVert}\\
@@ -163,38 +163,38 @@ $$
  & = \frac{1}{\lVert \vec{w} \lVert}
 \end{split}
 \end{equation}
-$$
-因預期使得 Margin越寬越好（兩類分得越開），因此希望 $\lVert \vec{w} \lVert$ 越小越好。結合限制式 $\eqref{condition}$ ，透過 [**Lagrange Multiplier Method & Karush-Kuhn-Tucker (KKT) Conditions**](https://engineering.purdue.edu/ME697Y/KKT.pdf) 方法可以得到最佳解。做法：
+```
+因預期使得 Margin越寬越好（兩類分得越開），因此希望 $\lVert \vec{w} \lVert$ 越小越好。結合限制式 $(1)$ ，透過 [**Lagrange Multiplier Method & Karush-Kuhn-Tucker (KKT) Conditions**](https://engineering.purdue.edu/ME697Y/KKT.pdf) 方法可以得到最佳解。做法：
 
 令
-$$
+```math
 \alpha_{i} = \left\{
 \begin{array}{rr}
-0, & y^{(i)}(W^T \cdot \bold{x}^{(i)} + b) \ge \delta\\
-\ge 0, & y^{(i)}(W^T \cdot \bold{x}^{(i)} + b) = \delta
+0, & y^{(i)}(W^T \cdot x^{(i)} + b) \ge \delta\\
+\ge 0, & y^{(i)}(W^T \cdot x^{(i)} + b) = \delta
 \end{array}
 \right. \label{alpha}
-$$
+```
 Lagrange 表達式
-$$
-min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot \bold{x}^{(i)} + b) - \delta]\\
-\sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot \bold{x}^{(i)} + b) - \delta] = 0
-$$
+```math
+min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta]\\
+\sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
+```
 接著對 $b$、$w$ 求偏導數
-$$
+```math
 \frac{\partial \mathcal{L}}{\partial b} = & - \sum^{m}_{i=1} \alpha_iy^{(i)} \\
-\frac{\partial \mathcal{L}}{\partial w} = & w - \sum^{m}_{i=1} \alpha_iy^{(i)}\bold{x}^{(i)}
-$$
+\frac{\partial \mathcal{L}}{\partial w} = & w - \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
+```
 令兩式等於 $0$ ，則可得到
-$$
+```math
 \begin{equation}
 \begin{split}
  & \sum^{m}_{i=1} \alpha_iy^{(i)} = 0 \\
-w =& \sum^{m}_{i=1} \alpha_iy^{(i)}\bold{x}^{(i)}
+w =& \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
 \end{split}
 \end{equation}
-$$
-因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot \bold{x}^{(i)} + b) = \delta$ 的時候才會非 $0$ （如$\eqref{alpha}$所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
+```
+因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如$\eqref{alpha}$所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
 
 ## Reference
 
