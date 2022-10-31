@@ -183,24 +183,28 @@ y^{(i)}(W^T \cdot x + b) \ge \delta
 
 Lagrange 表達式
 ```math
-\begin{array}{c}
+\begin{equation}
+\begin{split}
 min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] \\
 \sum_{i=1}^{m} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
-\end{array}
+\end{split}
+\end{equation}
 ```
 接著對 $b$、 $w$ 求偏導數
 ```math
-\begin{array}{cc}
-\frac{\partial \mathcal{L}}{\partial b} = & - \sum_{i=1}^{m} \alpha_iy^{(i)} \\
-\frac{\partial \mathcal{L}}{\partial w} = & w - \sum_{i=1}^{m} \alpha_iy^{(i)} x^{(i)}
-\end{array}
+\begin{equation}
+\begin{split}
+\frac{\partial \mathcal{L}}{\partial b} &= - \sum^{m}_{i=1} \alpha_i y^{(i)} \\
+\frac{\partial \mathcal{L}}{\partial w} &= w - \sum^{m}_{i=1} \alpha_i y^{(i)} x^{(i)}
+\end{split}
+\end{equation}
 ```
 令兩式等於 $0$ ，則可得到
 ```math
 \begin{equation}
 \begin{split}
- & \sum^{m}_{i=1} \alpha_iy^{(i)} = 0 \\
-w =& \sum^{m}_{i=1} \alpha_iy^{(i)} x^{(i)}
+ & \sum^{m}_{i=1} \alpha_i y^{(i)} = 0 \\
+w =& \sum^{m}_{i=1} \alpha_i y^{(i)} x^{(i)}
 \end{split}
 \end{equation}
 ```
