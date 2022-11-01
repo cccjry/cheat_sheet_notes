@@ -262,16 +262,24 @@ $\vec{w}$: 支持向量
 
 ## Reference
 
+### Theory
+
 - [Scikit-learn](https://scikit-learn.org/stable/modules/svm.html#svm-classification)
 
 - [https://zhuanlan.zhihu.com/p/22400898](https://zhuanlan.zhihu.com/p/22400898)
+
+- [Medium](https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72)
 
 - [Kernel Explaned1](https://techvidvan.com/tutorials/svm-kernel-functions/)
 
 - [Kernel Explaned2](https://data-flair.training/blogs/svm-kernel-functions/)
 
+### Code Examples
+
+- [Medium Example](https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-coding-edd8f1cf8f2d)
+
 - [[Day 11] 核模型 - 支持向量機 (SVM)](https://ithelp.ithome.com.tw/articles/10270447)
 
   ​	[Github範例程式碼](https://github.com/andy6804tw/2021-13th-ironman)
-  
+
 - [Hand-by-hand examples](https://deepnote.com/@bhavesh-bhatt/svm-c-gamma-hyperparameter-ec7cdd4f-b499-4b4d-a320-f483e8099691)
