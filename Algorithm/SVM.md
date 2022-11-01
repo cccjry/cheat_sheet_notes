@@ -53,13 +53,21 @@ plt.show()
 ### Kernel Function*
 
 - `linear` linear（線性）
+  - $K(\mathbf{x})=b+\sum \mathbf{W}^T \mathbf{x}$
+
 - `poly` Polynomial（多項式）
+  - $K(x)=(b+\sum \mathbf{W}^T \mathbf{x})^d$
+
 - `sigmoid` Sigmoid
+  - $K(x)=\tanh(\alpha \sum \mathbf{W}^T \mathbf{x}+b)$ *不確定
+
 - `rbf` Radial Basis Function（高斯）（默認）
+  - $K(x)=\exp(-\gamma \sum \mathbf{W}^T \mathbf{x})^2,\ \gamma>0\ \text{or sometimes}\ \gamma=1/{2\sigma^2}$
+
 
 ### C*
 
-懲罰係數(?)，分錯樣本時的懲罰，與決策邊界(Margin)成正比；因此設定越低，模型的容忍度越高；在非線性的差異表現尤其明顯
+$L2$ regularization: 懲罰係數(?)，分錯樣本時的懲罰，與決策邊界(Margin)成正比；因此懲罰設定越大，分類錯誤容忍低、 Margin 越窄，反之則模型的容忍度越高、Margin 越寬；在非線性的差異表現尤其明顯
 
 ```python
 import numpy as np
@@ -131,13 +139,13 @@ plot_svc_decision_function(clf)
 
 ### 數學理論(線性)
 
-令分類線 $l ：W^T \cdot x + b = 0$ ，則
+令分類線 $l ：\mathbf{W}^T \cdot \mathbf{x} + b = 0$ ，則
 
 $$
 \begin{equation}
 \begin{split}
-a_1 &= W^T \cdot x + b \ge \delta \\
-a_2 &= W^T \cdot x + b \le - \delta
+a_1 &= \mathbf{W}^T \cdot \mathbf{x} + b \ge \delta \\
+a_2 &= \mathbf{W}^T \cdot \mathbf{x} + b \le - \delta
 \end{split}
 \end{equation}
 $$
@@ -148,8 +156,8 @@ $$
 \begin{equation}
 y^{(i)} = \left\{
 \begin{array}{rr}
-1, & x^{(i)}=O\\
--1, & x^{(i)}=X
+1, & \mathbf{x}^{(i)}=O\\
+-1, & \mathbf{x}^{(i)}=X
 \end{array}
 \right.
 \end{equation}
@@ -161,7 +169,7 @@ $$
 
 $$
 \begin{equation}
-y^{(i)}(W^T \cdot x + b) \ge \delta
+y^{(i)}(\mathbf{W}^T \cdot \mathbf{x} + b) \ge \delta
 \end{equation}
 $$
 
@@ -188,8 +196,8 @@ $$
 \begin{equation}
 \alpha_{i} = \left\{
 \begin{array}{rr}
-0, & y^{(i)}(W^T \cdot x^{(i)} + b) \ge \delta \\
-\ge 0, & y^{(i)}(W^T \cdot x^{(i)} + b) = \delta
+0, & y^{(i)}(\mathbf{W}^T \cdot \mathbf{x}^{(i)} + b) \ge \delta \\
+\ge 0, & y^{(i)}(\mathbf{W}^T \cdot \mathbf{x}^{(i)} + b) = \delta
 \end{array} 
 \right.
 \end{equation}
@@ -228,12 +236,34 @@ w =& \sum^{m}_{i=1} \alpha_i y^{(i)} x^{(i)}
 \end{equation}
 $$
 
-因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 Condition2 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
+因 $\alpha_i$ 只有在 $y^{(i)}(\mathbf{W}^T \cdot \mathbf{x}^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 Condition2 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
+
+#### Notation
+
+$b$: 常數項
+
+$\mathbf{x}^{(i)}$: 第 $i$ 個樣本點
+
+$\mathbf{y}^{(i)}$: 第 $i$ 個樣本點，其類別指標函數
+
+$\vec{x_\text{x}}$、 $\vec{x_\text{Ｏ}}$ : 即樣本點的一般代號，以向量表示
+
+$\mathbf{W}$: 支持向量表示符號
+
+$\vec{w}$: 支持向量
+
+
 
 ## Reference
 
 - [https://zhuanlan.zhihu.com/p/22400898](https://zhuanlan.zhihu.com/p/22400898)
 
+- [Kernel Explaned1](https://techvidvan.com/tutorials/svm-kernel-functions/)
+
+- [Kernel Explaned2](https://data-flair.training/blogs/svm-kernel-functions/)
+
 - [[Day 11] 核模型 - 支持向量機 (SVM)](https://ithelp.ithome.com.tw/articles/10270447)
 
   ​	[Github範例程式碼](https://github.com/andy6804tw/2021-13th-ironman)
+  
+- [Hand-by-hand examples](https://deepnote.com/@bhavesh-bhatt/svm-c-gamma-hyperparameter-ec7cdd4f-b499-4b4d-a320-f483e8099691)
