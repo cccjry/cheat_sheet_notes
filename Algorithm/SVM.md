@@ -132,37 +132,40 @@ plot_svc_decision_function(clf)
 ### 數學理論(線性)
 
 令分類線 $l ：W^T \cdot x + b = 0$ ，則
-
-```math
+$
 \begin{equation}
 \begin{split}
 a_1 &= W^T \cdot x + b \ge \delta \\
 a_2 &= W^T \cdot x + b \le - \delta
 \end{split}
 \end{equation}
-```
+$
+
 
 同時令
-```math
+$
+\begin{equation}
 y^{(i)} = \left\{
 \begin{array}{rr}
 1, & x^{(i)}=O\\
 -1, & x^{(i)}=X
 \end{array}
 \right.
-```
+\end{equation}
+$
+
 ![SVM_3](img/SVM_3.png)
 
 則 $a_1$ 、 $a_2$ 區域可以表示成 Condition1
-```math
+$
 \begin{equation}
 y^{(i)}(W^T \cdot x + b) \ge \delta
 \end{equation}
-```
+$
 ![SVM_4](img/SVM_4.png)
 
 接著從兩邊各取一點（即**支持向量機**） $\vec{x_\text{x}}$、 $\vec{x_\text{Ｏ}}$ ，找出想要的Margin Width(上圖中的紅線長度)；即透過 $\overrightarrow{\vec{x_\text{x}} - \vec{x_\text{Ｏ}}}$ 的垂直於方向 $l$ 方向的投影得到長度
-```math
+$
 \begin{equation}
 \begin{split}
 2 * \text{Margin} & = \frac{\vec{w} \cdot (\vec{x_\text{x}} - \vec{x_\text{Ｏ}})}{\lVert \vec{w} \lVert}\\
@@ -171,11 +174,11 @@ y^{(i)}(W^T \cdot x + b) \ge \delta
  & = \frac{1}{\lVert \vec{w} \lVert}
 \end{split}
 \end{equation}
-```
+$
 因預期使得 Margin越寬越好（兩類分得越開），因此希望 $\lVert \vec{w} \lVert$ 越小越好。結合限制式 Condition1 ，透過 [**Lagrange Multiplier Method & Karush-Kuhn-Tucker (KKT) Conditions**](https://engineering.purdue.edu/ME697Y/KKT.pdf) 方法可以得到最佳解。做法：
 
 令 Condition2
-```math
+$
 \begin{equation}
 \alpha_{i} = \left\{
 \begin{array}{rr}
@@ -184,35 +187,35 @@ y^{(i)}(W^T \cdot x + b) \ge \delta
 \end{array} 
 \right.
 \end{equation}
-```
+$
 
 Lagrange 表達式
-```math
+$
 \begin{equation}
 \begin{split}
 min\ \mathcal{L} = \frac{1}{\lVert \vec{w} \lVert} - \sum^{m}_{i=1} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] \\
 \sum_{i=1}^{m} \alpha_i[y^{(i)}(W^T \cdot x^{(i)} + b) - \delta] = 0
 \end{split}
 \end{equation}
-```
+$
 接著對 $b$、 $w$ 求偏導數
-```math
+$
 \begin{equation}
 \begin{split}
 \frac{\partial \mathcal{L}}{\partial b} &= - \sum^{m}_{i=1} \alpha_i y^{(i)} \\
 \frac{\partial \mathcal{L}}{\partial w} &= w - \sum^{m}_{i=1} \alpha_i y^{(i)} x^{(i)}
 \end{split}
 \end{equation}
-```
+$
 令兩式等於 $0$ ，則可得到
-```math
+$
 \begin{equation}
 \begin{split}
  & \sum^{m}_{i=1} \alpha_i y^{(i)} = 0 \\
 w =& \sum^{m}_{i=1} \alpha_i y^{(i)} x^{(i)}
 \end{split}
 \end{equation}
-```
+$
 因 $\alpha_i$ 只有在 $y^{(i)}(W^T \cdot x^{(i)} + b) = \delta$ 的時候才會非 $0$ （如 Condition2 所示），意即 $w$ 會依賴邊界上的點；換句話說是在邊界上的向量 $\vec{x}$ 支撐分界線，這些向量也就被稱為支持向量。
 
 ## Reference
