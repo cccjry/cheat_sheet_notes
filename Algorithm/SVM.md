@@ -56,18 +56,19 @@ plt.show()
   - $K(\mathbf{x})=b+\sum \mathbf{W}^T \mathbf{x}$
 
 - `poly` Polynomial（多項式）
-  - $K(x)=(b+\sum \mathbf{W}^T \mathbf{x})^d$
+  - $K(x)=(b+\gamma \sum \mathbf{W}^T \mathbf{x})^d$
 
 - `sigmoid` Sigmoid
-  - $K(x)=\tanh(\alpha \sum \mathbf{W}^T \mathbf{x}+b)$ *不確定
+  - $K(x)=\tanh(\gamma \sum \mathbf{W}^T \mathbf{x}+b)$ *不確定
 
 - `rbf` Radial Basis Function（高斯）（默認）
   - $K(x)=\exp(-\gamma \sum \mathbf{W}^T \mathbf{x})^2,\ \gamma>0\ \text{or sometimes}\ \gamma=1/{2\sigma^2}$
 
+### C $(>0)$
 
-### C*
+> Creating smooth decision boundary and classifying correctly.
 
-$L2$ regularization: 懲罰係數(?)，分錯樣本時的懲罰，與決策邊界(Margin)成正比；因此懲罰設定越大，分類錯誤容忍低、 Margin 越窄，反之則模型的容忍度越高、Margin 越寬；在非線性的差異表現尤其明顯
+$L2$ 懲罰係數(?)，分錯樣本時的懲罰，與決策邊界(Margin)成正比；因此懲罰設定越大，分類錯誤容忍低、 Margin 越窄，反之則模型的容忍度越高、Margin 越寬；在非線性的差異表現尤其明顯
 
 ```python
 import numpy as np
@@ -94,11 +95,16 @@ plot_svc_decision_function(clf)
 
 ```
 
-### Gamma*
+### Gamma （ $\gamma$ shown below）
 
-`kernel=('poly', 'rbf', 'sigmoid')` 係數（`1/n_feature`）
+`kernel=('poly', 'rbf', 'sigmoid')` 需要的係數
 
-有點像是 **判斷是不是同一群** 的調整參數。數值越低，半徑越大，納入更多樣本點在一起；反之，若設定值越大，越有可能遇到過擬合。
+- `auto` will be set as $\frac{1}{n_{feature}}$
+- `scale` will be set as $\frac{1}{n_{feature}\times\sigma^2}$
+
+有點像是 **判斷是不是同一群** 的調整參數。數值越低，曲線程度越低，納入更多樣本點在一起；反之，若設定值越大，曲線程度越大，但卻越有可能遇到過擬合。
+
+換句話說，越大的 $\gamma$ 表示所考慮的點越少，
 
 ```python
 #資料點呈前例
@@ -255,6 +261,8 @@ $\vec{w}$: 支持向量
 
 
 ## Reference
+
+- [Scikit-learn](https://scikit-learn.org/stable/modules/svm.html#svm-classification)
 
 - [https://zhuanlan.zhihu.com/p/22400898](https://zhuanlan.zhihu.com/p/22400898)
 
