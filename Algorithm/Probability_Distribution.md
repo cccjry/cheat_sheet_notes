@@ -116,9 +116,9 @@ $$
 Mean: 
 
 $$
- \left \{
+\left \{
 \begin{array}{rr}
-0, & \nu>1\\
+0, & \nu > 1 \\
 \text{undefined}, & \text{otherwise}
 \end{array}
 \right.
@@ -127,10 +127,10 @@ $$
 Variance: 
 
 $$
- \left \{
+\left \{
 \begin{array}{rr}
-\frac{\nu}{\nu-2}, & \nu>2\\
-\infty, & 1<\nu<2 \\
+\frac{\nu}{\nu-2}, & \nu > 2 \\
+\infty, & 1<\nu < 2 \\
 \text{undefined}, & \text{otherwise}
 \end{array}
 \right.
