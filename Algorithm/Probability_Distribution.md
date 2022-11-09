@@ -101,9 +101,11 @@ plt.show()
 ### Chi-Squared
 
 As $\alpha=k/2$, $\beta=1/2$ in **Gamma Distribution**
+
 $$
 \chi^2_k=f(x;k)=\frac{x^{\frac{k}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{k}{2}} \Gamma(\frac{k}{2})}, \ x>0
 $$
+
 Mean: $k$
 
 Variance: $2k$
