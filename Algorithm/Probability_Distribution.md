@@ -114,6 +114,7 @@ f(x;\nu)=\frac{\Gamma(\frac{(\nu+1)}{2})}{\sqrt{\nu\pi}\ \Gamma(\frac{\nu}{2})}(
 $$
 
 Mean: 
+
 $$
 \left\{
 \begin{array}{rr}
@@ -122,7 +123,9 @@ $$
 \end{array}
 \right.
 $$
+
 Variance: 
+
 $$
 \left\{
 \begin{array}{rr}
@@ -132,7 +135,6 @@ $$
 \end{array}
 \right.
 $$
-
 
 ```python
 #scipy.stats.t
