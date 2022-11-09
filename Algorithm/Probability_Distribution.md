@@ -19,7 +19,7 @@ $$
 f(x;a,b)=\frac{1}{b-a}, \ x\in[a,b]
 $$
 
-Mean: $\frac{1}{2}(a+b), \ -\infin < a < b < \infin$
+Mean: $\frac{1}{2}(a+b), \ -\infty < a < b < \infty$
 
 Variance: $\frac{1}{12} (b-a)^2$
 
@@ -86,12 +86,12 @@ plt.show()
 ### Gaussian
 
 $$
-f(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}, \ x\in\R
+f(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}, \ x\in R
 $$
 
-Mean: $\mu, \ \mu\in\R$
+Mean: $\mu, \ \mu \in R$
 
-Variance: $\sigma^2, \ \sigma\in\R_{>0}$
+Variance: $\sigma^2, \ \sigma \in R_{>0}$
 
 ```python
 #scipy.stats.norm
