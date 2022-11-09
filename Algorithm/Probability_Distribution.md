@@ -132,3 +132,31 @@ plt.show()
 ```
 
 ### Binomial
+
+$$
+f(x;n,p)=\left(
+\begin{array}{c}
+n \\
+x
+\end{array} 
+\right) p^x (1-p)^{n-x}, \ x=0,1,2,...,n
+$$
+
+Mean: $n p, \ n \in \{0,1,2,3,... \}, \ p \in [0,1]$
+
+Variance: $n p (1-p)$
+
+```python
+#scipy.stats.binom
+n, p = 5, 0.4
+x = np.arange(stats.binom.ppf(0.01, n, p),
+              stats.binom.ppf(0.99, n, p))
+ax.plot(x, stats.binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
+ax.vlines(x, 0, stats.binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+
+rv = stats.binom(n, p)
+ax.vlines(x, 0, rv.pmf(x), colors='k', linestyles='-', lw=1, label='frozen pmf')
+ax.legend(loc='best', frameon=False)
+plt.show()
+```
+
