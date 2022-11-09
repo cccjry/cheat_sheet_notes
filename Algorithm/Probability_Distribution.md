@@ -234,3 +234,9 @@ ax.vlines(x, 0, stats.binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 plt.show()
 ```
 
+
+
+## Reference
+
+- Wikipedia
+- [Scipy Documents](https://docs.scipy.org/doc/scipy/reference/stats.html)
