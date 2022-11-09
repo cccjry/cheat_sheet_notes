@@ -184,6 +184,8 @@ plt.title("Student's t Distribution")
 plt.show()
 ```
 
+
+
 ## Discrete Distribution
 
 ### Poisson
@@ -240,3 +242,4 @@ plt.show()
 
 - Wikipedia
 - [Scipy Documents](https://docs.scipy.org/doc/scipy/reference/stats.html)
+- [Exponential Family](https://en.wikipedia.org/wiki/Exponential_family)
