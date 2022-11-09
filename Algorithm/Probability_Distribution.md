@@ -107,6 +107,31 @@ plt.title("Normal Distribution")
 plt.show()
 ```
 
+### Student's t
+
+$$
+f(x;\nu)=\frac{\Gamma(\frac{(\nu+1)}{2})}{\sqrt{\nu\pi}\ \Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}, \ x\in R, \ \nu:\text{degrees of freedom}
+$$
+
+Mean: $\left\{\begin{array}{rr}
+0, & \nu>1\\ \text{undefined}, & \text{otherwise}
+\end{array} \right. $
+
+Variance: $\left\{\begin{array}{rr}
+\frac{\nu}{\nu-2}, & \nu>2\\ \infty, & 1<\nu<2 \\ \text{undefined}, & \text{otherwise}
+\end{array} \right. $
+
+```python
+#scipy.stats.t
+df = 2.74
+x = np.linspace(stats.t.ppf(0.01, df), stats.t.ppf(0.99, df), 100)
+studentT_distribution = stats.t.pdf(x, df)
+
+fig, ax = plt.subplots(1, 1)
+ax.plot(x, studentT_distribution, 'r-', lw=5, alpha=0.6, label='t pdf')
+plt.show()
+```
+
 
 
 ## Discrete Distribution
@@ -151,12 +176,11 @@ Variance: $n p (1-p)$
 n, p = 5, 0.4
 x = np.arange(stats.binom.ppf(0.01, n, p),
               stats.binom.ppf(0.99, n, p))
-ax.plot(x, stats.binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
-ax.vlines(x, 0, stats.binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+binomial_distribution = stats.binom.pmf(x, n, p)
 
-rv = stats.binom(n, p)
-ax.vlines(x, 0, rv.pmf(x), colors='k', linestyles='-', lw=1, label='frozen pmf')
-ax.legend(loc='best', frameon=False)
+fig, ax = plt.subplots(1, 1)
+ax.plot(x, binomial_distribution, 'bo', ms=8, label='binom pmf')
+ax.vlines(x, 0, stats.binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 plt.show()
 ```
 
