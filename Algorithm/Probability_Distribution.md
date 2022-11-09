@@ -2,57 +2,133 @@
 
 Python package: **Scipy**
 
+```python
+import numpy as np
+from scipy import stats
+
+import matplotlib.pyplot as plt #for vizualize
+```
+
+
+
 ## Continuous Distribution
 
 ### Uniform
 
 $$
-f(x;a,b)=\frac{1}{b-a}, \ -\infin<a<b<\infin
+f(x;a,b)=\frac{1}{b-a}, \ x\in[a,b]
 $$
 
-Mean: $\frac{1}{2}(a+b)$
+Mean: $\frac{1}{2}(a+b), \ -\infin<a<b<\infin$
 
 Variance: $\frac{1}{12} (b-a)^2$
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy import stats
 a = 0
 b = 50
 size = 100
 
-#continuous
+#continuous: scipy.stats.uniform
 X_continuous = np.linspace(a, b, size)
 continuous_uniform = stats.uniform(loc=a, scale=b)
 continuous_uniform_pdf = continuous_uniform.pdf(X_continuous)
-#discrete
+
+fig, ax = plt.subplots(figsize=(15,5))
+#continuous plot
+ax.plot(X_continuous, continuous_uniform_pdf)
+ax.set_xlabel("X")
+ax.set_ylabel("Probability")
+ax.set_title("Uniform Distribution")
+
+
+#同場加映：離散型均勻分布
 X_discrete = np.arange(1, 7)
 discrete_uniform = stats.randint(1, 7)
 discrete_uniform_pmf = discrete_uniform.pmf(X_discrete)
-
-
-fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15,5))
-#continuous plot
-ax[0].plot(X_continuous, continuous_uniform_pdf)
-ax[0].set_xlabel("X")
-ax[0].set_ylabel("Probability")
-ax[0].set_title("Continuous Uniform Distribution")
 #discrete plot
-ax[1].bar(X_discrete, discrete_uniform_pmf)
-ax[1].set_xlabel("X")
-ax[1].set_ylabel("Probability")
-ax[1].set_title("Discrete Uniform Distribution")
+fig, ax = plt.subplots(figsize=(15,5))
+ax.bar(X_discrete, discrete_uniform_pmf)
+ax.set_xlabel("X")
+ax.set_ylabel("Probability")
+ax.set_title("Discrete Uniform Distribution")
 
 plt.show()
 ```
 
+### Exponential
+
+$$
+f(x;\lambda)=\left\{
+\begin{array}{rr}
+\lambda e^{-\lambda x}, & x\ge0\\
+0, & x<0
+\end{array} 
+\right.
+$$
+
+Mean: $\frac{1}{\lambda}, \ \lambda>0$
+
+Variance: $\frac{1}{\lambda^2}$
+
+```python
+#scipy.stats.expon
+X = np.linspace(0, 5, 100)
+exponetial_distribtuion = stats.expon.pdf(X, loc=0, scale=1)
+
+plt.subplots(figsize=(8,5))
+plt.plot(X, exponetial_distribtuion)
+plt.title("Exponential Distribution")
+plt.show()
+```
+
+
+
 ### Gaussian
 
 $$
-f(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
+f(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}, \ x\in\R
 $$
+
+Mean: $\mu, \ \mu\in\R$
+
+Variance: $\sigma^2, \ \sigma\in\R_{>0}$
+
+```python
+#scipy.stats.norm
+mu = 0
+variance = 1
+sigma = np.sqrt(variance)
+x = np.linspace(mu - 3*sigma, mu + 3*sigma, 100)
+gaussian_distribution = stats.norm.pdf(x, mu, sigma)
+
+plt.subplots(figsize=(10, 8))
+plt.plot(x, gaussian_distribution)
+plt.title("Normal Distribution")
+plt.show()
+```
 
 
 
 ## Discrete Distribution
+
+### Poisson
+
+$$
+f(x;\lambda)=\frac{\lambda^x e^{-\lambda}}{x!}, \ x=0,1,2,3,...
+$$
+
+Mean: $\lambda, \ \lambda>0$
+
+Variance: $\lambda$
+
+```python
+#scipy.stats.poison
+X = stats.poisson.rvs(mu=3, size=500)
+
+plt.subplots(figsize=(8, 5))
+plt.hist(X, density=True, edgecolor="black")
+plt.title("Poisson Distribution")
+plt.show()
+```
+
+### Binomial
