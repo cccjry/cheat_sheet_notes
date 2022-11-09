@@ -114,17 +114,15 @@ f(x;\nu)=\frac{\Gamma(\frac{(\nu+1)}{2})}{\sqrt{\nu\pi}\ \Gamma(\frac{\nu}{2})}(
 $$
 
 $$
-\text{Mean:} 
-\left\{\begin{array}{rr}
+\text{Mean}:\left\{
+\begin{array}{rr}
 0, & \nu>1\\
 \text{undefined}, & \text{otherwise}
 \end{array}
 \right.
-$$
-
-$$
-\text{Variance:}
-\left\{\begin{array}{rr}
+\\ \\
+\text{Variance}:\left\{
+\begin{array}{rr}
 \frac{\nu}{\nu-2}, & \nu>2\\
 \infty, & 1<\nu<2 \\
 \text{undefined}, & \text{otherwise}
