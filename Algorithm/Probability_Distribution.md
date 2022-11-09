@@ -39,7 +39,7 @@ ax.plot(X_continuous, continuous_uniform_pdf)
 ax.set_xlabel("X")
 ax.set_ylabel("Probability")
 ax.set_title("Uniform Distribution")
-
+plt.show()
 
 #同場加映：離散型均勻分布
 X_discrete = np.arange(1, 7)
@@ -51,19 +51,36 @@ ax.bar(X_discrete, discrete_uniform_pmf)
 ax.set_xlabel("X")
 ax.set_ylabel("Probability")
 ax.set_title("Discrete Uniform Distribution")
+plt.show()
+```
 
+### Gamma
+
+$$
+f(x;\alpha, \beta)=\frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}, \ x>0
+$$
+
+Mean: $\alpha / \beta$, $\alpha,\ \beta >0$
+
+Variance: $\alpha / \beta^2$
+
+```python
+#scipy.stats.gamma
+a = 1.99
+x = np.linspace(gamma.ppf(0.01, a), gamma.ppf(0.99, a), 100)
+ = stats.gamma.pdf(x, a)
+
+plt.subplots(figsize=(10, 8))
+ax.plot(x, gamma_distribution)
+plt.title("Gamma Distribution")
 plt.show()
 ```
 
 ### Exponential
 
+As $\alpha=1$, $\beta=\lambda$ in **Gamma Distribution**
 $$
-f(x;\lambda)=\left\{
-\begin{array}{rr}
-\lambda e^{-\lambda x}, & x\ge0\\
-0, & x<0
-\end{array} 
-\right.
+f(x;\lambda) = \lambda e^{-\lambda x}, & x \ge 0\\
 $$
 
 Mean: $\frac{1}{\lambda}, \ \lambda>0$
@@ -75,13 +92,34 @@ Variance: $\frac{1}{\lambda^2}$
 X = np.linspace(0, 5, 100)
 exponetial_distribtuion = stats.expon.pdf(X, loc=0, scale=1)
 
-plt.subplots(figsize=(8,5))
+plt.subplots(figsize=(10, 8))
 plt.plot(X, exponetial_distribtuion)
 plt.title("Exponential Distribution")
 plt.show()
 ```
 
+### Chi-Squared
 
+As $\alpha=k/2$, $\beta=1/2$ in **Gamma Distribution**
+$$
+\chi^2_k=f(x;k)=\frac{x^{\frac{k}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{k}{2}} \Gamma(\frac{k}{2})}, \ x>0
+$$
+Mean: $k$
+
+Variance: $2k$
+
+```python
+#scipy.stats.chi2
+df = 30
+x = np.linspace(chi2.ppf(0.01, df),
+                chi2.ppf(0.99, df), 100)
+chi2_distribution = chi2.pdf(x, df)
+
+plt.subplots(figsize=(10, 8))
+plt.plot(x, chi2_distribution)
+plt.title("Chi-squared Distribution")
+plt.show()
+```
 
 ### Gaussian
 
@@ -115,26 +153,22 @@ $$
 
 Mean: 
 
-$$
-\left \lbrace
+$$\left \lbrace
 \begin{array}{rr}
 0, & \nu > 1 \\
 \text{undefined}, & \text{otherwise}
 \end{array}
-\right.
-$$
+\right.$$
 
 Variance: 
 
-$$
-\left \lbrace
+$$\left \lbrace
 \begin{array}{rr}
 \frac{\nu}{\nu-2}, & \nu > 2 \\
 \infty, & 1<\nu < 2 \\
 \text{undefined}, & \text{otherwise}
 \end{array}
-\right.
-$$
+\right.$$
 
 ```python
 #scipy.stats.t
@@ -142,12 +176,11 @@ df = 2.74
 x = np.linspace(stats.t.ppf(0.01, df), stats.t.ppf(0.99, df), 100)
 studentT_distribution = stats.t.pdf(x, df)
 
-fig, ax = plt.subplots(1, 1)
-ax.plot(x, studentT_distribution, 'r-', lw=5, alpha=0.6, label='t pdf')
+plt.subplots(figsize=(10, 8))
+plt.plot(x, studentT_distribution)
+plt.title("Student's t Distribution")
 plt.show()
 ```
-
-
 
 ## Discrete Distribution
 
