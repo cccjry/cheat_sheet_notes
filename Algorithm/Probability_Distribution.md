@@ -116,7 +116,7 @@ $$
 Mean: 
 
 $$
-\left \{
+\left \lbrace
 \begin{array}{rr}
 0, & \nu > 1 \\
 \text{undefined}, & \text{otherwise}
@@ -127,7 +127,7 @@ $$
 Variance: 
 
 $$
-\left \{
+\left \lbrace
 \begin{array}{rr}
 \frac{\nu}{\nu-2}, & \nu > 2 \\
 \infty, & 1<\nu < 2 \\
