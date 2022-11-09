@@ -19,7 +19,7 @@ $$
 f(x;a,b)=\frac{1}{b-a}, \ x\in[a,b]
 $$
 
-Mean: $\frac{1}{2}(a+b), \ -\infin<a<b<\infin$
+Mean: $\frac{1}{2}(a+b), \ -\infin < a < b < \infin$
 
 Variance: $\frac{1}{12} (b-a)^2$
 
