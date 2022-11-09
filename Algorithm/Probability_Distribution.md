@@ -113,13 +113,13 @@ $$
 f(x;\nu)=\frac{\Gamma(\frac{(\nu+1)}{2})}{\sqrt{\nu\pi}\ \Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}, \ x\in R, \ \nu:\text{degrees of freedom}
 $$
 
-Mean: $\left\{\begin{array}{rr}
+$$\text{Mean:} \left\{\begin{array}{rr}
 0, & \nu>1\\ \text{undefined}, & \text{otherwise}
-\end{array} \right. $
+\end{array} \right. $$
 
-Variance: $\left\{\begin{array}{rr}
+$$\text{Variance:} \left\{\begin{array}{rr}
 \frac{\nu}{\nu-2}, & \nu>2\\ \infty, & 1<\nu<2 \\ \text{undefined}, & \text{otherwise}
-\end{array} \right. $
+\end{array} \right. $$
 
 ```python
 #scipy.stats.t
