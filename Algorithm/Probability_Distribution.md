@@ -81,7 +81,7 @@ plt.show()
 As $\alpha=1$, $\beta=\lambda$ in **Gamma Distribution**
 
 $$
-f(x;\lambda) = \lambda e^{-\lambda x}, & x \ge 0\\
+f(x;\lambda) = \lambda e^{-\lambda x}, \ x \ge 0
 $$
 
 Mean: $\frac{1}{\lambda}, \ \lambda>0$
