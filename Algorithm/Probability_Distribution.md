@@ -33,7 +33,7 @@ X_continuous = np.linspace(a, b, size)
 continuous_uniform = stats.uniform(loc=a, scale=b)
 continuous_uniform_pdf = continuous_uniform.pdf(X_continuous)
 
-fig, ax = plt.subplots(figsize=(15,5))
+fig, ax = plt.subplots(figsize=(10, 8))
 #continuous plot
 ax.plot(X_continuous, continuous_uniform_pdf)
 ax.set_xlabel("X")
@@ -46,7 +46,7 @@ X_discrete = np.arange(1, 7)
 discrete_uniform = stats.randint(1, 7)
 discrete_uniform_pmf = discrete_uniform.pmf(X_discrete)
 #discrete plot
-fig, ax = plt.subplots(figsize=(15,5))
+fig, ax = plt.subplots(figsize=(10, 8))
 ax.bar(X_discrete, discrete_uniform_pmf)
 ax.set_xlabel("X")
 ax.set_ylabel("Probability")
