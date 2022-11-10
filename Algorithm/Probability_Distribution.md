@@ -233,6 +233,7 @@ plt.show()
 ### Binomial
 
 Consider $n$ Bernoulli trials (independently) together,
+
 $$
 f(x;n,p)=\left(
 \begin{array}{c}
