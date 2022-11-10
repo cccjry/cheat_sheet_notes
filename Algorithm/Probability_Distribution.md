@@ -79,6 +79,7 @@ plt.show()
 ### Exponential
 
 As $\alpha=1$, $\beta=\lambda$ in **Gamma Distribution**
+
 $$
 f(x;\lambda) = \lambda e^{-\lambda x}, & x \ge 0\\
 $$
