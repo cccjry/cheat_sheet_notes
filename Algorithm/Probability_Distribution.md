@@ -190,6 +190,9 @@ plt.show()
 
 ### Poisson
 
+> Rare events.
+>
+
 $$
 f(x;\lambda)=\frac{\lambda^x e^{-\lambda}}{x!}, \ x=0,1,2,3,...
 $$
@@ -209,6 +212,9 @@ plt.show()
 ```
 
 ### Bernoulli 
+
+> Draw 1 ball and put back, with 2 kinds of ball inside the bag is called a **Bernoulli trial**.
+>
 
 $$
 f(x;p)= p^x (1-p)^{1-x}, \ x=0,1
@@ -232,7 +238,7 @@ plt.show()
 
 ### Binomial
 
-Consider $n$ Bernoulli trials (independently) together,
+Consider $n$ Bernoulli trials (independently) together
 
 $$
 f(x;n,p)=\left(
