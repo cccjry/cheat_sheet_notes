@@ -68,7 +68,7 @@ Variance: $\alpha / \beta^2$
 #scipy.stats.gamma
 a = 1.99
 x = np.linspace(gamma.ppf(0.01, a), gamma.ppf(0.99, a), 100)
- = stats.gamma.pdf(x, a)
+gamma_distribution = stats.gamma.pdf(x, a)
 
 plt.subplots(figsize=(10, 8))
 ax.plot(x, gamma_distribution)
@@ -114,8 +114,7 @@ Variance: $2k$
 ```python
 #scipy.stats.chi2
 df = 30
-x = np.linspace(chi2.ppf(0.01, df),
-                chi2.ppf(0.99, df), 100)
+x = np.linspace(chi2.ppf(0.01, df), chi2.ppf(0.99, df), 100)
 chi2_distribution = chi2.pdf(x, df)
 
 plt.subplots(figsize=(10, 8))
@@ -204,11 +203,13 @@ Variance: $\lambda$
 
 ```python
 #scipy.stats.poison
-X = stats.poisson.rvs(mu=3, size=500)
+mu = 0.6
+x = np.arange(poisson.ppf(0.01, mu), poisson.ppf(0.99, mu))
+poisson_distribution = poisson.pmf(x, mu)
 
-plt.subplots(figsize=(8, 5))
-plt.hist(X, density=True, edgecolor="black")
-plt.title("Poisson Distribution")
+fig, ax = plt.subplots(1, 1)
+ax.plot(x, poisson_distribution, 'bo', ms=8, label='poisson pmf')
+ax.vlines(x, 0, poisson.pmf(x, mu), colors='b', lw=5, alpha=0.5)
 plt.show()
 ```
 
