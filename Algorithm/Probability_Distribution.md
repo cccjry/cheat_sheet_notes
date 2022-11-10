@@ -213,7 +213,7 @@ plt.show()
 
 ### Bernoulli 
 
-> Draw 1 ball and put back, with 2 kinds of ball inside the bag is called a **Bernoulli trial**.
+> Draw 1 ball and put back, with 2 kinds of ball inside the bag is called a ***Bernoulli trial***.
 >
 
 $$
