@@ -208,8 +208,31 @@ plt.title("Poisson Distribution")
 plt.show()
 ```
 
+### Bernoulli 
+
+$$
+f(x;p)= p^x (1-p)^{1-x}, \ x=0,1
+$$
+
+Mean: $p, \ p \in [0,1]$
+
+Variance: $p (1-p)$
+
+```python
+#scipy.stats.bernoulli
+p = 0.3
+x = np.arange(bernoulli.ppf(0.01, p), bernoulli.ppf(0.99, p))
+bernoulli_distribution = bernoulli.pmf(x, p)
+
+fig, ax = plt.subplots(1, 1)
+ax.plot(x, bernoulli_distribution, 'bo', ms=8, label='bernoulli pmf')
+ax.vlines(x, 0, bernoulli.pmf(x, p), colors='b', lw=5, alpha=0.5)
+plt.show()
+```
+
 ### Binomial
 
+Consider $n$ Bernoulli trials (independently) together,
 $$
 f(x;n,p)=\left(
 \begin{array}{c}
@@ -226,8 +249,7 @@ Variance: $n p (1-p)$
 ```python
 #scipy.stats.binom
 n, p = 5, 0.4
-x = np.arange(stats.binom.ppf(0.01, n, p),
-              stats.binom.ppf(0.99, n, p))
+x = np.arange(stats.binom.ppf(0.01, n, p), stats.binom.ppf(0.99, n, p))
 binomial_distribution = stats.binom.pmf(x, n, p)
 
 fig, ax = plt.subplots(1, 1)
