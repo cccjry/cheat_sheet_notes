@@ -12,10 +12,10 @@ In Python, data structures are objects that contain possibly a large number of o
 
 | Data Structure                | Ordered | Indexed | Mutable |         Example          |
 | :---------------------------- | :-----: | :-----: | :-----: | :----------------------: |
-| [List](#1.Lists)              |    ✔️    |    ✔️    |    ✔️    |        `[1,2,3]`         |
-| [Tuple](#2.Tuples)            |    ✔️    |    ✔️    |    ❌    |        `(1,2,3)`         |
-| [Dictionary](#3.Dictionaries) |    ❌    |    ✔️    |    ✔️    | `{'a':1 , 'b':2, 'c':3}` |
-| [Set](#4.Sets)                |    ❌    |    ❌    |    ✔️    |        `{1,2,3}`         |
+| [List](#1lists)              |    ✔️    |    ✔️    |    ✔️    |        `[1,2,3]`         |
+| [Tuple](#2tuples)            |    ✔️    |    ✔️    |    ❌    |        `(1,2,3)`         |
+| [Dictionary](#3dictionaries) |    ❌    |    ✔️    |    ✔️    | `{'a':1 , 'b':2, 'c':3}` |
+| [Set](#4sets)                |    ❌    |    ❌    |    ✔️    |        `{1,2,3}`         |
 
 
 
