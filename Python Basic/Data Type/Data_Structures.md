@@ -442,7 +442,7 @@ The Student DOB using getattr() is : 2541997
 | `_replace()`              | Targets named fields **BUT NOT modify** the original values. |
 
 ```python
-##Continue the example above
+##Continue from the example above
 
 # initializing iterable
 li = ['Manjeet', '19', '411997']
@@ -698,6 +698,107 @@ print(allScores)
 ```
 {'Carol': 81, 'Sammy': 85, 'Derrick': 68, 'Juan': 72, 'Wendy': 79, 'Tom': 86, 'Lisa': 99}
 ```
+
+
+
+### 3.3.Continuous Reading: `collections.OrderedDict()`
+
+OrderedDict **preserves the order** in which the keys are inserted. A regular dict doesn’t track the insertion order and iterating it gives the values in an arbitrary order. By contrast, the order the items are inserted is remembered by OrderedDict.
+
+```python
+from collections import OrderedDict
+ 
+print("This is a Dict:\n")
+d = {}
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+ 
+for key, value in d.items():
+    print(key, value)
+ 
+print("\nThis is an Ordered Dict:\n")
+od = OrderedDict()
+od['a'] = 1
+od['b'] = 2
+od['c'] = 3
+od['d'] = 4
+ 
+for key, value in od.items():
+    print(key, value)
+```
+
+```
+This is a Dict:
+a 1
+c 3
+b 2
+d 4
+
+This is an Ordered Dict:
+a 1
+b 2
+c 3
+d 4
+```
+
+#### 3.3.1.Key Notes
+
+1. **Key value Change:** If the value of a certain key is changed, **the position (or order) of the key remains unchanged** in OrderedDict.
+
+    ```python
+    ## Continue from the example above
+    print("\nAfter:\n")
+    od['c'] = 5
+    for key, value in od.items():
+        print(key, value)
+    ```
+
+    ```
+    After:
+    
+    a 1
+    b 2
+    c 5
+    d 4
+    ```
+
+2. **Deletion and Re-Inserting**: Deleting and re-inserting the same key will push it to the back as OrderedDict, however, maintains the order of insertion.
+
+    ```python
+    print("\nAfter deleting:\n")
+    od.pop('c')
+    for key, value in od.items():
+        print(key, value)
+     
+    print("\nAfter re-inserting:\n")
+    od['c'] = 3
+    for key, value in od.items():
+        print(key, value)
+    ```
+
+    ```
+    After deleting:
+    
+    a 1
+    b 2
+    d 4
+    
+    After re-inserting:
+    
+    a 1
+    b 2
+    d 4
+    c 3
+    ```
+
+3. Others
+
+    - Starting from Python 3.7, insertion order of Python dictionaries is guaranteed.
+
+    - Ordered Dict can be used as a stack with the help of *popitem* function. Try implementing LRU cache with Ordered Dict. (延伸閱讀：[資料結構與演算法：LRU 快取機制](https://josephjsf2.github.io/data/structure/and/algorithm/2020/05/09/LRU.html))
+
 
 [Top](#Summary)
 
