@@ -66,3 +66,6 @@ def InsertionSort(list_of_elements):
 
 
 
+## Continuous Reading
+
+- [十大經典演算法](https://github.com/hustcc/JS-Sorting-Algorithm)
