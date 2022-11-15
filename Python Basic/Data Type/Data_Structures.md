@@ -507,7 +507,7 @@ dict2 = {"Gender": "Female", "Name": "Candice", "Home": "NY", "Age":22}
 print(dict1 == dict2)		#unordered
 print(dict1["Age"])
 
-dict3 = {'weather': 'thunderstorms', 1: [2, 4, 3], (20,30):92}		#different type of keys
+dict3 = {'weather': 'thunderstorms', 1: [2, 4, 3], (20,30):92}	#different type of keys
 ```
 
 ```
@@ -521,16 +521,16 @@ True
 
 ```python
 entry = {'name': 'Wendy', 'age': 26, 'gender':'female','height':173}
-entry['age'] = 27							#update an item
+entry['age'] = 27	#update an item
 print(entry)
 
-entry['country'] = 'Canada'		#add an item
+entry['country'] = 'Canada'	#add an item
 print(entry)
 
-del entry['height']						#remove an item
+del entry['height']	#remove an item
 print(entry)
 
-del entry											#remove entire dictionary
+del entry	#remove entire dictionary
 ```
 
 ```
@@ -814,8 +814,8 @@ A set is written as a sequence of comma-separated values enclosed within a pair 
 set1 = {23, 85, 41, 19, 22}
 set2 = {41, 22, 85, 23, 19}
 
-print(set1 == set2)			#unordered
-set1[1]									#unindexed
+print(set1 == set2)	#unordered
+set1[1]	#unindexed
 ```
 
 ```
@@ -998,7 +998,7 @@ True
 #### 4.3.8.`isdisjoin()`
 
 $$
-A \cap B = \empty
+A \cap B = \emptyset
 $$
 
 ```python
