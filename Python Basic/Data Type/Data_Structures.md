@@ -435,10 +435,10 @@ The Student DOB using getattr() is : 2541997
 
 | Method                    | Description                                                  |
 | ------------------------- | ------------------------------------------------------------ |
-| `_make()`                 | Return a **namedtuple() from the iterable** passed as argument. |
+| `_make()`                 | Returns a **namedtuple() from the iterable** passed as argument. |
 | `_asdict()`               | Returns **the** [**OrderedDict()**](https://www.geeksforgeeks.org/ordereddict-in-python/) as constructed from the mapped values of namedtuple(). |
-| `**` as an input argument | Convert a dictionary into the namedtuple().                  |
-| `_fields`                 | Return **all the keynames** of the namespace declared.       |
+| `**` as an input argument | Converts a dictionary into the namedtuple().                 |
+| `_fields`                 | Returns **all the keynames** of the namespace declared.      |
 | `_replace()`              | Targets named fields **BUT NOT modify** the original values. |
 
 ```python
