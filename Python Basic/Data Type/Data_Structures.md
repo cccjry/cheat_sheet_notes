@@ -389,6 +389,107 @@ There are fewer methods available since tuples are immutable.
 | `count()` | Returns the number of elements with the specified value.     |
 | `index()` | Returns the index of the first element with the specified value. |
 
+
+
+### 2.5.Continuous Reading: `collections.namedtuple()`
+
+Like dictionaries, they contain keys that are hashed to a particular value. But on contrary, **it supports both access from key-value and iteration**, the functionality that dictionaries lack.
+
+```python
+from collections import namedtuple
+ 
+# Declaring namedtuple()
+Student = namedtuple('Student', ['name', 'age', 'DOB'])
+ 
+# Adding values
+S = Student('Nandini', '19', '2541997')
+ 
+# Access using index
+print("The Student age using index is : ", end="")
+print(S[1])
+ 
+# Access using name
+print("The Student name using keyname is : ", end="")
+print(S.name)
+
+# Access using getattr()
+print("The Student DOB using getattr() is : ", end="")
+print(getattr(S, 'DOB'))
+```
+
+```
+The Student age using index is : 19
+The Student name using keyname is : Nandini
+The Student DOB using getattr() is : 2541997
+```
+
+#### 2.5.1.Access Operations
+
+| Method            | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| Access by index   | Directly call by index. E.g. `S[0]`                          |
+| Access by keyname | Directly call by keyname. E.g. `S.**keyname**` (See example above) |
+| `getattr()`       | Using `getattr()` by giving namedtuple and key value. (See example above) |
+
+#### 2.5.2.Methods
+
+| Method                    | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `_make()`                 | Return a **namedtuple() from the iterable** passed as argument. |
+| `_asdict()`               | Returns **the** [**OrderedDict()**](https://www.geeksforgeeks.org/ordereddict-in-python/) as constructed from the mapped values of namedtuple(). |
+| `**` as an input argument | Convert a dictionary into the namedtuple().                  |
+| `_fields`                 | Return **all the keynames** of the namespace declared.       |
+| `_replace()`              | Targets named fields **BUT NOT modify** the original values. |
+
+```python
+##Continue the example above
+
+# initializing iterable
+li = ['Manjeet', '19', '411997']
+ 
+# initializing dict
+di = {'name': "Nikhil", 'age': 19, 'DOB': '1391997'}
+ 
+# using _make() to return namedtuple()
+print("The namedtuple instance using iterable is  : ")
+print(Student._make(li))
+ 
+# using _asdict() to return an OrderedDict()
+print("The OrderedDict instance using namedtuple is  : ")
+print(S._asdict())
+ 
+# using ** operator to return namedtuple from dictionary
+print("The namedtuple instance from dict is  : ")
+print(Student(**di))
+
+# using _fields to display all the keynames of namedtuple()
+print("All the fields of students are : ")
+print(S._fields)
+ 
+# ._replace returns a new namedtuple, it does not modify the original
+print("returns a new namedtuple : ")
+print(S._replace(name='Manjeet'))
+# original namedtuple
+print(S)
+```
+
+```
+The namedtuple instance using iterable is  : 
+Student(name='Manjeet', age='19', DOB='411997')
+
+The OrderedDict instance using namedtuple is  : 
+OrderedDict([('name', 'Nandini'), ('age', '19'), ('DOB', '2541997')])
+
+The namedtuple instance from dict is  : 
+Student(name='Nikhil', age=19, DOB='1391997')
+
+All the fields of students are : 
+('name', 'age', 'DOB')
+returns a new namedtuple : 
+Student(name='Manjeet', age='19', DOB='2541997')
+Student(name='Nandini', age='19', DOB='2541997')
+```
+
 [Top](#Summary)
 
 
