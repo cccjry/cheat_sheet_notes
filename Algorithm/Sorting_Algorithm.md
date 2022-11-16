@@ -6,18 +6,18 @@
 
 ```python
 def SelectionSort(list_of_elements):
-    list_len = len(list_of_elements)
   
-	for i in range(list_len-1):
+	for i in range(len(list_of_elements)-1):
         min_index = i
     
         #find minimum element
-        for j in range(i+1, list_len):
+        for j in range(i+1, len(list_of_elements)):
             if list_of_elements[min_index] > list_of_elements[j]:
                 min_index = j
     
         #sort
-        list_of_elements[min_index], list_of_elements[i] = list_of_elements[i], list_of_elements[min_index]
+        if i != min_index:
+            list_of_elements[min_index], list_of_elements[i] = list_of_elements[i], list_of_elements[min_index]
   
 	return list_of_elements
 ```
@@ -34,19 +34,23 @@ def SelectionSort(list_of_elements):
 
 ## Insertion Sort
 
-從數列中的第二個元素開始，往前 (左邊) 依序比較，找到其符合大小排序的位置，重複此動作直到所有元素都被檢查過。
+從數列中的第一個元素開始，往前 (左邊) 依序比較，找到其符合大小排序的位置，重複此動作直到所有元素都被檢查過。
 
 ```python
 def InsertionSort(list_of_elements):
-    list_len = len(list_of_elements)
     
     #start from second element
-    for i in range(1, list_len):
+    for i in range(len(list_of_elements)):
+        #storage current element
         element_index = i
+        current_value = list_of_elements[i]
         
-        while element_index > 0 and list_of_elements[element_index-1] > list_of_elements[element_index]:
-            list_of_elements[element_index], list_of_elements[element_index-1] = list_of_elements[element_index-1], list_of_elements[element_index]
+        #comparing with previous element
+        while element_index >= 0 and list_of_elements[element_index-1] > current_value:
+            list_of_elements[element_index] = list_of_elements[element_index-1]
             element_index -= 1
+        #put back current element at stop index
+        list_of_elements[element_index] = current_value
 	
     return list_of_elements
 ```
