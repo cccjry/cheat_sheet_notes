@@ -123,10 +123,35 @@ print(b)
 
 
 
+## Recursion遞迴呼叫
 
+[參考來源](https://medium.com/appworks-school/初學者學演算法-從費氏數列認識何謂遞迴-dea15d2808a3)
 
+> 在函數中呼叫自己。
 
+### 舉例: Fibonacci numbers
 
+> 每一項數字是前兩項的和。
 
+```python
+def fibo(n):
+    if n == 0:
+        return 0;
+    elif n == 1:
+        return 1;
+    return fibo(n-1) + fibo(n-2)
+```
+
+每往回推一次，就會需要知道前兩項；而這兩項又***各自需要知道<u>其各自的前兩項</u>***，如下圖所示。而最後都會停在 $F(0),\ F(1)$ ，唯一被定義的兩項，從這兩項開始往樹枝的源頭 $F(5)$ 回頭加總。
+
+<img src="/Users/ccchen-jerry/Documents/GitHub/cheat_sheet_notes/Python Basic/img/fibo.jpeg" alt="fibo" style="zoom: 25%;" />
+
+#### 延伸：時間複雜度
+
+而每一次回推都會產生新的一層，最中產生 $n$ 層 (最多，並不是每個分支都會展開到這麼多)；而同時每往下一層，都會產生 $2$ 個新的項目，直到被定義的 $F(0),\ F(1)$ 兩項為止。
+
+依據時間複雜度的討論，此函數的時間複雜度為 $O(2^n)$。
+
+> 此計算方式為簡便法，實際上並不是每個分支都會展開到 $n$ 層；依據前人辛苦的計算算後，**Fibonacci number** 的時間複雜度精確為 $O(1.618^n)$ (A.K.A 黃金比例)。
 
 [Top](#Functions)
