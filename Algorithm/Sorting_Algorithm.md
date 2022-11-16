@@ -23,7 +23,7 @@ def SelectionSort(list_of_elements):
 	return list_of_elements
 ```
 
-延伸討論：時間複雜度 (Big O = $O(n^2)$)
+延伸討論：時間複雜度 (Big O = $O(n^2)$ )
 
 有 $n$ 個元素，第 $1$ 次需要從 $n$ 個元素找 (步驟)，第 $2$ 次需要從 $n-1$ 個元素找，第 $n$ 次需要從最後 $1$ 個元素找。因此總共要進行 $n+(n-1)+...+1=\frac{n(n+1)}{2}$ 個步驟；而每次找到最小元素時都要進行一次位置交換的動作，因此有 $n$ 個步驟。
 
@@ -57,7 +57,7 @@ def InsertionSort(list_of_elements):
     return list_of_elements
 ```
 
-延伸討論：時間複雜度 (Big O = $O(n^2)$)
+延伸討論：時間複雜度 (Big O = $O(n^2)$ )
 
 因為有非常順利的情況，也有最糟糕的情況，通常討論 ***時間複雜度會透過最糟糕的情況進行討論***。
 
@@ -113,7 +113,7 @@ def MergeSort(list_of_elements):
         return list_of_elements
 ```
 
-延伸討論：時間複雜度 (Big O = $n\log_2(n)$)
+延伸討論：時間複雜度 (Big O = $n\log_2(n)$ )
 
 拆分： $n$ 個元素被拆分到每個數列只有 $1$ 個元素需要 $n-1$ 個步驟。
 
