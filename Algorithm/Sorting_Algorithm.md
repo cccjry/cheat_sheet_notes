@@ -125,4 +125,5 @@ def MergeSort(list_of_elements):
 
 ## Continuous Reading
 
+- [十大排序演算法-繁中版](https://allaboutdataanalysis.medium.com/python實現10大排序演算法-a93d223de35b)
 - [十大經典演算法](https://github.com/hustcc/JS-Sorting-Algorithm)
