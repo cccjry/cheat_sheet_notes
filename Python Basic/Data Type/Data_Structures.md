@@ -226,12 +226,17 @@ print(fruits)
 #### 1.4.5.`pop()`
 
 ```python
-fruits.pop(2)
+fruits.pop()
+print(fruits) #default: remove last element [index=-1]
+
+fruits.pop(2) #show the element has been removed
 print(fruits)
 ```
 
 ```
-['apple', 'banana', 'orange', 'pineapple', 'grape', 'watermelon']
+['apple', 'banana', 'kiwi', 'orange', 'pineapple', 'grape']
+
+['apple', 'banana', 'orange', 'pineapple', 'grape']
 ```
 
 #### 1.4.6.`count()`
