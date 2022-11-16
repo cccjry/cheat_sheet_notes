@@ -144,7 +144,7 @@ def fibo(n):
 
 每往回推一次，就會需要知道前兩項；而這兩項又***各自需要知道<u>其各自的前兩項</u>***，如下圖所示。而最後都會停在 $F(0),\ F(1)$ ，唯一被定義的兩項，從這兩項開始往樹枝的源頭 $F(5)$ 回頭加總。
 
-<img src="/Users/ccchen-jerry/Documents/GitHub/cheat_sheet_notes/Python Basic/img/fibo.jpeg" alt="fibo" style="zoom: 25%;" />
+<img src="img/fibo.jpeg" alt="fibo" style="zoom: 25%;" >
 
 #### 延伸：時間複雜度
 
