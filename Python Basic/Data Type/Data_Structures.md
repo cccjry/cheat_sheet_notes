@@ -229,13 +229,14 @@ print(fruits)
 fruits.pop()
 print(fruits) #default: remove last element [index=-1]
 
-fruits.pop(2) #show the element has been removed
+print(fruits.pop(2)) #show the element has been removed
 print(fruits)
 ```
 
 ```
 ['apple', 'banana', 'kiwi', 'orange', 'pineapple', 'grape']
 
+kiwi
 ['apple', 'banana', 'orange', 'pineapple', 'grape']
 ```
 
