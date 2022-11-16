@@ -23,7 +23,7 @@ def SelectionSort(list_of_elements):
 	return list_of_elements
 ```
 
-延伸討論：時間複雜度 (Big O)
+延伸討論：時間複雜度 (Big O = $O(n^2)$)
 
 有 $n$ 個元素，第 $1$ 次需要從 $n$ 個元素找 (步驟)，第 $2$ 次需要從 $n-1$ 個元素找，第 $n$ 次需要從最後 $1$ 個元素找。因此總共要進行 $n+(n-1)+...+1=\frac{n(n+1)}{2}$ 個步驟；而每次找到最小元素時都要進行一次位置交換的動作，因此有 $n$ 個步驟。
 
@@ -57,7 +57,7 @@ def InsertionSort(list_of_elements):
     return list_of_elements
 ```
 
-延伸討論：時間複雜度 (Big O)
+延伸討論：時間複雜度 (Big O = $O(n^2)$)
 
 因為有非常順利的情況，也有最糟糕的情況，通常討論 ***時間複雜度會透過最糟糕的情況進行討論***。
 
@@ -70,7 +70,17 @@ def InsertionSort(list_of_elements):
 
 ## Merge Sort
 
-
+> #### 拆分
+>
+> 1. 把大陣列切一半成為兩個小陣列
+> 2. 把切好的兩個小陣列再各自切一半
+> 3. 重複步驟二直到每個小陣列都只剩一個元素
+>
+> #### 合併
+>
+> 1. 排序兩個只剩一個元素的小陣列並合併
+> 2. 把兩邊排序好的小陣列合併並排序成一個陣列
+> 3. 重複步驟二直到所有小陣列都合併成一個大陣列
 
 ```python
 def MergeSort(list_of_elements):
@@ -79,38 +89,37 @@ def MergeSort(list_of_elements):
     else: #len(list_of_elements) > 1:
         middle = len(list_of_elements) // 2
         left_list, right_list = list_of_elements[:middle], list_of_elements[middle:]
-
-        Merge_Sort(left_array)
-        Merge_Sort(right_array)
-
-        right_index = 0;
-        left_index = 0;
-        merged_index = 0;
-        while right_index and left_index:
-            if(right_list[right_index] < left_list[left_index]):
-                array[merged_index] = right_list[right_index]
-                right_index = right_index + 1
+        
+        MergeSort(left_list)
+        MergeSort(right_list)
+        
+        result_index = 0
+        while left_list and right_list:
+            #put element which has been pop out from the list back
+            if left_list[0] < right_list[0]:
+                list_of_elements[result_index] = left_list.pop(0)
             else:
-                array[merged_index] = left_list[left_index]
-                left_index = left_index + 1
+                list_of_elements[result_index] = right_list.pop(0)
+            result_index += 1
 
-            merged_index = merged_index + 1
-
-        while right_index < len(right_array):
-            array[merged_index] = right_list[right_index]
-            right_index = right_index + 1
-            merged_index = merged_index + 1
-
-        while left_index < len(left_array):
-            array[merged_index] = left_list[left_index]
-            left_index = left_index + 1
-            merged_index = merged_index + 1
-
+        #if any element left in the list
+        while left_list:
+            list_of_elements[result_index] = left_list.pop(0)
+            result_index += 1
+        while right_list:
+            list_of_elements[result_index] = right_list.pop(0)
+            result_index += 1
+            
+        return list_of_elements
 ```
 
+延伸討論：時間複雜度 (Big O = $n\log_2(n)$)
 
+拆分： $n$ 個元素被拆分到每個數列只有 $1$ 個元素需要 $n-1$ 個步驟。
 
+合併：每一階段合併，陣列都會少一半，所以合併的步驟總計會有 $\log_2(n)$ ，而每一次合併時，總計都會有 $n$ 個元素需要被決定位置 (合併進到新數列時) 。因此合併總共包含 $n\log_2(n)$。
 
+總計： $(n-1)+n\log_2(n)$ 次步驟，而當 $n$ 夠大時， $(n-1)+n\log_2(n) \sim n\log_2(n)$ ，故稱此排序法的時間複雜度為 $O(n\log_2(n))$。
 
 
 
