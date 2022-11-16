@@ -2,7 +2,8 @@
 
 ## Selection Sort
 
-『找到數列中最小值，丟到最左邊』，重複此動作在『未排序的部分』直到所有元素都被檢查過。
+> 『找到數列中最小值，丟到最左邊』，重複此動作在『未排序的部分』直到所有元素都被檢查過。
+>
 
 ```python
 def SelectionSort(list_of_elements):
@@ -34,7 +35,8 @@ def SelectionSort(list_of_elements):
 
 ## Insertion Sort
 
-從數列中的第一個元素開始，往前 (左邊) 依序比較，找到其符合大小排序的位置，重複此動作直到所有元素都被檢查過。
+> 從數列中的第一個元素開始，往前 (左邊) 依序比較，找到其符合大小排序的位置，重複此動作直到所有元素都被檢查過。
+>
 
 ```python
 def InsertionSort(list_of_elements):
@@ -67,6 +69,48 @@ def InsertionSort(list_of_elements):
 
 
 ## Merge Sort
+
+
+
+```python
+def MergeSort(list_of_elements):
+    if len(list_of_elements) <= 1:
+        return list_of_elements
+    else: #len(list_of_elements) > 1:
+        middle = len(list_of_elements) // 2
+        left_list, right_list = list_of_elements[:middle], list_of_elements[middle:]
+
+        Merge_Sort(left_array)
+        Merge_Sort(right_array)
+
+        right_index = 0;
+        left_index = 0;
+        merged_index = 0;
+        while right_index and left_index:
+            if(right_list[right_index] < left_list[left_index]):
+                array[merged_index] = right_list[right_index]
+                right_index = right_index + 1
+            else:
+                array[merged_index] = left_list[left_index]
+                left_index = left_index + 1
+
+            merged_index = merged_index + 1
+
+        while right_index < len(right_array):
+            array[merged_index] = right_list[right_index]
+            right_index = right_index + 1
+            merged_index = merged_index + 1
+
+        while left_index < len(left_array):
+            array[merged_index] = left_list[left_index]
+            left_index = left_index + 1
+            merged_index = merged_index + 1
+
+```
+
+
+
+
 
 
 
