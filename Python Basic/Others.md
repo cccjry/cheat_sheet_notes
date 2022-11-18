@@ -13,7 +13,7 @@ If there is nothing special about(or just don't care about) a variable, we'll us
 ```python
 #unpacking Tuple
 city, _, population = ("Nantou", "Taiwan", 100000)
-city, ignored, population = ("Nantou", "Taiwan", 100000)
+city, ignored, population = ("Nantou", "Taiwan", 100000) #equivalent
 
 #extended unpacking Tuple
 record = ("Taipei", "Taiwan", 4000000)
