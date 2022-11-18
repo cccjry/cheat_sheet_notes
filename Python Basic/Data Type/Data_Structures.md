@@ -19,6 +19,21 @@ In Python, data structures are objects that contain possibly a large number of o
 
 
 
+### More Details about Tuples, Lists, Strings
+
+| Tuples                                        | Lists                                   | Strings                  |
+| --------------------------------------------- | --------------------------------------- | ------------------------ |
+| Container                                     | Container                               | Container                |
+| Ordered                                       | Ordered                                 | Ordered                  |
+| Heterogeneous                                 | Homogeneous                             | Homogeneous              |
+| Indexable                                     | Indexable                               | Indexable                |
+| Iterable                                      | Iterable                                | Iterable                 |
+| Immutable                                     | Mutable                                 | Immutable                |
+| Fixed length/fixed order                      | Length can change/order can change      | Fixed length/fixed order |
+| Cannot in-place sort/cannot in-place reversal | Can in-place sort/can in-place reversal | -                        |
+
+
+
 ## 1.Lists
 
 > **Note**: The items in a list need not be of the same type.
