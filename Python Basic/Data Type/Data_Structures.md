@@ -511,6 +511,42 @@ Student(name='Manjeet', age='19', DOB='2541997')
 Student(name='Nandini', age='19', DOB='2541997')
 ```
 
+#### 2.5.3.More Details about `collections.namedtuple()`
+
+跟 `class` 做比較：
+
+```python
+class Point2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+pt = Point2D(20, 10)
+```
+
+`namedtuple`版本：
+
+```python
+from collections import namedtuple
+Point2D = namedtuple("Point2D", ["x", "y"])
+
+pt = Point2D(20, 10)
+```
+
+可以發現，雖然效果相同，但 `namedtuple` 依舊保有 `Tuple` 不可變的性質
+
+```python
+#Continues from namedtuple
+pt = Point2D(20, 10)
+pt.x = 100
+```
+
+```
+----> line=21: pt.x = 100
+
+AttributeError: can't set attribute
+```
+
 [Top](#Summary)
 
 
