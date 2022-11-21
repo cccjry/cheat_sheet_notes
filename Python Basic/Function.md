@@ -172,6 +172,45 @@ def fibo(n):
 
 ## Functiontools
 
+### Property Cache
+
+Explain: [property_cache() - Geeksforgeeks](https://www.geeksforgeeks.org/python-functools-cached_property/)
+
+With `@cached_property`, the value of the result is computed only once and then stored in the cache, so that it can be accessed each time the increase() method is called without recomputing the value of the result.
+
+```python
+# Using @cached_property
+  
+from functools import cached_property
+  
+# A sample class
+class Sample():
+  
+    def __init__(self):
+      self.result = 50
+  
+    @cached_property
+    # a method to increase the value of
+    # result by 50
+    def increase(self):
+        self.result = self.result + 50
+        return self.result
+  
+# obj is an instance of the class sample
+obj = Sample()
+print(obj.increase)
+print(obj.increase)
+print(obj.increase)
+```
+
+```
+100
+100
+100
+```
+
+
+
 ### LRU Cache
 
 Explain: [LRU Cache implement in Python](https://www.geeksforgeeks.org/python-lru-cache/)
