@@ -167,3 +167,61 @@ def fibo(n):
     故優化過後，總共需要 $3 \times (5-1)=12$ 次步驟，比原本 $2^5=32$ 次步驟減少一半以上 $\Rightarrow$ 推廣到 $F(n)$ ，總共將會需要 $3 \times (n-1)$ 次步驟，因此時間複雜度減少至 $O(n)$ 。 
 
 [Top](#Functions)
+
+
+
+## Functiontools
+
+### LRU Cache
+
+Explain: [LRU Cache implement in Python](https://www.geeksforgeeks.org/python-lru-cache/)
+
+#### `@lru_cache(maxsize=128, typed=False)`
+
+| Parameter     | Required? | Default Value | Description                                                  |
+| ------------- | :-------: | :-----------: | ------------------------------------------------------------ |
+| `maxsize=128` |   ❌ No    |     `128`     | The size of the cache, the cache can store upto maxsize most recent function calls, if maxsize is set to None, the LRU feature will be disabled and the cache can grow without any limitations. |
+| `typed`       |   ❌ No    |    `False`    | If typed is set to `True`, function arguments of different types will be cached separately. For example, f(3) and f(3.0) will be treated as distinct calls with distinct results and they will be stored in two separate entries in the cache. |
+
+Comparing with and without `@lru_cache`
+
+```python
+from functools import lru_cache
+import time
+
+# Function that computes Fibonacci
+# numbers without lru_cache
+def fib_without_cache(n):
+	if n < 2:
+		return n
+	return fib_without_cache(n-1) + fib_without_cache(n-2)
+	
+# Execution start and end time
+begin = time.time()
+fib_without_cache(30)
+end = time.time()
+
+print("Time taken to execute the function without lru_cache is", end-begin)
+
+# Function that computes Fibonacci
+# numbers with lru_cache
+@lru_cache(maxsize = 128)
+def fib_with_cache(n):
+	if n < 2:
+		return n
+	return fib_with_cache(n-1) + fib_with_cache(n-2)
+	
+# Execution start and end time
+begin = time.time()
+fib_with_cache(30)
+end = time.time()
+
+print("Time taken to execute the function with lru_cache is", end-begin)
+```
+
+```
+Time taken to execute the function without lru_cache is 0.17377090454101562
+Time taken to execute the function with lru_cache is 4.410743713378906e-05
+```
+
+[Top](#Functions)
