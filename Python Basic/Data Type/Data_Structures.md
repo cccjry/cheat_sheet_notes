@@ -513,6 +513,43 @@ Student(name='Nandini', age='19', DOB='2541997')
 
 #### 2.5.3.More Details about `collections.namedtuple()`
 
+##### Application
+
+###### (Example1)Returning multiple values
+
+```python
+from random import randint, random
+from collections import namedtuple
+
+Color = namedtuple("Color", ["red", "green", "blue", "alpha"])
+
+def random_color():
+    red = randing(0, 255)
+    green = randing(0, 255)
+    blue = randing(0, 255)
+    alpha = round(random(), 2)
+    
+    return Color(red, green, blue, alpha)
+```
+
+###### (Example2)Alternative to Dictionaries
+
+Using `**kwargs` **to guarantee that the order of keys stay the same**: (since dictionaries are non-ordered)
+
+```python
+from collections import namedtuple
+
+data_dict = dict(key1=100, key2=200, key3=300)
+Data = namedtuple("Data", data_dict.keys())
+
+new_dict = dict(key1=100, key3=200, key2=300)
+d2 = Data(**new_dict)
+```
+
+
+
+##### Compare to `Class`
+
 跟 `class` 做比較：
 
 ```python
@@ -546,6 +583,8 @@ pt.x = 100
 
 AttributeError: can't set attribute
 ```
+
+> **Note**: 與 `class` 同樣是一個函式架構，有預設值的參數往後擺，沒有的則往前擺
 
 ##### Reassign
 
@@ -629,6 +668,12 @@ Using `*_fields + (*your_new_fields, )`
 ```python
 new_fields = Point2D._fields + ("z", )
 Point3D = namedtuple("Point3D", new_fields)
+```
+
+##### DocStrings Alias
+
+```python
+Point2D.x.__doc__ = "Assigned a name here"
 ```
 
 [Top](#Summary)
