@@ -547,6 +547,16 @@ pt.x = 100
 AttributeError: can't set attribute
 ```
 
+##### Class Factory
+
+- Generates a new class (still a `tuple` )
+- Inherits from `tuple` 
+- Provides **named properties** to access elements of the `tuple` 
+
+> **Note**: The named properties ***CANNOT*** start with an underscore ( `"_*"` )
+
+
+
 [Top](#Summary)
 
 
