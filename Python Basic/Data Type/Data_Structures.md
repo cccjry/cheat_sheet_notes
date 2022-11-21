@@ -555,7 +555,35 @@ AttributeError: can't set attribute
 
 > **Note**: The named properties ***CANNOT*** start with an underscore ( `"_*"` )
 
+##### Generating a `namedtuple` 
 
+This also works:
+
+```python
+Point2D = namedtuple("Point2D", ("x", "y"))
+```
+
+##### Accessing Data
+
+We can access data from a `namedtuple` by:
+
+- by index
+- slice
+- iterate
+
+```python
+from collections import namedtuple
+Point2D = namedtuple("Point2D", ["x", "y"])
+pt = Point2D(20, 10)
+
+#by index
+x, y = pt
+#slice
+x = pt[0]
+#iterate
+for e in pt:
+    print(e)
+```
 
 [Top](#Summary)
 
