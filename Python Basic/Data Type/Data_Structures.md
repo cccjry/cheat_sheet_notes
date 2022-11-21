@@ -547,13 +547,33 @@ pt.x = 100
 AttributeError: can't set attribute
 ```
 
+##### Reassign
+
+Since the immutable property from `tuple`, we can only reassign the object:
+
+```python
+pt = Point2D(10, pt.y) #simpliest way
+```
+
+###### *somenamedtuple*._make()
+
+```python
+#new values
+new_values = [200, 100]
+pt = Point2D._make(new_values)
+```
+
+###### *somenamedtuple*._replace()
+
+```python
+pt = pt._replace(x=200)
+```
+
 ##### Class Factory
 
 - Generates a new class (still a `tuple` )
 - Inherits from `tuple` 
 - Provides **named properties** to access elements of the `tuple` 
-
-> **Note**: The named properties ***CANNOT*** start with an underscore ( `"_*"` )
 
 ##### Generating a `namedtuple` 
 
@@ -563,6 +583,8 @@ This also works:
 Point2D = namedtuple("Point2D", ("x", "y"))
 ```
 
+> **Note**: The named properties ***CANNOT*** start with an underscore ( `"_*"` )
+
 ##### Accessing Data
 
 We can access data from a `namedtuple` by:
@@ -570,6 +592,7 @@ We can access data from a `namedtuple` by:
 - by index
 - slice
 - iterate
+- field name
 
 ```python
 from collections import namedtuple
@@ -583,6 +606,29 @@ x = pt[0]
 #iterate
 for e in pt:
     print(e)
+#field name
+pt.x; pt.y
+```
+
+##### Introspection
+
+```python
+Point2D._source #under Python 3.7
+```
+
+Inspection of a `namedtuple` object:
+
+```python
+pt.asdict()
+```
+
+##### Extending Fields
+
+Using `*_fields + (*your_new_fields, )`
+
+```python
+new_fields = Point2D._fields + ("z", )
+Point3D = namedtuple("Point3D", new_fields)
 ```
 
 [Top](#Summary)
