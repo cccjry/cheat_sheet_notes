@@ -225,10 +225,45 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 % docker restart [ID]
 ```
 
-
-
 #### 進入容器
+
+###### `docker exec`
+
+進入 Container 環境當中
+
+```
+% docker exec -it [ID] bash
+```
+
+###### `docker attach`
+
+進入到當前畫面（若是從多處 attach ，則所有視窗內容皆會同步，會相互干擾）
+
+```
+% docker attach [ID]
+```
 
 #### 匯出與載入 Container
 
+###### 匯出
+
+```
+% docker export [ID] > [filename]
+```
+
+###### 載入
+
+直接將 Container 載入成為一個 Image
+
+```
+% cat [filename] | docker import - [name:tag]
+```
+
+用 `docker import --help` 看更多
+
 #### 刪除
+
+```
+% docker rm [ID or name]
+```
+
