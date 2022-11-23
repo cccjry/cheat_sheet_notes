@@ -215,6 +215,18 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 
 #### 終止
 
+```
+% docker stop [ID]
+```
+
+##### 重新啟動
+
+```
+% docker restart [ID]
+```
+
+
+
 #### 進入容器
 
 #### 匯出與載入 Container
