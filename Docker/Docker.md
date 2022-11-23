@@ -169,7 +169,7 @@ ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
 
 ### Container 相關
 
-#### 用 Image 建立 Container
+#### 用 Image 建立 Container （啟動）
 
 - 建立但尚未啟動：
 
@@ -183,3 +183,12 @@ ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
 % docker run --name test ubuntu:22.04 /bin/bash
 ```
 
+#### 後台執行（守護態執行）
+
+#### 終止
+
+#### 進入容器
+
+#### 匯出與載入 Container
+
+#### 刪除
