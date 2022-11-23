@@ -56,6 +56,8 @@ ubuntu       22.04     3c2df5585507   2 weeks ago   69.2MB
 
 #### 建立一個 Image
 
+##### 從 Docker Hub 直接拉取
+
 這個動作與 `docker pull ubuntu:22.04` 同樣都會建立 Image，執行後會立即啟動一個 Container。
 
 ```
@@ -65,6 +67,8 @@ root@835283f29768:/# apt-get update
 root@835283f29768:/# apt-get install sudo
 root@835283f29768:/# exit
 ```
+
+##### 變更後重新提交新的副本
 
 變更內容 (以簡單安裝動作為例) 後離開 Container ，接著可以透過 `docker commit` 提交變更後的副本，成為另一個新的 Image。成功則會印出新的 Image 的 **`ID`** 。
 
@@ -79,7 +83,7 @@ ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
 
 ##### 利用 Dockerfile 建立 Image
 
-範例 (此內容建立出來的 Image 與上方範例相同)：
+範例 (此內容建立出來的 Image 與上方範例一摸一樣)：
 
 ```
 # Comment
@@ -98,6 +102,19 @@ Dockerfile 基本的語法是
 
 ```
 % docker build - < Dockerfile -t 'test2:JerryDocker'
+[+] Building 13.2s (7/7) FINISHED                                                                                                                       
+ => [internal] load build definition from Dockerfile
+ => => transferring dockerfile: 191B
+ => [internal] load .dockerignore
+ => => transferring context: 2B
+ => [internal] load metadata for docker.io/library/ubuntu:22.04
+ => [1/3] FROM docker.io/library/ubuntu:22.04
+ => [2/3] RUN apt-get update
+ => [3/3] RUN apt-get install sudo
+ => exporting to image
+ => => exporting layers
+ => => writing image sha256:4fdf18202b0885bf4c83d3d3c77144eb1454c1c2deafa49e80ff85852ca9980b
+ => => naming to docker.io/library/test2:JerryDocker 
 % docker images
 REPOSITORY   TAG           IMAGE ID       CREATED          SIZE
 test2        JerryDocker   4fdf18202b08   4 minutes ago    109MB	<-----
@@ -105,21 +122,48 @@ test         JerryDocker   ad4fbed3d7a3   11 minutes ago   109MB
 ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
 ```
 
+可以看到每一個動作都是在 Dockerfile當中所定義好的，完成後同樣會印出新的 Image 的 **`ID`** 。
 
+另外可以用 `docker tag [ID] [name:tag]` 複製出一個 **相同 `ID`** 的 Image。
+
+```
+% docker tag 4fdf18202b08 test2:JerryDocker2
+% docker images                             
+REPOSITORY   TAG            IMAGE ID       CREATED          SIZE
+test2        JerryDocker    4fdf18202b08   10 minutes ago   109MB
+test2        JerryDocker2   4fdf18202b08   10 minutes ago   109MB	<-----
+test         JerryDocker    ad4fbed3d7a3   18 minutes ago   109MB
+ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
+```
+
+##### 從檔案建立
+
+詳見 [docker import](https://docs.docker.com/engine/reference/commandline/import/) 。
 
 #### 匯出與載入 Image
 
-```
+##### 匯出
 
 ```
+% docker save -o test2.tar test2:JerryDocker2
+```
 
+##### 載入
 
+```
+% docker load --input test2.tar
+```
 
 #### 移除 Image
 
-```
+以下幾種方式都可以：
 
-```
+- `docker rmi [name:tag]`
+- `docker rmi [ID]`
+
+**NOTE**: 若 `ID` 有對應到多個 `name:tag` ，可以加上 `-f` 強制將同一個 `ID` 全部刪除；或是手動針對 `name:tag` 刪除。
+
+[更多請看這裡](https://docs.docker.com/engine/reference/commandline/rmi/)
 
 
 
