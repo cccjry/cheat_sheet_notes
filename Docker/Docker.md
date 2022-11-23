@@ -59,33 +59,34 @@ ubuntu       22.04     3c2df5585507   2 weeks ago   69.2MB
 這個動作與 `docker pull ubuntu:22.04` 同樣都會建立 Image，執行後會立即啟動一個 Container。
 
 ```
-% docker run -t -i ubuntu:22.04
-root@263abc8523a9:/#
+% docker run --name JerryDocker -t -i ubuntu:22.04
+root@835283f29768:/#
+root@835283f29768:/# apt-get update
+root@835283f29768:/# apt-get install sudo
+root@835283f29768:/# exit
 ```
 
-對 Container 進行變更後，可以透過 `docker commit` 提交變更後的副本，成為另一個新的 Image。成功則會印出新的 Image 的 **`ID`** 。
+變更內容 (以簡單安裝動作為例) 後離開 Container ，接著可以透過 `docker commit` 提交變更後的副本，成為另一個新的 Image。成功則會印出新的 Image 的 **`ID`** 。
 
 ```
-% docker commit -m "add modification" -a "Jerry" 3e58e09c837c test:v2
-sha256:3236aeccebba6055cca3a84e23c3dd7494f5dd9c739513fe76aa6637ef1595c8
+% docker commit -m "install sudo" -a "Jerry" 835283f29768 test:JerryDocker
+sha256:ad4fbed3d7a30239b9471acc027984f169c4cba5b58f254caa998ae86532c6b0
 % docker images
 REPOSITORY   TAG       IMAGE ID       CREATED              SIZE
-test         v2        3236aeccebba   About a minute ago   69.2MB <-----
-ubuntu       22.04     3c2df5585507   2 weeks ago          69.2MB
+test         JerryDocker   ad4fbed3d7a3   18 seconds ago   109MB	<-----
+ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
 ```
 
 ##### 利用 Dockerfile 建立 Image
 
-範例：
+範例 (此內容建立出來的 Image 與上方範例相同)：
 
 ```
-# This is a comment
-FROM node:10.15.3-alpine
-WORKDIR /app
-ADD . /app
-RUN npm install
-EXPOSE 3000
-CMD node index.js
+# Comment
+From ubuntu:22.04
+MAINTAINER Docker Jerry <test@gmail.com>
+RUN apt-get update
+RUN apt-get install sudo
 ```
 
 Dockerfile 基本的語法是
@@ -93,7 +94,18 @@ Dockerfile 基本的語法是
 - 使用`#`來註釋
 - `FROM` 指令告訴 Docker 使用哪個映像檔作為基底
 - 接著是維護者的信息
-- `RUN`開頭的指令會在建立中執行，比如安裝一個套件，在這裏使用 apt-get 來安裝了一些套件
+- `RUN`開頭的指令會在建立中執行，這邊使用 apt-get 來安裝了一些套件
+
+```
+% docker build - < Dockerfile -t 'test2:JerryDocker'
+% docker images
+REPOSITORY   TAG           IMAGE ID       CREATED          SIZE
+test2        JerryDocker   4fdf18202b08   4 minutes ago    109MB	<-----
+test         JerryDocker   ad4fbed3d7a3   11 minutes ago   109MB
+ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
+```
+
+
 
 #### 匯出與載入 Image
 
