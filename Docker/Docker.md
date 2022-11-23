@@ -183,7 +183,35 @@ ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
 % docker run --name test ubuntu:22.04 /bin/bash
 ```
 
+**NOTE**: `-t` 選項讓Docker分配一個虛擬終端（pseudo-tty）並綁定到容器的標準輸入上， `-i` 則讓容器的標準輸入保持打開。
+
+當利用 `docker run` 來建立容器時，Docker 在後臺執行的標準操作包括：
+
+- 檢查本地是否存在指定的映像檔，不存在就從公有倉庫下載
+- 利用映像檔建立並啟動一個容器
+- 分配一個檔案系統，並在唯讀的映像檔層外面掛載一層可讀寫層
+- 從宿主主機設定的網路橋界面中橋接一個虛擬埠到容器中去
+- 從位址池中設定一個 ip 位址給容器
+- 執行使用者指定的應用程式
+- 執行完畢後容器被終止
+
+##### 啟動已終止的 Container
+
+`docker start [ID]` 或是 `docker start [name]`
+
 #### 後台執行（守護態執行）
+
+```
+% docker run --name JerryDaemon -d ubuntu:22.04 /bin/sh -c "while true; do echo hello world; sleep 5; done"
+```
+
+#### 列出
+
+```
+% docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 seconds             JerryDaemon
+```
 
 #### 終止
 
