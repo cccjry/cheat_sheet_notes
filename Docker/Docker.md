@@ -16,6 +16,18 @@
 
 注意到 Image 是唯讀的，容器在啟動的時候建立一層可寫層作為最上層。
 
+#### V.S. Virtual Machine
+
+虛擬機是透過在 Host OS 上面再裝一個作業系統（Guest OS），然後讓兩個作業系統彼此不會打架的平台，架構如下圖。常見的資源如 Virtual Box。
+
+![concept_virtualmachine](img/concept_virtualmachine.png)
+
+而 Container 是直接將一個應用程式所需的程式碼、函式庫打包，**建立資源控管機制隔離各個容器**，並分配 Host OS 上的系統資源。透過容器，應用程式不需要再另外安裝 Guest OS 也可以執行，架構如下圖所示。
+
+![concept_container](img/concept_container.png)
+
+圖片來源：https://gitlab.com/oer/figures/-/tree/master/OS
+
 ### 倉庫 Repository
 
 > Image 集中存放的場所，裡面放著別人完成的 Image。
