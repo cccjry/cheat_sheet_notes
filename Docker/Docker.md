@@ -289,7 +289,9 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 % docker rm [ID or name]
 ```
 
+#### 更多關於 `docker run`
 
+請參閱 [官網](https://docs.docker.com/engine/reference/commandline/run/)
 
 ### Hub 相關
 
