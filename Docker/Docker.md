@@ -28,6 +28,18 @@
 
 每個 container 都是獨立且封閉的，若不想要透過進入 container 就能改變內部的程式碼，或者是想要進行 database 升級並保留原本資料，這時就需要 docker volume。
 
+Volume、Bind mount、tmpfs mount 差異比較：
+
+- Volume: Container 將 Volume 存放在 Docker area
+- BindMount: 可以為主機裡任何路徑
+- tmpfsMount: 主機的 memory
+
+![docker_volume](img/types-of-mounts-volume.png)
+
+圖片來源：[官網](https://docs.docker.com/storage/volumes/)
+
+[其他詳見](https://philipzheng.gitbook.io/docker_practice/data_management)
+
 ### 安裝
 
 直接透過 [官網](https://docs.docker.com/desktop/install/mac-install/) 的說明進行即可。
@@ -297,4 +309,10 @@ ubuntu-upstart                   DEPRECATED, as is Upstart (find other proces…
 #### 私有 Hub
 
 [詳見](https://philipzheng.gitbook.io/docker_practice/repository/local_repo)
+
+
+
+## 閱讀資源
+
+- [《Docker —— 從入門到實踐­》正體中文版](https://philipzheng.gitbook.io/docker_practice/)
 
