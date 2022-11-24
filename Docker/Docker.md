@@ -329,4 +329,5 @@ ubuntu-upstart                   DEPRECATED, as is Upstart (find other proces…
 ## 閱讀資源
 
 - [《Docker —— 從入門到實踐­》正體中文版](https://philipzheng.gitbook.io/docker_practice/)
-
+- [Docker 基礎教學與介紹 101](https://cwhu.medium.com/docker-tutorial-101-c3808b899ac6)
+- [官方網站](https://docs.docker.com/engine/reference/run/)
