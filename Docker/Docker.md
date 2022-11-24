@@ -1,5 +1,9 @@
 # Docker 簡易操作
 
+[TOC]
+
+
+
 ## 基本介紹
 
 ### 映像檔 Image
@@ -17,6 +21,12 @@
 > Image 集中存放的場所，裡面放著別人完成的 Image。
 
 官方提供的公開倉庫註冊伺服器是 [Docker Hub](https://hub.docker.com/) ，大陸的公開資源則是 [Docker Pool](http://www.dockerpool.com/) ，使用者也可以建立自己的 Repository。其使用概念類似 Git，將製作好的 Image push 上去，在本地端只需要進行pull的動作就好。
+
+### Volume
+
+> 可以跨 Container 使用的資源。
+
+
 
 ### 安裝
 
@@ -266,4 +276,25 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 ```
 % docker rm [ID or name]
 ```
+
+
+
+### Hub 相關
+
+#### 查詢官方 Hub
+
+```
+% docker search ubuntu
+NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+ubuntu                           Ubuntu is a Debian-based Linux operating sys…   15263     [OK]       
+websphere-liberty                WebSphere Liberty multi-architecture images …   290       [OK]       
+ubuntu-upstart                   DEPRECATED, as is Upstart (find other proces…   112       [OK]       
+...
+```
+
+可以加上 `-s *N` 來篩選星數的資源 (`*N` 替換成數字)
+
+#### 私有 Hub
+
+[詳見](https://philipzheng.gitbook.io/docker_practice/repository/local_repo)
 
