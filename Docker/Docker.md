@@ -24,9 +24,9 @@
 
 ### Volume
 
-> 可以跨 Container 使用的資源。
+> 可以跨 container 使用的資源。
 
-
+每個 container 都是獨立且封閉的，若不想要透過進入 container 就能改變內部的程式碼，或者是想要進行 database 升級並保留原本資料，這時就需要 docker volume。
 
 ### 安裝
 
