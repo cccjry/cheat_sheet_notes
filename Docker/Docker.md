@@ -261,7 +261,7 @@ ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
 
 `docker start [ID]` 或是 `docker start [name]`
 
-#### 後台執行（守護態執行）
+#### 後台執行（守護態執行）`-d`
 
 ```
 % docker run --name JerryDaemon -d ubuntu:22.04 /bin/sh -c "while true; do echo hello world; sleep 5; done"
