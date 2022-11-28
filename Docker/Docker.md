@@ -333,6 +333,20 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 
 請參閱 [官網](https://docs.docker.com/engine/reference/commandline/run/)
 
+運作範例：
+
+```
+% docker run --name iris -d -p 5003:5003 iris_predict
+```
+
+`--name`: Container 的名稱；沒有特別設定會隨機產生一個名字。
+
+`-d`: Detach，印出 `ID` 並且在背景執行。
+
+`-p`: Publish，設定要發布出去的 port 。
+
+iris_predict: 要用哪一個 Image 作為範本建立 Container。
+
 ### Hub 相關
 
 #### 查詢官方 Hub
