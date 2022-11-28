@@ -62,6 +62,34 @@ Volume、Bind mount、tmpfs mount 差異比較：
 
 > 底下有出現的指令皆在 MacOS 環境中執行。
 
+### Dockerfile相關
+
+範例：
+
+```dockerfile
+FROM pytorch/pytorch:latest
+RUN pip install Pillow
+RUN pip install flask
+WORKDIR /models
+COPY ./script ./
+EXPOSE 5002
+ENTRYPOINT ["bash","run.sh"]
+```
+
+`FROM`：從哪個 Docker Image 作為範本建立基礎環境。這邊找到前輩建好的 PyTorch 環境。
+
+`RUN`：建立好環境後執行命令。這邊執行安裝 Python 套件。
+
+`WORKDIR`：決定工作資料夾。這邊要注意與 `RUN cd` 不同的是， `RUN cd` 在執行完後，就會回到最一開始的位置。
+
+`COPY`：將本機端的檔案複製到 Docker 內部的位置。這邊將 `/script` 的東西複製到 Docker 內部的 `/` 位置。
+
+`EXPOSE`：開啟對外溝通的 Port。
+
+`ENTRYPOINT`：上述動作完成後，需要這個 Docker 執行的工作。
+
+更多請參考 [官網](https://docs.docker.com/engine/reference/builder/) 。
+
 ### Image 相關
 
 #### 取得 Image
@@ -119,7 +147,7 @@ ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
 
 範例 (此內容建立出來的 Image 與上方範例一摸一樣)：
 
-```
+```dockerfile
 # Comment
 From ubuntu:22.04
 MAINTAINER Docker Jerry <test@gmail.com>
