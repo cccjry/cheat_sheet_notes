@@ -1,5 +1,9 @@
 # Docker 簡易操作
 
+[TOC]
+
+
+
 ## 基本介紹
 
 ### 映像檔 Image
@@ -12,11 +16,41 @@
 
 注意到 Image 是唯讀的，容器在啟動的時候建立一層可寫層作為最上層。
 
+#### V.S. Virtual Machine
+
+虛擬機是透過在 Host OS 上面再裝一個作業系統（Guest OS），然後讓兩個作業系統彼此不會打架的平台，架構如下圖。常見的資源如 Virtual Box。
+
+![concept_virtualmachine](img/concept_virtualmachine.png)
+
+而 Container 是直接將一個應用程式所需的程式碼、函式庫打包，**建立資源控管機制隔離各個容器**，並分配 Host OS 上的系統資源。透過容器，應用程式不需要再另外安裝 Guest OS 也可以執行，架構如下圖所示。
+
+![concept_container](img/concept_container.png)
+
+圖片來源：https://gitlab.com/oer/figures/-/tree/master/OS
+
 ### 倉庫 Repository
 
 > Image 集中存放的場所，裡面放著別人完成的 Image。
 
 官方提供的公開倉庫註冊伺服器是 [Docker Hub](https://hub.docker.com/) ，大陸的公開資源則是 [Docker Pool](http://www.dockerpool.com/) ，使用者也可以建立自己的 Repository。其使用概念類似 Git，將製作好的 Image push 上去，在本地端只需要進行pull的動作就好。
+
+### Volume
+
+> 可以跨 container 使用的資源。
+
+每個 container 都是獨立且封閉的，若不想要透過進入 container 就能改變內部的程式碼，或者是想要進行 database 升級並保留原本資料，這時就需要 docker volume。
+
+Volume、Bind mount、tmpfs mount 差異比較：
+
+- Volume: Container 將 Volume 存放在 Docker area
+- BindMount: 可以為主機裡任何路徑
+- tmpfsMount: 主機的 memory
+
+![docker_volume](img/types-of-mounts-volume.png)
+
+圖片來源：[官網](https://docs.docker.com/storage/volumes/)
+
+[其他詳見](https://philipzheng.gitbook.io/docker_practice/data_management)
 
 ### 安裝
 
@@ -27,6 +61,34 @@
 ## 動作
 
 > 底下有出現的指令皆在 MacOS 環境中執行。
+
+### Dockerfile相關
+
+範例：
+
+```dockerfile
+FROM pytorch/pytorch:latest
+RUN pip install Pillow
+RUN pip install flask
+WORKDIR /models
+COPY ./script ./
+EXPOSE 5002
+ENTRYPOINT ["bash","run.sh"]
+```
+
+`FROM`：從哪個 Docker Image 作為範本建立基礎環境。這邊找到前輩建好的 PyTorch 環境。
+
+`RUN`：建立好環境後執行命令。這邊執行安裝 Python 套件。
+
+`WORKDIR`：決定工作資料夾。這邊要注意與 `RUN cd` 不同的是， `RUN cd` 在執行完後，就會回到最一開始的位置。
+
+`COPY`：將本機端的檔案複製到 Docker 內部的位置。這邊將 `/script` 的東西複製到 Docker 內部的 `/` 位置。
+
+`EXPOSE`：開啟對外溝通的 Port。
+
+`ENTRYPOINT`：上述動作完成後，需要這個 Docker 執行的工作。
+
+更多請參考 [官網](https://docs.docker.com/engine/reference/builder/) 。
 
 ### Image 相關
 
@@ -85,7 +147,7 @@ ubuntu       22.04         3c2df5585507   2 weeks ago      69.2MB
 
 範例 (此內容建立出來的 Image 與上方範例一摸一樣)：
 
-```
+```dockerfile
 # Comment
 From ubuntu:22.04
 MAINTAINER Docker Jerry <test@gmail.com>
@@ -199,7 +261,7 @@ ubuntu       22.04          3c2df5585507   2 weeks ago      69.2MB
 
 `docker start [ID]` 或是 `docker start [name]`
 
-#### 後台執行（守護態執行）
+#### 後台執行（守護態執行）`-d`
 
 ```
 % docker run --name JerryDaemon -d ubuntu:22.04 /bin/sh -c "while true; do echo hello world; sleep 5; done"
@@ -227,7 +289,7 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 
 #### 進入容器
 
-###### `docker exec`
+##### `docker exec`
 
 進入 Container 環境當中
 
@@ -235,7 +297,7 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 % docker exec -it [ID] bash
 ```
 
-###### `docker attach`
+##### `docker attach`
 
 進入到當前畫面（若是從多處 attach ，則所有視窗內容皆會同步，會相互干擾）
 
@@ -245,13 +307,13 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 
 #### 匯出與載入 Container
 
-###### 匯出
+##### 匯出
 
 ```
 % docker export [ID] > [filename]
 ```
 
-###### 載入
+##### 載入
 
 直接將 Container 載入成為一個 Image
 
@@ -267,3 +329,47 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 % docker rm [ID or name]
 ```
 
+#### 更多關於 `docker run`
+
+請參閱 [官網](https://docs.docker.com/engine/reference/commandline/run/)
+
+運作範例：
+
+```
+% docker run --name iris -d -p 5003:5003 iris_predict
+```
+
+`--name`: Container 的名稱；沒有特別設定會隨機產生一個名字。
+
+`-d`: Detach，印出 `ID` 並且在背景執行。
+
+`-p`: Publish，設定要發布出去的 port 。
+
+iris_predict: 要用哪一個 Image 作為範本建立 Container。
+
+### Hub 相關
+
+#### 查詢官方 Hub
+
+```
+% docker search ubuntu
+NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+ubuntu                           Ubuntu is a Debian-based Linux operating sys…   15263     [OK]       
+websphere-liberty                WebSphere Liberty multi-architecture images …   290       [OK]       
+ubuntu-upstart                   DEPRECATED, as is Upstart (find other proces…   112       [OK]       
+...
+```
+
+可以加上 `-s *N` 來篩選星數的資源 (`*N` 替換成數字)
+
+#### 私有 Hub
+
+[詳見](https://philipzheng.gitbook.io/docker_practice/repository/local_repo)
+
+
+
+## 閱讀資源
+
+- [《Docker —— 從入門到實踐­》正體中文版](https://philipzheng.gitbook.io/docker_practice/)
+- [Docker 基礎教學與介紹 101](https://cwhu.medium.com/docker-tutorial-101-c3808b899ac6)
+- [官方網站](https://docs.docker.com/engine/reference/run/)
