@@ -1,2 +1,2 @@
 # TestCase
-test case practice of a website
+Test-case-thinking practice of a website.
