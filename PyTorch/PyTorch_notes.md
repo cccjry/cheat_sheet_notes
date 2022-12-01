@@ -93,3 +93,37 @@ DataLoader(
 
 
 
+## Transforms and Rescaling the Data (Images)
+
+```python
+from torchvision import transforms
+```
+
+### Most Commonly Used
+
+```python
+# resize images
+transforms.Resize()
+# crop from the center
+transforms.CenterCrop()
+# randomly resize images
+transforms.RandomResizedCrop()
+```
+
+### `torchvision.transforms.Compose()`
+
+**Write all preprocessing steps in a squential manner**
+
+```python
+transform = transforms.Compose([
+    # resize
+    transforms.Resize(32),
+    # center-crop
+    transforms.CenterCrop(32),
+    # to-tensor
+    transforms.ToTensor(),
+    # normalize
+    transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+])
+```
+
