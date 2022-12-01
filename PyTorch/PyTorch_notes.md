@@ -66,6 +66,19 @@ DataLoader(
     "cuda" if torch.cuda.is_available() else "cpu"
     ```
 
+    ```python
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    kwargs = {'num_workers': 1, 'pin_memory': True} if device=='cuda' else {}
+    
+    train_loader = torch.utils.data.DataLoader(
+                        torchvision.datasets.MNIST('/files/', 
+                                                   train=True, 
+                                                   download=True),
+        				batch_size=batch_size_train, **kwargs)
+    ```
+
+    
+
 - Having Mac with Apple Silicon Chip:
 
     ```python
