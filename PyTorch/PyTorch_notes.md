@@ -34,3 +34,18 @@ More information on [PyTorch Datasets](https://pytorch.org/vision/stable/dataset
 torchvision.datasets.ImageFolder(root, transform)
 ```
 
+### `DataLoader` class in PyTorch that helps us to load and iterate over elements in a dataset.
+
+```python
+from torch.utils.data import DataLoader
+
+DataLoader(
+    dataset,
+    batch_size=1,
+    shuffle=False,
+    num_workers=0,
+    collate_fn=None,
+    pin_memory=False,
+ )
+```
+
