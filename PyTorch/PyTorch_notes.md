@@ -63,7 +63,7 @@ DataLoader(
 - Having CUDA:
 
     ```python
-    "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     ```
 
     ```python
@@ -82,13 +82,13 @@ DataLoader(
 - Having Mac with Apple Silicon Chip:
 
     ```python
-    "mps" if torch.backends.mps.is_available() else "cpu"
+    device = "mps" if torch.backends.mps.is_available() else "cpu"
     ```
 
 - Others (only CPU):
 
     ```python
-    "cpu"
+    device = "cpu"
     ```
 
 
