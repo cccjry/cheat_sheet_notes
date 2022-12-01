@@ -74,7 +74,7 @@ DataLoader(
                         torchvision.datasets.MNIST('/files/', 
                                                    train=True, 
                                                    download=True),
-        				batch_size=batch_size_train, **kwargs)
+                        batch_size=batch_size_train, **kwargs)
     ```
 
     
