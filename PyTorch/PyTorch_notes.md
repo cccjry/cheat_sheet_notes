@@ -102,12 +102,20 @@ from torchvision import transforms
 ### Most Commonly Used
 
 ```python
-# resize images
-transforms.Resize()
-# crop from the center
-transforms.CenterCrop()
+# resize images (size)
+transforms.Resize(32)
+# crop from the center (size)
+transforms.CenterCrop(32)
 # randomly resize images
 transforms.RandomResizedCrop()
+# crops images at a random location
+transforms.RandomCrop(size, padding=None, pad_if_needed=False, fill=0)
+# flip the images (argument is probability)
+transforms.RandomHorizontalFlip(p=0.5)
+# normalizes the images with the mean and standard deviation given as arguments
+transforms.functional.normalize(tensor, mean, std, inplace=False)
+# converts the PIL Image or a NumPy n-dimensional array to a tensor
+transforms.functional.to_tensor(img)
 ```
 
 ### `torchvision.transforms.Compose()`
@@ -120,9 +128,9 @@ transform = transforms.Compose([
     transforms.Resize(32),
     # center-crop
     transforms.CenterCrop(32),
-    # to-tensor
+    #  convert the images to the Tensor datatype
     transforms.ToTensor(),
-    # normalize
+    # normalizes all the values in the tensor to lie between 0.5 and 1
     transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
 ])
 ```
