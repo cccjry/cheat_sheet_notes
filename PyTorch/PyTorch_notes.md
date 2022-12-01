@@ -49,3 +49,9 @@ DataLoader(
  )
 ```
 
+- `dataset`
+- `batch_size=1`
+- `shuffle=False` 是否將資料集打散到 batch 當中，非按照資料原本順序。
+- `num_workers=0`
+- `collate_fn=None` 合併資料 (還沒用過)
+- `pin_memory=False` 有 CUDA 可以直接將 Tensors 放到記憶體上面運算直到結束。
