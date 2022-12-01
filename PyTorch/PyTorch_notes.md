@@ -135,3 +135,14 @@ transform = transforms.Compose([
 ])
 ```
 
+
+
+
+
+
+
+
+
+## Reference
+
+- [A Comprehensive Guide to the DataLoader Class and Abstractions in PyTorch](https://blog.paperspace.com/dataloaders-abstractions-pytorch/)
