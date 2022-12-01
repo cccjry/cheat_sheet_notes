@@ -55,3 +55,28 @@ DataLoader(
 - `num_workers=0`
 - `collate_fn=None` 合併資料 (還沒用過)
 - `pin_memory=False` 有 CUDA 可以直接將 Tensors 放到記憶體上面運算直到結束。
+
+
+
+## Load the Data onto Device
+
+- Having CUDA:
+
+    ```python
+    "cuda" if torch.cuda.is_available() else "cpu"
+    ```
+
+- Having Mac with Apple Silicon Chip:
+
+    ```python
+    "mps" if torch.backends.mps.is_available() else "cpu"
+    ```
+
+- Others (only CPU):
+
+    ```python
+    "cpu"
+    ```
+
+
+
