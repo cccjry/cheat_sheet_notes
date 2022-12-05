@@ -26,14 +26,12 @@ if __name__ == "__main__":
 import pandas
 
 df = pandas.DataFrame()
-print("bla bla bla")
 print(__name__)
 print(pandas.__name__)
 ```
 
 ```
 (base) % python3 my_program.py
-bla bla bla
 __main__
 pandas
 ```
@@ -58,6 +56,22 @@ NameError: name 'pandas' is not defined
 ```
 
 例2中可以看到，在程式當中沒有被定義過的 `pandas` 是無法得知其來自哪個 module。
+
+舉例3：
+
+```python
+# my_program.py
+import pandas as pd
+
+print(pd.__name__)
+```
+
+```
+(base) % python3 my_program.py
+pandas
+```
+
+注意到，`as` 這個命名的動作並不會影響 `pandas` 本質上的 `__name__` 。
 
 
 
