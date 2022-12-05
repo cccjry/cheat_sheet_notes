@@ -92,7 +92,7 @@ print("bla bla bla")	#<--top level
 bla bla bla
 ```
 
-`DataFrame()` 並沒有在 `my_program.py` 當中被定義，無法直接運作，而是從 `pandas` 當中被借出來使用的，因此不算是 top level。
+`DataFrame()` 並沒有在 `my_program.py` 當中被定義，而是從 `pandas` 當中被借出來使用的，因此不算是 top level。
 
 **NOTE**: 直接寫在 console 當中的也被歸類在 top level！
 
