@@ -107,14 +107,7 @@ AAA
 
 > `"__main__"` represents the **name of the top level environment**, where top level code runs.
 
-所以檢查 `if __name__ == "__main__"` 可以確定當我們呼叫一個 module 時是不是只想先呼叫期 top level 的部分就好。
-
-
-
-## Rule of Thumbs
-
-- Libraries: 因為 `__name__` 的特性讓套件可以直接使用名稱且不需要 `.py` 副檔名
-- Classes, Functions: `__name__` 就直接等同於一個 Class 或是一個 Function 的名稱，直接在程式當中呼叫其名稱並且使用它
+所以檢查 `if __name__ == "__main__"` 可以確定當我們呼叫一個 module 時是不是只想先呼叫屬於 top level 的部分進來待命，而非希望執行過一遍。
 
 
 
@@ -159,3 +152,12 @@ if __name__ == "__main__":
 ```
 
 就沒有自動執行了，這是因為 `if __name__ == "__main__":` 這個檢查動作確保在 `import` 的過程中，`call_me()` 是屬於在 top level 的呼叫，其運行的過程、結果不會直接地被顯現出來。
+
+
+
+## Rule of Thumbs
+
+也因為 `__name__` 的特性，造就出下列狀態：
+
+- Libraries: 因為 `__name__` 的特性讓套件可以直接使用名稱且不需要 `.py` 副檔名
+- Classes, Functions: `__name__` 就直接等同於一個 Class 或是一個 Function 的名稱，直接在程式當中呼叫其名稱並且使用它
