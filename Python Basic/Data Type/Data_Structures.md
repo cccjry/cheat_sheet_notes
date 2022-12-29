@@ -181,7 +181,9 @@ print(id(values2))		#stays the same
 2269554820608
 ```
 
+##### Refeference
 
+- [Use id() to understand list and immutable in Python](https://medium.com/@tobby168/use-id-to-understand-list-and-immutable-in-python-56492509bda3)
 
 ### 1.4.Methods
 
