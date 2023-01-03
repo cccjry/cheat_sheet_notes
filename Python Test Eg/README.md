@@ -22,8 +22,8 @@ Related files:
 
 ## Pytest with Mocking
 
-| Name                    | Detail                                  |
-| ----------------------- | --------------------------------------- |
-| sample_function_add1.py | An function as a test target.           |
-| test_add1.py            | Pytest basic use and some cheat sheets. |
+| Name                | Detail                                          |
+| ------------------- | ----------------------------------------------- |
+| application.py      | An application as a mocking target.             |
+| test_application.py | Pytest the application.py with mocking setting. |
 
