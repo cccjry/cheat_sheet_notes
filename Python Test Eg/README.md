@@ -22,6 +22,8 @@ Related files:
 
 ## Pytest with Mocking
 
+> 進行測試時，把不想要執行的方法給替換掉，在測試的過程中，有時候只是要測試函式的可用性，但像是發送 email、撰寫檔案等等的函式，往往是不希望被執行的，總不能每執行一次測試就寄一封 mail 給你，這樣信箱會很快就爆炸的，針對這個情況我們就可以透過 pytest-mock 來替我們進行函式的抽換，並回傳假的資料，只要確認函式運行的流程是正確的即可。
+
 ### E.g.1
 
 | Name                    | Detail                                              |
@@ -45,7 +47,12 @@ Related files:
 | **application3.py**      | An application using function inside **sample_utility.py**. *But with different importing type.* |
 | **test_application3.py** | Pytest the **application3.py** with mocking setting. (Notice differences in mock setting) |
 
-### 
+### E.g.4
+
+| Name                     | Detail                                                       |
+| ------------------------ | ------------------------------------------------------------ |
+| **application4.py**      | An application with some functions inside. |
+| **test_application4.py** | Pytest the **application4.py** with mocking `add` inside `calculate` |
 
 ## Reference
 
