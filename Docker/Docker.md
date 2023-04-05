@@ -56,7 +56,11 @@ Volume、Bind mount、tmpfs mount 差異比較：
 
 直接透過 [官網](https://docs.docker.com/desktop/install/mac-install/) 的說明進行即可。
 
+## 基本操作動作
 
+- `--interactive` says you want an interactive session.
+- `--tty` allocates a pseudo-tty.
+- `--rm` tells Docker to go ahead and remove the container when it’s done executing.
 
 ## 動作
 
