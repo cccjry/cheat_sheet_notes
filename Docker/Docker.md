@@ -56,7 +56,16 @@ Volume、Bind mount、tmpfs mount 差異比較：
 
 直接透過 [官網](https://docs.docker.com/desktop/install/mac-install/) 的說明進行即可。
 
+## 基本操作指令
 
+- `--interactive` says you want an interactive session.
+- `--tty` allocates a pseudo-tty.
+- `--rm` tells Docker to go ahead and remove the container when it’s done executing.
+- `--detach`, `-d` will run the container in the background.
+- `--name` will name the container.
+- `-e` will use an environment variable to specify the root password (NOTE: This should never be done in production).
+- `docker container logs [your-container-name]` shows the logs from the MySQL Docker container
+- `docker container top [your-container-name]` see the daemon (your-container-name) is running in the container
 
 ## 動作
 
@@ -294,7 +303,7 @@ bca91138b5bc   ubuntu:22.04   "/bin/sh -c 'while t…"   48 seconds ago   Up 47 
 進入 Container 環境當中
 
 ```
-% docker exec -it [ID] bash
+% docker exec -it [ID or name] bash
 ```
 
 ##### `docker attach`
