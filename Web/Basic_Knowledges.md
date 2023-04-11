@@ -30,4 +30,11 @@ HTTPs represents HyperText Transfer Protocol Secure. 傳輸的資訊經由RSA演
 
 Domain Name Servers網域名稱服務，轉換IP、URL的服務。瀏覽器會先到DNS查到網站的真實地址(用URL查IP，真實位址)，把HTTP請求傳送到正確的位址(IP)。
 
+1. 瀏覽器先去DNS找到託管網站的Server
+2. 瀏覽器向Server發送HTTP請求(request)，請求Server傳送網站程式碼給Client
+3. Server若允許這個request，會回傳`200`，意指允許訪問。接著Server開始傳送`封包`，裡面包含網站的內容。
+4. 瀏覽器將`封包`一一組合成完整網站並呈現出來。
+
 ## 瀏覽器
+
+
