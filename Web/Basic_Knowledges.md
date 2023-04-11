@@ -37,4 +37,13 @@ Domain Name Servers網域名稱服務，轉換IP、URL的服務。瀏覽器會�
 
 ## 瀏覽器
 
+包含兩個主要功能：
+
+1. 排版：把HTML文檔與其他資源呈現出來
+2. JavaScript：負責處理JavaScript指令碼的虛擬機器
+
+![Explorer_comparison](img/Explorer_comparison.png)
+
+
+
 
