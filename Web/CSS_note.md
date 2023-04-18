@@ -87,3 +87,99 @@ Priority: *inline* > *internal* > *external*
 
 For more information, please refer to [CSS Color](https://www.w3schools.com/css/css_colors.asp).
 
+## CSS Selectors
+
+- Universal Selector
+  ``` css
+  * {
+    color: red;
+  }
+  ```
+  選取所有元素。
+
+- Element Selector
+  ``` css
+  h1 {
+    color: red;
+  }
+  ```
+  選取所有`h1`元素。
+
+- ID Selector
+  ``` css
+  #my_id {
+    color: red;
+  }
+  ```
+  開頭`#`選取所有`id`為`my_id`的元素。`id`為唯一值，不可重複。
+
+- Class Selector
+    ``` css
+    .my_class {
+        color: red;
+    }
+    ```
+    開頭`.`選取所有`class`為`my_class`的元素。`class`可重複，多個`class`用空格分開。
+    ``` html
+    <h1 class="my_class1 my_class2">Hello World</h1>
+    ```
+    
+    ``` css
+    .my_class1.my_class2 {
+        color: red;
+    }
+    ```
+
+ID, Class, Element Selector 以及其他tag可以互相組合使用，例如：
+``` css
+/*eg1*/
+#my_id.my_class {
+    color: red;
+}
+
+/*eg2*/
+a.my_class {
+    color: red;
+}
+
+/*eg3*/
+a#my_id {
+    color: red;
+}
+```
+
+Selector Priority:
+ID Selector > Class Selector > Element Selector
+
+- Group Selector
+    ``` css
+    h1, h2, h3 {
+        color: red;
+    }
+    ```
+    選取所有`h1`、`h2`、`h3`元素。
+
+- Descendant Selector
+    ``` html
+    <h2>
+        <span>Hello World</span>
+    </h2>
+    ```
+
+    ``` css
+    h2 span {
+        color: red;
+    }
+    ```
+    選取所有`h2`元素中的`span`元素。依據DOM Tree，的結構，範例中`span`為`h2`的子元素，非透過`id`或`class`來選取。
+
+- Attribute Selector
+    ``` css
+    input[type="password"] {
+        color: red;
+    }
+    ```
+
+
+
+
