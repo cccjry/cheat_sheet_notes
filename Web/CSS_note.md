@@ -89,6 +89,8 @@ For more information, please refer to [CSS Color](https://www.w3schools.com/css/
 
 ## CSS Selectors
 
+### Selector
+
 - Universal Selector
   ``` css
   * {
@@ -180,6 +182,27 @@ ID Selector > Class Selector > Element Selector
     }
     ```
 
+- Others
+
+  -  Pseudo-class
+
+        指定元素的特殊狀態。例如當元素被點擊時，會變成`:active`狀態；或是`:hover`則是當滑鼠移動到元素上時會變成的狀態。
+
+        ``` css
+        input[type="text"]:active {
+            color: green;
+        }
+        ```
+
+  -  Pseudo-element
+
+        添加到選擇棄的關鍵字，用來設置所選元素的特定部分的樣式。
+        ``` css
+        p::before {
+            content: "This is a paragraph:  <<<";
+            color: blue;
+        }
+        ```
 
 
 
