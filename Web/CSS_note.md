@@ -242,5 +242,26 @@ ID Selector > Class Selector > Element Selector
         }
         ```
 
+## CSS 單位
 
+- absolute
+    - `px`: pixel, 2.54cm(1 inch) = 96px
+    - `cm`
+    - `mm`
+    - `in`
+
+- relative
+    - `em`: 相對 parent element 的長度，越深層的元素，em 的值越小，也越難計算，因此會盡量避免使用。
+    1em就等於 parent element 的大小。
+    - `rem`: root em，會找到`<html>`的大小，然後再依照em的規則來計算。
+    - `vw`: viewport width，1vw就等於 viewport (瀏覽器視窗)寬度的 1/100。
+    - `vh`: viewport height，1vh就等於 viewport (瀏覽器視窗)高度的 1/100。
+    - `%`: 相對於 parent element 的值。
+
+預設的設定單位可以到 [這邊](https://www.w3schools.com/cssref/css_default_values.php) 查看。
+
+## 文字樣式 text-styling
+
+- font-size
+- text-align
 
