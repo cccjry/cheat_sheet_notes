@@ -67,7 +67,7 @@ Priority: *inline* > *internal* > *external*
     color: rgba(255, 0, 0, 0.5);
   }
   ```
-    透明度，0為完全透明，1為完全不透明。
+    第四個為透明度，0為完全透明，1為完全不透明。
 
 - HEX
   ``` css
@@ -75,12 +75,15 @@ Priority: *inline* > *internal* > *external*
     color: #ff0000;
   }
   ```
+    16進位，每個值都用2byte（16bit）來表示。
 
-- HSV
+- HSL
   ``` css
   h1 {
     color: hsl(0, 100%, 50%);
   }
   ```
+    Hue（色相）、Saturation（飽和度）、Lightness（亮度），色相為0~360，飽和度為0~100%，亮度為0~100%。
 
-  
+For more information, please refer to [CSS Color](https://www.w3schools.com/css/css_colors.asp).
+
