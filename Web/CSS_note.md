@@ -258,7 +258,7 @@ ID Selector > Class Selector > Element Selector
     - `vh`: viewport height，1vh就等於 viewport (瀏覽器視窗)高度的 1/100。
     - `%`: 相對於 parent element 的值。
 
-預設的設定單位可以到 [這邊](https://www.w3schools.com/cssref/css_default_values.php) 查看。
+預設的設定大小可以到 [這邊](https://www.w3schools.com/cssref/css_default_values.php) 查看。
 
 ## 文字樣式 text-styling
 
