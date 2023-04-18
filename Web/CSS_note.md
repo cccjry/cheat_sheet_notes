@@ -43,6 +43,44 @@ Inside nesting structure:
 
 Priority: *inline* > *internal* > *external*
 
+
+## CSS 重要概念
+
+> Cascading Style Sheets，層疊樣式表
+
+- Inheritance繼承
+
+    常見可被繼承的屬性有：
+    - color
+    - font-family
+    - font-size
+    - list-style-type
+    - text-align
+    更多可參考[連結](https://www.w3.org/TR/CSS21/propidx.html)。
+
+    User agent (or user stylesheet)優先度較高，可覆蓋繼承的屬性。而瀏覽器預設為User的代理人，因此要注意瀏覽器預設的樣式可能會影響到網頁的呈現，因此`<a>`通常需要額外設定。
+
+- Conflicting Styling
+
+    同一個 tag 若有兩個以上的樣式設定，則會以最後一個為主。
+
+    若衝突是發生在不同的樣式表中，則會以最後載入的樣式表為主。
+
+    衝突處理原則：
+
+    - Priority 優先度
+        1. inline style
+        2. user stylesheet
+        3. user agent stylesheet
+        4. inheritance
+    - Specificity 特定度
+        當一個 tag 同時有 id、class、tag 時，會依照以下順序優先度較高：
+        1. id (100)
+        2. class (010)
+        3. tag (001)
+    - Order 順序
+        若優先度與特定度相同，則會依照樣式表的順序來決定。
+
 ## 顏色設定
 
 - Color name
