@@ -275,5 +275,42 @@ ID Selector > Class Selector > Element Selector
   ```
 - `font-weight`: 字粗
 
+## 背景樣式
+
+- `background-color`: 顏色可參考 [**顏色設定**章節](#顏色設定)
+- `background-image`: 設定背景圖片
+  ``` css
+  body {
+    background-image: url("./img/img_tree.png");
+  }
+  ```
+- `background-size`: 設定背景圖片大小
+  ``` css
+  body {
+    background-image: url("./img/img_tree.png");
+    background-size: 100px 100px;
+  }
+  ```
+  `contain`可搭配`background-repeat: no-repeat`使用。
+  `cover`則會將高度或寬度放大到可以覆蓋畫面，有可能因此被剪裁掉部分圖片。
+  
+  - 更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) 進行測試。
+
+  - 更多測試用圖片可參考 [Unsplash](https://unsplash.com/)。
+- `background-position`: 設定背景圖片位置的初始值，例如：
+  ``` css
+  body {
+    background-image: url("./img/img_tree.png");
+    background-position: center;
+  }
+  ```
+  可以使用`top`, `bottom`, `left`, `right`來設定位置，也可以使用`center`來設定位置。
+- `background`: 可以一次設定上述的各項設定。
+  ``` css
+  body {
+    background: url("./img/img_tree.png") center no-repeat;
+  }
+  ```
+  更多測試可上 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/background) 進行。
 
 
