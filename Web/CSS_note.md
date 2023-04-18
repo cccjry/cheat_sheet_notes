@@ -263,5 +263,17 @@ ID Selector > Class Selector > Element Selector
 ## 文字樣式 text-styling
 
 - font-size: 設定值參考 [**CSS 單位**章節](#CSS-單位)
-- text-align
+- `text-align`: such as `left`, `right`, `center`, `justify`，block-element 或是 table-cell 都可以使用
+- `text-decoration`: such as `none`, `underline`, `overline`, `line-through`，inline-element 或是 table-cell 都可以使用
+- `line-height`, `letter-spacing`: 行高、行距
+- `font-family`: 設定字型，例如 `font-family: "Times New Roman", Times, serif;` 會依序使用 Times New Roman、Times、serif 這三種字型，直到找到第一個有的字型為止。更多字型可參考 [Google Font](https://fonts.google.com)。
+- `text-indent`: 文字縮排
+  ``` css
+  p {
+    text-indent: 2rem; /*自動內縮預設16px的兩倍，相當於兩個字寬*/
+  }
+  ```
+- `font-weight`: 字粗
+
+
 
