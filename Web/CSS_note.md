@@ -262,6 +262,6 @@ ID Selector > Class Selector > Element Selector
 
 ## 文字樣式 text-styling
 
-- font-size
+- font-size: 設定值參考 [**CSS 單位**章節](#CSS-單位)
 - text-align
 
