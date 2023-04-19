@@ -391,7 +391,23 @@ h1 {
 - 預設為 `content-box`：也就是 box 的大小是由 `content` 的大小決定的，而 `border` 和 `padding` 會加在 `content` 的大小上，**向外拓展**整個 box model 的大小。
 - `border-box`：也就是 box 的大小是由 `content`、`border`、`padding` 的大小決定的，而 `border` 和 `padding` **不會再向外拓展** box model 的大小。
 
+``` css
+/*eg. With border-box, content width is fixed to 100px*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p {
+  width: 100px;
+  border: 10px solid black;
+  padding: 10px;
+}
+```
+
 更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)。
+
+
 
 
 
