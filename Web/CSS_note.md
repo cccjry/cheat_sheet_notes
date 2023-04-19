@@ -486,10 +486,16 @@ div.box {
   height: 100px;
   background-color: red;
   position: relative;
+
+  /* animation: mymove 1s linear 0s infinite alternate forwards; */
+
   animation-name: mymove;
   animation-duration: 1s;
-  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-delay: 0s;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
 }
 
 @keyframes mymove {
