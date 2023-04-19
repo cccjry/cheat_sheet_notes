@@ -457,11 +457,13 @@ easing function 速度曲線可參考 [連結](https://easings.net/)。
 
 ## Transform
 
-用來決定元素在狀態改變時的變形效果，常見的 transform 設定有：
+用來決定**元素本身**在狀態改變時的變形效果，常見的 transform 設定有：
 
-- `translate(x, y, z)`: 位移
-- `scale(x, y)`: 縮放
+- `translate(x, y)`: 位移
+- `scale(x)`: 縮放
 - `rotate(angle)`: 旋轉
+
+
 
 ## 其他設定
 
