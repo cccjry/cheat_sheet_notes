@@ -420,8 +420,18 @@ p {
 - `static`: 預設值，靜待設置，元素會按照瀏覽器預設的方式排列，不會受到 `top`, `right`, `bottom`, `left`, `z-index` 的影響。只有 `static` 不是 position element，不可以設定前後位置(`z-index`)。
 - `relative`: 相對設置，元素會按照瀏覽器預設的方式排列，但可以使用 `top`, `right`, `bottom`, `left`, `z-index` 來調整位置。
 - `absolute`: 元素會根據最近的 parent element 來定位，如果沒有 parent element，則會根據 `body` 來定位，可以使用 `top`, `right`, `bottom`, `left`, `z-index` 來調整位置。
-- `fixed`: 元素會根據 `body` 來定位，可以使用 `top`, `right`, `bottom`, `left` 來調整位置。
+- `fixed`: 元素會根據 initial containing 來定位，不論瀏覽視窗如何移動，都固定在某個位置，可以使用 `top`, `right`, `bottom`, `left` 來調整位置。
 - `sticky`: 元素會根據 `body` 來定位，但當元素滑出視窗時，會變成 `fixed`，可以使用 `top`, `right`, `bottom`, `left`, `z-index` 來調整位置。
+  ``` css
+  #one {
+    position: sticky;
+    top: 10px;
+    background-color: red;
+  }
+  ```
+
+## Stacking Context
+
 
 
 
