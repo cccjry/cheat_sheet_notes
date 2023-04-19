@@ -451,7 +451,7 @@ Stacking context形成的條件：
 
 用來決定元素在狀態改變時的過渡效果，最常見的 transition 設定是：
 
-- property name | duration | easing function | delay
+- property name >> duration >> easing function >> delay
 
 easing function 速度曲線可參考 [連結](https://easings.net/)。
 
@@ -463,7 +463,46 @@ easing function 速度曲線可參考 [連結](https://easings.net/)。
 - `scale(x)`: 縮放
 - `rotate(angle)`: 旋轉
 
+## Animation
 
+用來決定**元素本身**在狀態改變時的動畫效果，常見的 animation 設定有：
+
+- `animation-name`: 指定動畫名稱
+- `animation-duration`: 指定動畫時間
+- `animation-timing-function`: 指定動畫速度曲線
+- `animation-delay`: 指定動畫延遲時間
+- `animation-iteration-count`: 指定動畫重複次數
+- `animation-direction`: 指定動畫方向
+- `animation-fill-mode`: 指定動畫結束後的狀態
+- `animation-play-state`: 指定動畫是否暫停
+
+`animation` 可以將上述設定合併成一個屬性，其設定順序是：
+
+name >> duration >> timing function >> delay >> iteration count >> direction >> fill mode >> play state
+
+``` css
+div.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: mymove;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes mymove {
+  from {
+    top: 0px;
+    background-color: red;
+  }
+  to {
+    top: 200px;
+    background-color: yellow;
+  }
+}
+```
 
 ## 其他設定
 
