@@ -313,4 +313,88 @@ ID Selector > Class Selector > Element Selector
   ```
   更多測試可上 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/background) 進行。
 
+## Box Model
+
+每個 block element 都被視為一個box，而每個box都有自己的`margin`, `border`, `padding`, `content`。
+
+![box-model](./img/box_model.png)
+
+- `content`: 元素的內容，可以用`width`和`height`來設定大小。
+
+- `padding`: 元素的內邊距，可以用`padding`來設定大小。
+
+- `border`: 元素的邊框，可以用`border`來設定大小。
+
+- `margin`: 元素的外邊距，可以用`margin`來設定大小。
+
+``` css
+/*eg*/
+h1 {
+  content: 100px;
+  padding: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  margin: 10px 20px 30px 40px;
+}
+```
+
+`padding`、`border`、`margin` 都可以再分別設定上下左右各別屬性，例如：
+
+``` css
+h1 {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+```
+
+The following values order for shorthand setting:
+
+- 1 value: apply to all sides
+- 2 values: vertical | horizontal
+- 3 values: top | horizontal | bottom
+- 4 values: top | right | bottom | left
+
+而 `border` 可以特別設定 `border-radius` 來設定圓角，例如：
+  
+``` css
+h1 {
+  border-radius: 10px;
+}
+```
+
+- `width`: 設定元素的寬度
+
+  Block element 預設的 `width` 是 100%。
+
+- `height`: 設定元素的高度
+
+在沒有任何設定的情況下，block elemnt 的寬度與 content 無關，而是與 parent element 有關；但 block element 的高度就取決於 content (`auto`)，但預設的 `body`、`html` 的預設都是 `auto`，完全沒有依據，所以會得到 undefined 的結果(算不出來)。
+
+可以將 `html`、`body` 高度設定為100%；或是特別指定 parent element 的高度，child element 的設定就可以被計算出來。這兩種方式都可以解決 `auto` 無法成功計算的問題。
+
+### Overflow
+
+另外要注意 overflow 的狀況，可以透過下列設定來解決：
+
+- `visible`：預設值，超出的部分會顯示出來，並且會超出 parent element 的範圍
+- `hidden`：多餘的內容會被隱藏
+- `scroll`：多餘的內容會被隱藏，但會出現捲軸可以捲動並顯示被隱藏的部分
+
+最後若想指定特定方向，可以使用 `overflow-x` 或 `overflow-y`。
+
+### box-sizing
+
+`box-sizing` 可以設定 box 的大小計算方式：
+
+- 預設為 `content-box`：也就是 box 的大小是由 `content` 的大小決定的，而 `border` 和 `padding` 會加在 `content` 的大小上，**向外拓展**整個 box model 的大小。
+- `border-box`：也就是 box 的大小是由 `content`、`border`、`padding` 的大小決定的，而 `border` 和 `padding` **不會再向外拓展** box model 的大小。
+
+更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)。
+
+
+
+
+
 
