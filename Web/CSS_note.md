@@ -313,6 +313,12 @@ ID Selector > Class Selector > Element Selector
   ```
   更多測試可上 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/background) 進行。
 
+## 表格樣式
+
+- `border-collapse`: 設定表格的邊框是否合併，`collapse`為合併，`separate`為不合併。
+
+通常發生在行動裝置上，若螢幕太小，則可以在表格周圍帶有 `overflow-x: auto` 的容器元素(例如`<div>`)中，讓表格可以水向滾動，且不影響表格的與其他元素的樣式 (響應式網頁)。
+
 ## Box Model
 
 每個 block element 都被視為一個box，而每個box都有自己的`margin`, `border`, `padding`, `content`。
@@ -432,9 +438,40 @@ p {
 
 ## Stacking Context
 
+是html元素的一種，用來決定元素的z方向的堆疊順序，也就是z-index的元素。
 
+Stacking context形成的條件：
+- root element of the document (`<html>`)
+- `position` is `relative` or `absolute`, and `z-index` is not `auto`
+- `position` is `fixed` or `sticky`
 
+更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)。
 
+## Transition
+
+用來決定元素在狀態改變時的過渡效果，最常見的 transition 設定是：
+
+- property name | duration | easing function | delay
+
+easing function 速度曲線可參考 [連結](https://easings.net/)。
+
+## Transform
+
+用來決定元素在狀態改變時的變形效果，常見的 transform 設定有：
+
+- `translate(x, y, z)`: 位移
+- `scale(x, y)`: 縮放
+- `rotate(angle)`: 旋轉
+
+## 其他設定
+
+### Opacity
+
+`opacity` 可以設定元素的透明度，值介於 0~1 之間，0 表示完全透明，1 表示完全不透明。
+
+### Cursor
+
+`cursor` 可以設定滑鼠游標的樣式。
 
 
 
