@@ -14,7 +14,7 @@ Inside nesting structure:
 
 這兩者可以互相嵌套，形成一個樹狀的結構。
 
-## 可放置的位置
+## CSS 可放置的位置
 
 - **Inline** only apply to current element
   ``` html
@@ -44,7 +44,7 @@ Inside nesting structure:
 Priority: *inline* > *internal* > *external*
 
 
-## CSS 重要概念
+## CSS 的重要特性與概念
 
 > Cascading Style Sheets，層疊樣式表
 
@@ -58,7 +58,7 @@ Priority: *inline* > *internal* > *external*
     - text-align
     更多可參考[連結](https://www.w3.org/TR/CSS21/propidx.html)。
 
-    User agent (or user stylesheet)優先度較高，可覆蓋繼承的屬性。而瀏覽器預設為User的代理人，因此要注意瀏覽器預設的樣式可能會影響到網頁的呈現，因此`<a>`通常需要額外設定。
+    User agent (or user stylesheet)優先度較高，可覆蓋繼承的屬性。而瀏覽器預設為User的代理人，因此要注意瀏覽器預設的樣式可能會影響到網頁的呈現，因此 `<a>` （anchor tag）通常需要額外設定。
 
 - Conflicting Styling
 
@@ -66,13 +66,13 @@ Priority: *inline* > *internal* > *external*
 
     若衝突是發生在不同的樣式表中，則會以最後載入的樣式表為主。
 
-    衝突處理原則：
+    衝突處理三原則：
 
     - Priority 優先度
-        1. inline style
-        2. user stylesheet
-        3. user agent stylesheet
-        4. inheritance
+        1. inline style（行內樣式）
+        2. user stylesheet（使用者樣式表）
+        3. user agent stylesheet（使用者代理樣式表）
+        4. inheritance（從 parent 繼承）
     - Specificity 特定度
         當一個 tag 同時有 id、class、tag 時，會依照以下順序優先度較高：
         1. id (100)
