@@ -81,7 +81,9 @@ Priority: *inline* > *internal* > *external*
     - Order 順序
         若優先度與特定度相同，則會依照樣式表的順序來決定。
 
-## 顏色設定
+## CSS 常見設定
+
+### 顏色設定
 
 - Color name
   ``` css
@@ -125,9 +127,9 @@ Priority: *inline* > *internal* > *external*
 
 For more information, please refer to [CSS Color](https://www.w3schools.com/css/css_colors.asp).
 
-## CSS Selectors
+### CSS Selectors
 
-### Selector
+#### Selector
 
 - Universal Selector
   ``` css
@@ -242,7 +244,7 @@ ID Selector > Class Selector > Element Selector
         }
         ```
 
-## CSS 單位
+### CSS 單位
 
 - absolute
     - `px`: pixel, 2.54cm(1 inch) = 96px
@@ -260,7 +262,7 @@ ID Selector > Class Selector > Element Selector
 
 預設的設定大小可以到 [這邊](https://www.w3schools.com/cssref/css_default_values.php) 查看。
 
-## 文字樣式 text-styling
+### 文字樣式 text-styling
 
 - font-size: 設定值參考 [**CSS 單位**章節](#CSS-單位)
 - `text-align`: such as `left`, `right`, `center`, `justify`，block-element 或是 table-cell 都可以使用
@@ -275,7 +277,7 @@ ID Selector > Class Selector > Element Selector
   ```
 - `font-weight`: 字粗
 
-## 背景樣式
+### 背景樣式
 
 - `background-color`: 顏色可參考 [**顏色設定**章節](#顏色設定)
 - `background-image`: 設定背景圖片
@@ -313,13 +315,13 @@ ID Selector > Class Selector > Element Selector
   ```
   更多測試可上 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/background) 進行。
 
-## 表格樣式
+### 表格樣式
 
 - `border-collapse`: 設定表格的邊框是否合併，`collapse`為合併，`separate`為不合併。
 
 通常發生在行動裝置上，若螢幕太小，則可以在表格周圍帶有 `overflow-x: auto` 的容器元素(例如`<div>`)中，讓表格可以水向滾動，且不影響表格的與其他元素的樣式 (響應式網頁)。
 
-## Box Model
+### Box Model
 
 每個 block element 都被視為一個box，而每個box都有自己的`margin`, `border`, `padding`, `content`。
 
@@ -380,7 +382,9 @@ h1 {
 
 可以將 `html`、`body` 高度設定為100%；或是特別指定 parent element 的高度，child element 的設定就可以被計算出來。這兩種方式都可以解決 `auto` 無法成功計算的問題。
 
-### Overflow
+### 關於 Box Model 有兩個狀況需要特別注意：
+
+#### Overflow
 
 另外要注意 overflow 的狀況，可以透過下列設定來解決：
 
@@ -390,7 +394,7 @@ h1 {
 
 最後若想指定特定方向，可以使用 `overflow-x` 或 `overflow-y`。
 
-### box-sizing
+#### box-sizing
 
 `box-sizing` 可以設定 box 的大小計算方式：
 
@@ -413,7 +417,7 @@ p {
 
 更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)。
 
-## Display
+### Display
 
 - outer display type: `block`, `inline`, `inline-block`
 - inline display type: `flex`, `grid`
@@ -421,7 +425,7 @@ p {
 ![display](./img/display_table.png)
 
 
-## Position
+### Position
 
 - `static`: 預設值，靜待設置，元素會按照瀏覽器預設的方式排列，不會受到 `top`, `right`, `bottom`, `left`, `z-index` 的影響。只有 `static` 不是 position element，不可以設定前後位置(`z-index`)。
 - `relative`: 相對設置，元素會按照瀏覽器預設的方式排列，但可以使用 `top`, `right`, `bottom`, `left`, `z-index` 來調整位置。
@@ -436,7 +440,7 @@ p {
   }
   ```
 
-## Stacking Context
+### Stacking Context
 
 是html元素的一種，用來決定元素的z方向的堆疊順序，也就是z-index的元素。
 
@@ -447,7 +451,7 @@ Stacking context形成的條件：
 
 更多可參考 [連結](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)。
 
-## Transition
+### Transition
 
 用來決定元素在狀態改變時的過渡效果，最常見的 transition 設定是：
 
@@ -455,7 +459,7 @@ Stacking context形成的條件：
 
 easing function 速度曲線可參考 [連結](https://easings.net/)。
 
-## Transform
+### Transform
 
 用來決定**元素本身**在狀態改變時的變形效果，常見的 transform 設定有：
 
@@ -463,7 +467,7 @@ easing function 速度曲線可參考 [連結](https://easings.net/)。
 - `scale(x)`: 縮放
 - `rotate(angle)`: 旋轉
 
-## Animation
+### Animation
 
 用來決定**元素本身**在狀態改變時的動畫效果，常見的 animation 設定有：
 
@@ -510,13 +514,13 @@ div.box {
 }
 ```
 
-## 其他設定
+### 其他設定
 
-### Opacity
+#### Opacity
 
 `opacity` 可以設定元素的透明度，值介於 0~1 之間，0 表示完全透明，1 表示完全不透明。
 
-### Cursor
+#### Cursor
 
 `cursor` 可以設定滑鼠游標的樣式。
 
