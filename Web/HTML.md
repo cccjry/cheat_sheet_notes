@@ -157,4 +157,8 @@ div.container {
 
 更多範例可以上 [Bootstrap官網](https://getbootstrap.com) 查看。
 
+## User Snippet
 
+文字編輯器，可以自訂快捷鍵，例如：`html:5`，按下 `tab` 鍵，就會自動產生 HTML5 的基本架構。
+
+可以利用 [生成器](https://snippet-generator.app/) 來產生自己的快捷鍵。
