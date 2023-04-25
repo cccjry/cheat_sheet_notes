@@ -162,3 +162,30 @@ div.container {
 文字編輯器，可以自訂快捷鍵，例如：`html:5`，按下 `tab` 鍵，就會自動產生 HTML5 的基本架構。
 
 可以利用 [生成器](https://snippet-generator.app/) 來產生自己的快捷鍵。
+
+## Image Resources
+
+### Images
+
+- [Unsplash](https://unsplash.com/) (免費)
+- [Pexels](https://www.pexels.com/) (免費)
+- [iStock](https://www.istockphoto.com/) (付費)
+
+### Icons
+
+- [Icons8](https://icons8.com/) (免費/付費)
+- [Font Awesome](https://fontawesome.com/) (免費/付費)
+  - [cndjs CSS](https://cdnjs.com/libraries/font-awesome)
+    ``` html
+    <!--eg-->
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+      <i class="fas fa-camera-retro"></i>
+    </body>
+    ```
+- [unDraw](https://undraw.co/illustrations) (免費, SVG/PNG)
+    
+
+
