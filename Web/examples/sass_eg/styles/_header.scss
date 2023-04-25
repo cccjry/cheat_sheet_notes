@@ -1,0 +1,16 @@
+header {
+    nav {
+        li {
+            list-style-type: none;
+
+            a {
+                color: $themeColor;
+                text-decoration: none;
+
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header nav li {
+  list-style-type: none;
+}
+header nav li a {
+  color: green;
+  text-decoration: none;
+}
+header nav li a:hover {
+  color: red;
+}
+
+h1 {
+  background-color: green;
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go! | Japan</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['棋賽', '獎金'],
+                ['棋聖', 4500],
+                ['十段', 700],
+                ['本因坊', 2800],
+                ['碁聖', 800],
+                ['名人', 3000],
+                ['王座', 1400],
+                ['天元', 1300]
+            ]);
+            var options = {
+                title: '頭銜獎金比例(萬日元)'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <h1>日本棋院</h1>
+            <h3>這是...blablabla</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">網站首頁</a></li>
+                <li><a href="./korea.html">韓國棋院</a></li>
+                <li><a class="active" href="#">日本棋院</a></li>
+                <li><a href="./china.html">中國棋院</a></li>
+                <li><a href="./taiwan.html">海峰棋院</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="japan">
+                <img src="./images/Nihon_Ki-in_Headquarter_(2016-05-05)_5.jpg" alt="日本棋院">
+                <div class="info">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, accusantium!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam labore tempore exercitationem dicta possimus quasi.</p>
+                    <p>旗下組織有：</p>
+                    <ul>
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="competition">
+                <div class="text">
+                    <h3>日本棋院頭銜賽</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae qui architecto harum minus inventore quis iusto molestiae necessitatibus, eaque vero!</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, hic!</p>
+                    <p>頭銜賽的獎金如下：</p>
+                    <ul>
+                        <li>棋聖：4500萬</li>
+                        <li>十段：700萬</li>
+                        <li>本因坊：2800萬</li>
+                        <li>碁聖：800萬</li>
+                        <li>名人：3000萬</li>
+                        <li>王座：1400萬</li>
+                        <li>天元：1300萬</li>
+                    </ul>
+                </div>
+                <div id="piechart"></div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"
+        integrity="sha512-P+NGabN/TJDOnCVOFJO+E06TBm4i+M8dTT91lWg/8UpwLrzicEXIypmABPpA47D0x6r+yxFHjYIZKWhc1h7xlQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
