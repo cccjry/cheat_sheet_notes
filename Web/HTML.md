@@ -209,3 +209,15 @@ div.container {
 </body>
 ```
 
+## Local Fonts
+
+``` css
+@font-face {
+  font-family: "your-font-name";
+  src: url("your-font-path");
+}
+
+* {
+  font-family: "your-font-name";
+}
+```
