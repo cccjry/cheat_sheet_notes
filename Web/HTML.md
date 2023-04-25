@@ -187,5 +187,25 @@ div.container {
     ```
 - [unDraw](https://undraw.co/illustrations) (免費, SVG/PNG)
     
+## Bookmarks
 
+``` html
+<!--eg-->
+<head>
+  <style>
+    html {
+      /* the action style after click the index */
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#your-id">Go to your id</a>
+
+  <!-- some other contents -->
+
+  <div id="your-id"></div>
+</body>
+```
 
