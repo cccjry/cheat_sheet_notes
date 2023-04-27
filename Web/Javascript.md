@@ -120,4 +120,16 @@ console.log(x); // 6
 ![js_variable](./img/js_variable.png)
 JavaScript 引擎中有 garbage collector，會自動回收不再使用的變數，所以不用擔心變數會佔用記憶體。
 
+## 5.Data Types and Values
+
+JavaScript 的幾種變數類型：
+- Number
+- BigInt
+- String
+- Boolean
+- null
+- undefined
+- Symbol
+
+
 
