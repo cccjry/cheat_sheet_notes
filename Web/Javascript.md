@@ -1,6 +1,6 @@
 # Javascript
 
-## Basics
+## 1.Basics
 
 JavaScript是一種**腳本**，擁有自己的規範，稱為 ECMAScript(European Computer Manufacturers Association)；原本叫做 LiveScript，跟 Java 完全沒有關係。
 
@@ -8,7 +8,7 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
 
 每個瀏覽器有自己的 JavaScript 引擎，例如 Chrome 的 V8、Firefox 的 SpiderMonkey、Safari 的 JavaScriptCore、Edge 的 Chakra 等等。若要確認瀏覽器的JavaScript引擎是否支援某種功能，可以參考 [Can I use](https://caniuse.com/)。
 
-## 基本語法
+## 2.基本語法
 
 ### `<script>`通常放在哪？
 
@@ -30,7 +30,7 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
     ```javascript
     window.prompt("Please enter your name:");
     ```
-## Lexical Structure
+## 3.Lexical Structure
 
 好比自然語言有自己的語法規則，例如英文的句子要以大寫字母開頭，以句號結尾，中間要有主詞、動詞、受詞等等，JavaScript 也有自己的，稱為 Lexical Structure。幾個基本的規則如下：
 
@@ -60,6 +60,38 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
     var x = 5; var y = 6; var z = x + y;
     ```
 
+## 4.Variables and Assignment
+
+所謂 變數 就是用來儲存資料的容器，資料可以是任何型態，例如字串、數字、物件、陣列等等，變數內的值可以不斷改變。在 JavaScript 中，變數的宣告方式有三種：`let`、`const`、`var`。
+
+另外等號 `=` 是賦值運算子，用來將右邊的值賦予給左邊的變數。（JavaScript 支援 syntax sugar，可以使用 `+=`、`-=`、`*=`、`/=`、`%=` 等等，例如 `x += 5` 等同於 `x = x + 5`。）
+
+### 在 JavaScript 中創造變數
+
+三種宣告變數的方式：
+
+- `let`：在 ES6 之後，`let` 是宣告變數的標準方式，它是 block scope，也就是說，變數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。
+    ```javascript
+    let x = 5;
+    let x = 6; // 重複宣告
+    console.log(x); // 6
+    ```
+    用 `let` 宣告變數時可以不用馬上給值(initialize)，但是在使用前必須要給值。還沒給值的變數，會有一個特殊的值 `undefined`。
+
+- `const`：在 ES6 之後，`const` 是宣告常數的標準方式，它是 block scope，也就是說，常數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。**常數的值一旦設定，就不能再改變**。
+    ```javascript
+    const x = 5;
+    x = 6; // 不能改變
+    console.log(x); // 5
+    ```
+    用 `const` 宣告變數時必須要馬上給值(initialize)，否則會造成錯誤。
+
+- （請勿使用）`var`：在 ES6 之前，`var` 是唯一的變數宣告方式，但是它有一些問題，例如變數可以重複宣告，而且它是 function scope，也就是說，變數的作用域只有在 function 內，如果在 function 外使用，會造成錯誤。
+    ```javascript
+    var x = 5;
+    var x = 6; // 重複宣告
+    console.log(x); // 6
+    ```
 
 
 
