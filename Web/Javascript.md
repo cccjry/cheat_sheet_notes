@@ -34,31 +34,45 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
 
 好比自然語言有自己的語法規則，例如英文的句子要以大寫字母開頭，以句號結尾，中間要有主詞、動詞、受詞等等，JavaScript 也有自己的，稱為 Lexical Structure。幾個基本的規則如下：
 
-- Case Sensitive：大小寫有別，`a`跟`A`是不同的變數。
+### Case Sensitive
 
-- Whitespace：JavaScript 會忽略(minification)空白字元，例如空格、換行、縮排等等。
+大小寫有別，`a`跟`A`是不同的變數。
 
-- 註解：單行註解以`//`開頭，多行註解以`/*`開頭，`*/`結尾。
-    ```javascript
-    // This is a single-line comment.
-    /* This is a
-    multi-line comment. */
-    ```
-- 變數名稱必須以字母、底線、美元符號開頭(數字不可)，後面可以接字母、數字、底線、美元符號。
-    ```javascript
-    var _name = "John";
-    var $name = "John";
-    var name = "John";
-    ```
+### Whitespace
 
-- Reserved Words：JavaScript 有一些保留字，不能用來當作變數名稱，例如 `var`、`let`、`const`、`function`、`return`、`if`、`else`、`for`、`while`、`switch`、`case`、`break`、`continue`、`true`、`false`、`null`、`undefined` 等等。
+JavaScript 會忽略(minification)空白字元，例如空格、換行、縮排等等。
 
-- Unicode：JavaScript 支援任何 Unicode 字元，例如中文字、日文字、韓文字等等。
+### 註解
 
-- Semicolons：一行可以有多個敘述，以分號 `;` 分隔；也可以不用分號，但是不建議這樣做，因為會造成錯誤。
-    ```javascript
-    var x = 5; var y = 6; var z = x + y;
-    ```
+單行註解以`//`開頭，多行註解以`/*`開頭，`*/`結尾。
+```javascript
+// This is a single-line comment.
+/* This is a
+multi-line comment. */
+```
+### 變數名稱
+
+必須以字母、底線、美元符號開頭(數字不可)，後面可以接字母、數字、底線、美元符號。
+```javascript
+var _name = "John";
+var $name = "John";
+var name = "John";
+```
+
+### Reserved Words
+
+JavaScript 有一些保留字，不能用來當作變數名稱，例如 `var`、`let`、`const`、`function`、`return`、`if`、`else`、`for`、`while`、`switch`、`case`、`break`、`continue`、`true`、`false`、`null`、`undefined` 等等。
+
+### Unicode
+
+JavaScript 支援任何 Unicode 字元，例如中文字、日文字、韓文字等等。
+
+### Semicolons
+
+一行可以有多個敘述，以分號 `;` 分隔；也可以不用分號，但是不建議這樣做，因為會造成錯誤。
+```javascript
+var x = 5; var y = 6; var z = x + y;
+```
 
 ## 4.Variables and Assignment
 
@@ -70,30 +84,36 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
 
 三種宣告變數的方式：
 
-- `let`：在 ES6 之後，`let` 是宣告變數的標準方式，它是 block scope，也就是說，變數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。
-    ```javascript
-    let x = 5;
-    x = 6; // 可以改變
-    console.log(x); // 6
-    ```
-    用 `let` 宣告變數時可以不用馬上給值(initialize)，但是在使用前必須要給值。還沒給值的變數，會有一個特殊的值 `undefined`。
+#### `let`
 
-- `const`：在 ES6 之後，`const` 是宣告常數的標準方式，它是 block scope，也就是說，常數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。**常數的值一旦設定，就不能再改變**。
-    ```javascript
-    const x = 5;
-    x = 6; // 不能改變
-    console.log(x); // 5
-    ```
-    用 `const` 宣告變數時必須要馬上給值(initialize)，否則會造成錯誤。
+在 ES6 之後，`let` 是宣告變數的標準方式，它是 block scope，也就是說，變數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。
+```javascript
+let x = 5;
+x = 6; // 可以改變
+console.log(x); // 6
+```
+用 `let` 宣告變數時可以不用馬上給值(initialize)，但是在使用前必須要給值。還沒給值的變數，會有一個特殊的值 `undefined`。
 
-- （請勿使用）`var`：在 ES6 之前，`var` 是唯一的變數宣告方式，但是它有一些問題，例如變數可以重複宣告，而且它是 function scope，也就是說，變數的作用域只有在 function 內，如果在 function 外使用，會造成錯誤。
-    ```javascript
-    var x = 5;
-    var x = 6; // 重複宣告
-    console.log(x); // 6
-    ```
+#### `const`
 
-特別注意：
+在 ES6 之後，`const` 是宣告常數的標準方式，它是 block scope，也就是說，常數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。**常數的值一旦設定，就不能再改變**。
+```javascript
+const x = 5;
+x = 6; // 不能改變
+console.log(x); // 5
+```
+用 `const` 宣告變數時必須要馬上給值(initialize)，否則會造成錯誤。
+
+#### （請勿使用）`var`
+
+在 ES6 之前，`var` 是唯一的變數宣告方式，但是它有一些問題，例如變數可以重複宣告，而且它是 function scope，也就是說，變數的作用域只有在 function 內，如果在 function 外使用，會造成錯誤。
+```javascript
+var x = 5;
+var x = 6; // 重複宣告
+console.log(x); // 6
+```
+
+### 特別注意
 
 - `const`，`let` 宣告過的變數不可以重複宣告。
 - `const`不能重複賦值。
