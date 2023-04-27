@@ -44,6 +44,22 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
     /* This is a
     multi-line comment. */
     ```
+- 變數名稱必須以字母、底線、美元符號開頭(數字不可)，後面可以接字母、數字、底線、美元符號。
+    ```javascript
+    var _name = "John";
+    var $name = "John";
+    var name = "John";
+    ```
+
+- Reserved Words：JavaScript 有一些保留字，不能用來當作變數名稱，例如 `var`、`let`、`const`、`function`、`return`、`if`、`else`、`for`、`while`、`switch`、`case`、`break`、`continue`、`true`、`false`、`null`、`undefined` 等等。
+
+- Unicode：JavaScript 支援任何 Unicode 字元，例如中文字、日文字、韓文字等等。
+
+- Semicolons：一行可以有多個敘述，以分號 `;` 分隔；也可以不用分號，但是不建議這樣做，因為會造成錯誤。
+    ```javascript
+    var x = 5; var y = 6; var z = x + y;
+    ```
+
 
 
 
