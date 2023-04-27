@@ -73,7 +73,7 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
 - `let`：在 ES6 之後，`let` 是宣告變數的標準方式，它是 block scope，也就是說，變數的作用域只有在 block 內，如果在 block 外使用，會造成錯誤。
     ```javascript
     let x = 5;
-    let x = 6; // 重複宣告
+    x = 6; // 可以改變
     console.log(x); // 6
     ```
     用 `let` 宣告變數時可以不用馬上給值(initialize)，但是在使用前必須要給值。還沒給值的變數，會有一個特殊的值 `undefined`。
@@ -93,5 +93,11 @@ Vanilla JavaScript 是指沒有使用任何額外的 library或框架的 JavaScr
     console.log(x); // 6
     ```
 
+特別注意：
+
+- `const`，`let` 宣告過的變數不可以重複宣告。
+- `const`不能重複賦值。
+![js_variable](./img/js_variable.png)
+JavaScript 引擎中有 garbage collector，會自動回收不再使用的變數，所以不用擔心變數會佔用記憶體。
 
 
