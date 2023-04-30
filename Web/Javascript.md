@@ -245,34 +245,127 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
 
 用來代表某個故意不存在的值，意即在宣告變數後，刻意（暫時）不賦值，而使用 `null`。
 
-### Operators
+## 6.Operators
 
 常見的運算符號有：
 
-- assignment operator：`=`
-- comparison operator：比較且輸出 boolean
-    1. `==` operands are equal
-    2. `!=` operands are not equal
-    3. `===` operands are equal and the same data type
-    4. `!==` operands are not equal or not the same data type
-    5. `>`, `>=`
-    6. `<`, `<=`
-    ```javascript
-    console.log(3 == "3"); //true
-    console.log(3 === "3"); //false
-    console.log(3 !== "3"); //true
-    ```
+### Assignment operator：`=`
+
+### Comparison operator：比較且輸出 boolean
+1. `==` operands are equal
+2. `!=` operands are not equal
+3. `===` operands are equal and the same data type
+4. `!==` operands are not equal or not the same data type
+5. `>`, `>=`
+6. `<`, `<=`
+```javascript
+console.log(3 == "3"); //true
+console.log(3 === "3"); //false
+console.log(3 !== "3"); //true
+```
+### Logical operator
+> 若 $p$ 則 $q$；若非 $q$ 則非 $p$。
+
+- `&&` and
+- `||` or
+
+Logical Table:
+![logical](./img/logical.png)
+### Typeof operator (unary)
+### Negation operator (unary)：`!`
+### increment operator (unary)：`x++`、`x--`
+### Bitwise operator：
+
+#### 進制
+
+在 Decimal 系統中可用數字集合為 `{1,2,3,4,5,6,7,8,9,0}`；Binary 系統為 `{0,1}`。進制對照表：
+
+![bitwise](./img/bitwise.png)
+
+進制之間的轉換，以二進制轉換十進制為例：
+
+$decimal = d_0 \times 2^0 + d_1 \times 2^1 + ... + d_k \times 2^k,$
+where the $n_{\text{th}}$ bit is $d_{n-1}$.
+
+#### bitwise operators:
+
+```javascript
+let a = 10; //1010
+let b = 9; //1001
+console.log(a & b); //1000 -> 8
+console.log(a | b); //1011 -> 11
+console.log(a ^ b); //0011 -> 3
+console.log(~a); //0101
+console.log(a << b); //1010000000000 -> 5120
+console.log(a >> b); //0 -> 0
+```
+
+- `a & b`：相對應位置都是`1`返回`1`
+- `a | b`：相對應位置都是`0`返回`0`
+- `a ^ b`(XOR, exclusive or)：相對應位置相同 return `0`
+- `~a`：反轉每個位置裡的bits
+- `a << b`：`a` 的bits往左移動 `b`個位置，被移出的bits直接捨棄
+- `a >> b`：`a` 的bits往右移動 `b`個位置，被移出的bits直接捨棄
+
+##### When to use?
+
+- 編碼運算
+- 資料傳出時、sockets programming, ports
+- 資料加密、SHA函數
+- 作業系統、CPU
+- Finite State Machine
+- Graphics：影像處理、人工智慧
+
+### Arithmetic oeprator：`+`、`-`、`*`、`/`、`++`、`--`、`+=`、`-=`、`*=`、`/=`、`**`、`%`
+
+## 7.If statement
+
+``` javascript
+if (true) console.log("This is true");
+//This is true
+
+if (false) {
+    console.log("This is true");
+} else {
+    console.log("This is false");
+}
+//This is false
+
+let age = 20;
+if (age < 18) {
+    console.log("You are too young");
+} else if (age < 30) {
+    console.log("You are young");
+} else {
+    console.log("You are old");
+}
+//You are young
+```
+
+若有**絕對**不會被執行的 statement，VScode 會以淡化作為提示(Unreachable code detected.)
+![unreachable](./img/unreachable.png)
+
+```javascript
+// easy example
+let your_age = window.prompt("Please enter your age:");
+age = Number(age)
+if (your_age >= 0 && your_age < 12) {
+    alert("Ticket price is $100.")
+} else if (your_age >= 12 && your_age < 65) {
+    alert("Ticket price is $250.")
+} else if (your_age >= 65 && your_age < 120) {
+    alert("Ticket price is $150.")
+} else {
+    alert("Invalid age.")
+}
+```
+
+### Truthy and Falsy Values
+
+每個值在 boolean context 之下都可以被視為是 `true` 或是 `false`。在 boolean context 之下，JavaScript 會自動幫每個值做 type coercion。
+
+常見的 boolean context 有兩種：
+
+- `if` statement
 - logical operator
-    > 若 $p$ 則 $q$；若非 $q$ 則非 $p$。
-
-    - `&&` and
-    - `||` or
-
-    Logical Table:
-    ![logical](./img/logical.png)
-- typeof operator (unary)
-- negation operator (unary)：`!`
-- increment operator (unary)：`x++`、`x--`
-- bitwise operator：
-- arithmetic oeprator：`+`、`-`、`*`、`/`、`++`、`--`、`+=`、`-=`、`*=`、`/=`、`**`、`%`
 
