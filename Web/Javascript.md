@@ -424,5 +424,11 @@ if ("") {
 //statement empty
 ```
 
+## 8.Coding Conventions and Resitrictions
 
+1. 變數與函數的名稱全部**小寫**，若名稱由兩個以上單字組成，使用 camelCase 或是 underline `MyFunction` or `my_function`
+2. Operators 周圍加上空白鍵 `a && b`
+3. 用分號結束 statement `console.log("This is a statement.");`
+4. Constants 使用全部大寫字 `const MYCONSTANT = 100;`
+5. Class 一律大寫開頭 `MyClass`
 
