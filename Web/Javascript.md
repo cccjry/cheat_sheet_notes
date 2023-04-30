@@ -160,7 +160,7 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
 
 ### Methods
 
-#### `Number` Methods
+### `Number` Methods
 
 - `toString()`：將數字轉成文字
     ```javascript
@@ -176,8 +176,6 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
 ### `String`'s Attributes & Methods
 
 更多可以參考 [連結](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String)。
-
-#### Attributes
 
 - `length`
     ```javascript
@@ -207,7 +205,7 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
     console.log("abcd".toUpperCase()); //ABCD
     console.log("ABCD".toLowerCase()); //abcd
     ```
-- `split(pattern[, ])`
+- `split(pattern)`：回傳分割結果，以 `array`
     ```javascript
     console.log(str.split("B")); //[ 'A', 'CDE' ]
     console.log("ABCDECABCDA".split("C", 3)); //[ 'AB', 'DE', 'AB' ], take 3 elements from result
@@ -226,9 +224,25 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
     ```javascript
     console.log(str.charAt(2)); //C
     ```
-- `charCodeAt(n)`：給 index 回傳該索引位置的 UTF-16 結果，返回一個 $0~65535$ 之間的整數
+- `charCodeAt(n)`：給 index 回傳該索引位置的 UTF-16 **十進制** 結果，返回一個 $0~65535$ 之間的整數
     ```javascript
     console.log(str.charCodeAt(4)); //69
     ```
+
+### `Boolean`
+
+> `true` and `false`
+
+(Unary operator) `!` 可以反轉 boolean 值。
+
+### `Undefined`、`Null`
+
+#### `undefined`
+
+已經宣告變數，卻沒有賦予 initializer，就會出現 `undefined`。而 `undefined`同時也是 functions 的預設 return value。
+
+#### `null`
+
+用來代表某個故意不存在的值，意即在宣告變數後，刻意（暫時）不賦值，而使用 `null`。
 
 
