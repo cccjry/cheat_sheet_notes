@@ -255,7 +255,21 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
     2. `!=` operands are not equal
     3. `===` operands are equal and the same data type
     4. `!==` operands are not equal or not the same data type
-- logical operator：
+    5. `>`, `>=`
+    6. `<`, `<=`
+    ```javascript
+    console.log(3 == "3"); //true
+    console.log(3 === "3"); //false
+    console.log(3 !== "3"); //true
+    ```
+- logical operator
+    > 若 $p$ 則 $q$；若非 $q$ 則非 $p$。
+
+    - `&&` and
+    - `||` or
+
+    Logical Table:
+    ![logical](./img/logical.png)
 - typeof operator (unary)
 - negation operator (unary)：`!`
 - increment operator (unary)：`x++`、`x--`
