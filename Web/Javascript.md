@@ -160,8 +160,75 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
 
 ### Methods
 
-#### Number Methods
+#### `Number` Methods
 
 - `toString()`：將數字轉成文字
-- `toFixed(n)`：將數字四捨五入到n位數
+    ```javascript
+    console.log(typeof n1.toString()); //string
+    ```
+- `toFixed(n)`：將數字四捨五入到n位數的**文字**
+    ```javascript
+    const n1 = 3.1415926;
+    console.log(n1.toFixed(2)); //3.14
+    ```
+    二進制不能精確表示所有小數（floating point），會導致意外的情況如 $0.1 + 0.2 === 0.3$ 會得到 `false`
+
+### `String`'s Attributes & Methods
+
+更多可以參考 [連結](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String)。
+
+#### Attributes
+
+- `length`
+    ```javascript
+    let str = "ABCDE"
+    console.log(str.length); //5
+    ```
+- `[n]`：從 0 開始的索引值
+    ```javascript
+    console.log(str[2]); //C
+    console.log(str[10]); //undefined
+    console.log(str[-1]); //undefined
+    console.log(str[4]); //E
+    console.log(str[str.length - 1]); //E, more practical usage
+    ```
+- `slice(indexStart[, indexEnd])`：substring，`indexStart` is inclusive(包含), `indexEnd` is exclusive(不包含).
+    ```javascript
+    console.log(str.slice(3)); //DE
+    console.log(str.slice(1, 3)); //BC
+    ```
+- `indexOf(substring)`
+    ```javascript
+    console.log(str.indexOf("BCD")); //1, return matched index
+    console.log(str.indexOf("BD")); //-1, if no match
+    ```
+- `toUpperCase()`、`toLowerCase()`
+    ```javascript
+    console.log("abcd".toUpperCase()); //ABCD
+    console.log("ABCD".toLowerCase()); //abcd
+    ```
+- `split(pattern[, ])`
+    ```javascript
+    console.log(str.split("B")); //[ 'A', 'CDE' ]
+    console.log("ABCDECABCDA".split("C", 3)); //[ 'AB', 'DE', 'AB' ], take 3 elements from result
+    ```
+- `startsWith(s)`、`endsWith(s)`
+    ```javascript
+    console.log(str.startsWith("AB")); //true
+    console.log(str.endsWith("CD")); //false
+    ```
+- `includes(str)`
+    ```javascript
+    console.log(str.includes("AB")); //true
+    console.log(str.endsWith("CB")); //false
+    ```
+- `charAt(n)`：給 index 回傳該索引位置的結果
+    ```javascript
+    console.log(str.charAt(2)); //C
+    ```
+- `charCodeAt(n)`：給 index 回傳該索引位置的 UTF-16 結果，返回一個 $0~65535$ 之間的整數
+    ```javascript
+    console.log(str.charCodeAt(4)); //69
+    ```
+
 
