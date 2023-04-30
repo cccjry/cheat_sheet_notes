@@ -122,14 +122,46 @@ JavaScript 引擎中有 garbage collector，會自動回收不再使用的變數
 
 ## 5.Data Types and Values
 
-JavaScript 的幾種變數類型：
-- Number
+### Types and Values
+
+JavaScript 的幾種變數類型（7種 primitive data type）：
+- Number: $2^{-253}$ ~ $2^{253}$，支援 加減乘除 基本運算，remainder operator（e.g. $x$ mod $y$），以及 $++$、$--$、$+=$、$-=$、$*=$、$/=$ 等等。
+    ``` javascript
+    console.log(100 / 50); //2, 加減乘除
+    console.log(100 % 50); //0, 餘數
+    console.log(10 ** 2); //100, 次方
+
+    /* x=x+1, x++, x+=1 */
+    ```
 - BigInt
-- String
+- String：單引號、雙引號都可以通
+    ```javascript
+    let name = 'my name'; //單、雙引號都可以
+    let sentence = "he's a person"; //混用時要注意，通常混用會在最外層使用雙引號,裏面則使用單引號
+    console.log(name + sentence); //my namehe's a person, 文字可以使用 + 來進行串接(concatenation)，串接之間沒有空格；但文字不支援 -, *, /
+    console.log(name + "\n" + sentence); //支援 \n 換行
+    ```
+    特殊狀況：
+    ```javascript
+    let n1 = 20;
+    let n2 = 30;
+    let name = "A";
+    let n3 = 10;
+    let n4 = 15;
+
+    console.log(n1 + n2 + name); //50A, 由左向右運算
+    console.log(n1 + n2 + name + n3 + n4); //50A1015
+    ```
 - Boolean
 - null
 - undefined
 - Symbol
+- *object：non-primitive data type，可能是 array、object、function
 
+### Methods
 
+#### Number Methods
+
+- `toString()`：將數字轉成文字
+- `toFixed(n)`：將數字四捨五入到n位數
 
