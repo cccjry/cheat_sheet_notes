@@ -369,3 +369,33 @@ if (your_age >= 0 && your_age < 12) {
 - `if` statement
 - logical operator
 
+#### Truthly
+
+```javascript
+//boolean context example (truthy)
+if ("statement here") { //直接被視為是 true
+    console.log("statement here");
+}
+```
+
+#### Falsy
+
+- `false`
+- `0`, `-0`, 0n(BitInt)
+- `""`, `''`, ` `` ` 等所有 empty string
+- null
+- undefined
+- NaN
+除此之外都是 truthy values（也包括 `[]` empty array、`{}` empty object）。
+
+```javascript
+if ("") {
+    console.log("statement here");
+} else {
+    console.log("statement empty");
+}
+//statement empty
+```
+
+
+
