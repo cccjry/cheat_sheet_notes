@@ -271,6 +271,33 @@ console.log(3 !== "3"); //true
 
 Logical Table:
 ![logical](./img/logical.png)
+
+#### More about logical operator
+
+##### `&&`
+
+- 如果 `&&` 左側是 `true`，則結果同右側運算
+- 如果 `&&` 左側是 `false`，則結果同左側運算
+```javascript
+console.log(3 && 10); //10
+console.log(100 && 0); //0
+console.log(0 && 100); //0
+```
+
+##### `||`
+
+- 如果 `&&` 左側可以是 `true`，則結果同左側運算；其他則同右側運算
+``` javascript
+console.log(6 || 100); //6
+console.log(NaN || 100); //100
+```
+
+應用：使用在取得資訊時
+```javascript
+let data = "my data"
+console.log(data || "default data"); //my data
+```
+
 ### Typeof operator (unary)
 ### Negation operator (unary)：`!`
 ### increment operator (unary)：`x++`、`x--`
