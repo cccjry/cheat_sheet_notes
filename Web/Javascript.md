@@ -125,7 +125,7 @@ JavaScript 引擎中有 garbage collector，會自動回收不再使用的變數
 ### Types and Values
 
 JavaScript 的幾種變數類型（7種 primitive data type）：
-- Number: $2^{-253}$ ~ $2^{253}$，支援 加減乘除 基本運算，remainder operator（e.g. $x$ mod $y$），以及 $++$、$--$、$+=$、$-=$、$*=$、$/=$ 等等。
+- Number: $2^{-253}$ ~ $2^{253}$，支援 加減乘除 基本運算，remainder operator（e.g. $x$ mod $y$），以及 `++`、`--`、`+=`、`-=`、`*=`、`/=` 等等。
     ``` javascript
     console.log(100 / 50); //2, 加減乘除
     console.log(100 % 50); //0, 餘數
@@ -171,7 +171,7 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
     const n1 = 3.1415926;
     console.log(n1.toFixed(2)); //3.14
     ```
-    二進制不能精確表示所有小數（floating point），會導致意外的情況如 $0.1 + 0.2 === 0.3$ 會得到 `false`
+    二進制不能精確表示所有小數（floating point），會導致意外的情況如 `0.1 + 0.2 === 0.3` 會得到 `false`
 
 ### `String`'s Attributes & Methods
 
@@ -224,7 +224,7 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
     ```javascript
     console.log(str.charAt(2)); //C
     ```
-- `charCodeAt(n)`：給 index 回傳該索引位置的 UTF-16 **十進制** 結果，返回一個 $0~65535$ 之間的整數
+- `charCodeAt(n)`：給 index 回傳該索引位置的 UTF-16 **十進制** 結果，返回一個 `0~65535` 之間的整數
     ```javascript
     console.log(str.charCodeAt(4)); //69
     ```
@@ -245,4 +245,20 @@ JavaScript 的幾種變數類型（7種 primitive data type）：
 
 用來代表某個故意不存在的值，意即在宣告變數後，刻意（暫時）不賦值，而使用 `null`。
 
+### Operators
+
+常見的運算符號有：
+
+- assignment operator：`=`
+- comparison operator：比較且輸出 boolean
+    1. `==` operands are equal
+    2. `!=` operands are not equal
+    3. `===` operands are equal and the same data type
+    4. `!==` operands are not equal or not the same data type
+- logical operator：
+- typeof operator (unary)
+- negation operator (unary)：`!`
+- increment operator (unary)：`x++`、`x--`
+- bitwise operator：
+- arithmetic oeprator：`+`、`-`、`*`、`/`、`++`、`--`、`+=`、`-=`、`*=`、`/=`、`**`、`%`
 
