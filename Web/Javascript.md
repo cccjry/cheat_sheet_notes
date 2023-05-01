@@ -424,7 +424,26 @@ if ("") {
 //statement empty
 ```
 
-## 8.Coding Conventions and Resitrictions
+## 8.Functions
+
+認識數學函數：[Desmos Graphic Calculator](https://www.desmos.com/calculator)
+
+> 重要想法：函數 **1 對多** 就不是一個函數
+
+JavaScript 的 function 語法：
+```javascript
+function name([param[, param[, ... param]]]) {
+    statement
+}
+```
+
+若沒有 `return`，函數將返回 `undefined`（JavaScript 預設的返回值）。每個函數都是一個 object，代表每個 function 都有 instance properties 和 instance methods。在 `return` 之後的程式碼都不會被執行。
+
+
+
+# Appendix
+
+## A.Coding Conventions and Resitrictions
 
 
 ### Conventions
