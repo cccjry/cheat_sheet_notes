@@ -439,7 +439,23 @@ function name([param[, param[, ... param]]]) {
 
 若沒有 `return`，函數將返回 `undefined`（JavaScript 預設的返回值）。每個函數都是一個 object，代表每個 function 都有 instance properties 和 instance methods。在 `return` 之後的程式碼都不會被執行。
 
+## 9.Array 陣列
 
+要將用途或性質相近的 object 儲存在一起時，就可以使用 array。
+
+Array 的語法： `[]`
+
+Array 的幾個特性：
+- 大小可調，且內含元素可以是不同資料類型
+- 只能透過 **非負整數** 的索引值獲取元素；索引值從 0 開始
+- 複製會連同 reference 一起複製
+
+### 延伸閱讀：primitive data type v.s. reference data type
+
+- primitive data: copy by value, 在電腦中，會將值複製一份存放在記憶體的另一個位址
+- reference data: copy by reference, 在電腦中，僅會複製記憶體位址，因此都會指向同一個記憶體位址
+
+會這樣設計的原因之一是節省記憶體，通常primitive類型的都相對較小，佔用的空間較少；另一個原因是會了符合 OOP（物件導向）的設計特性。
 
 # Appendix
 
