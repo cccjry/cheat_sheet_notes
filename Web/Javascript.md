@@ -450,12 +450,53 @@ Array 的幾個特性：
 - 只能透過 **非負整數** 的索引值獲取元素；索引值從 0 開始
 - 複製會連同 reference 一起複製
 
+### Methods and Properties
+
+#### Instance property
+- `length`：陣列長度
+
+#### Methods
+- `push(element)`：將元素加到陣列的尾端
+- `pop()`：將陣列最尾端的元素刪除，並且返回該元素
+- `shift()`：將陣列最頭端的元素刪除，並且返回刪除的元素
+- `unshift(element)`：將一個或是多個元素夾到陣列的開頭
+
+```javascript
+let arr1 = [1, 2, 3];
+let arr2 = [1, 2, 3];
+
+console.log(arr1.push(4)); //4
+console.log(arr1); //[1, 2, 3, 4]
+
+console.log(arr1.pop()); //4
+console.log(arr1); //[1, 2, 3]
+console.log(arr1.shift()); //1
+console.log(arr1); //[2, 3]
+
+arr1.unshift(5);
+console.log(arr1); //[5, 2, 3]
+```
+
+### 時間複雜度
+
+
+
 ### 延伸閱讀：primitive data type v.s. reference data type
 
 - primitive data: copy by value, 在電腦中，會將值複製一份存放在記憶體的另一個位址
 - reference data: copy by reference, 在電腦中，僅會複製記憶體位址，因此都會指向同一個記憶體位址
 
 會這樣設計的原因之一是節省記憶體，通常primitive類型的都相對較小，佔用的空間較少；另一個原因是會了符合 OOP（物件導向）的設計特性。
+
+```javascript
+//reference data type
+let arr1 = [1, 2, 3];
+let arr2 = [1, 2, 3];
+console.log(arr1 == arr2); //false, 因為記憶體位址是不一樣的
+
+let arr3 = arr1;
+console.log(arr1 == arr3); //true, 因為記憶體位址是同一個
+```
 
 # Appendix
 
