@@ -572,6 +572,49 @@ do {
 - `condition`：每次循環迭代之前要評估的表達式。若此表達式為真則執行 statement；反之則跳出這個迴圈
 - `final expression`：每次迭代結束時要執行的動作
 
+### Nested loop
+
+> 巢狀結構，迴圈裡的迴圈
+
+```javascript
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        console.log("i:" + i + ", j:" + j);
+    }
+};
+```
+
+### `break`、`continue`
+
+- `break`：會終止包含 `break` 的迴圈
+- `continue`：會終止當前的 statement，開始進行迴圈裡的下一次迭代
+
+    ```javascript
+    /* break */
+    let counter = 0;
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            if (i == j) {
+                break;
+            }
+            counter++;
+        }
+    };
+    console.log(counter); //1
+
+    /* continue */
+    let counter = 0;
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            if (i == j) {
+                continue;
+            }
+            counter++;
+        }
+    };
+    console.log(counter); //2
+    ```
+
 # Appendix
 
 ## A.Coding Conventions and Resitrictions
