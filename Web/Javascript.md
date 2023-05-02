@@ -498,6 +498,80 @@ let arr3 = arr1;
 console.log(arr1 == arr3); //true, 因為記憶體位址是同一個
 ```
 
+## 10.Object 物件
+
+> Hashtable
+
+每個 JavaScript 的物件都有 properties 和 屬於物件的 function 稱之為 methods。在物件當中要調用自己的屬性時，使用 `this` 來調用自己擁有的屬性。
+```javascript
+let person = {
+    first_name: "XXXX",
+    last_name: "YYYY",
+    age: 20,
+    is_married: false,
+    spouse: null,
+
+    sayHi() {
+        console.log("Hello, " + this.first_name);
+    },
+
+    speak(words) {
+        console.log(this.first_name + " says: " + words);
+    }
+};
+```
+
+## 11.Loop 迴圈
+
+常見的迴圈有：
+- `for` loop：明確知道要迴圈幾次可使用
+- `while` loop：無法明確知道次數時可使用；但必須要 **設定計數器** ，避免電腦無止盡的執行
+- `do`-`while` loop
+
+> `return` 可以讓迴圈停止
+
+### Loop Structure
+```javascript
+for (initialization; condition; final expression) {
+    statement
+};
+
+while (condition) {
+    statement
+};
+
+do {
+    statement
+} while (condition);
+```
+
+```javascript
+/* for-loop example */
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+};
+// i 從 0 開始，在 i 小於 10 前，每次迴圈內的 statement 結束後，執行 final expression i++
+
+/* while-loop example */
+let i = 0;
+while (i < 3) {
+    console.log("while:" + i);
+    i++;
+};
+// 在 condition 為真的情況下，持續執行 statement，直到 condition 不為真則跳出迴圈
+
+/* do-while example */
+i = 0;
+do {
+    console.log("do while:" + i);
+    i++;
+} while (i < 3);
+// 先執行 statement，才檢查 condition
+```
+- `initialization`：循環開始之前的計數器變量說明
+- `condition`：每次循環迭代之前要評估的表達式。若此表達式為真則執行 statement；反之則跳出這個迴圈
+- `final expression`：每次迭代結束時要執行的動作
+
 # Appendix
 
 ## A.Coding Conventions and Resitrictions
