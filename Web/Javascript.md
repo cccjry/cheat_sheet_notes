@@ -477,9 +477,9 @@ arr1.unshift(5);
 console.log(arr1); //[5, 2, 3]
 ```
 
-### 時間複雜度
+### 時間複雜度 time complexity
 
-
+用 big $O$ 來表示 （$O$），跟參數數量 $n$ 視為一個時間複雜度函數，例如 $O(n^k)$。通常會估計演算法的操作單元數量，並且假設每個單元的執行時間相同。
 
 ### 延伸閱讀：primitive data type v.s. reference data type
 
