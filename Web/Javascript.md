@@ -521,6 +521,20 @@ let person = {
 };
 ```
 
+### Math Object
+
+Math 是內建的物件，常用的 static properties：
+- `Math.PI`
+- `Math.E`
+
+常用的 static methods：
+- `Math.pow(x, y)`：$x^y$
+- `Math.random()`：$[0, 1)$
+- `Math.sqrt(x)`：$\sqrt{x}$
+- `Math.abs(x)`：$|x|$
+- `Math.floor()`：$\lfloor x \rfloor$
+- `Math.ceil()`：$\lceil x \rceil$
+
 ## 11.Loop 迴圈
 
 常見的迴圈有：
@@ -614,6 +628,15 @@ for (let i = 0; i < 3; i++) {
     };
     console.log(counter); //2
     ```
+
+### Loop with Array
+
+```javascript
+let arr1 = [1, 2, 3];
+for (let i = 0; i < arr1.length; i++) {
+    console.log((i + 1) +  " th position of array: " + arr1[i]);
+};
+```
 
 # Appendix
 
