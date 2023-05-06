@@ -611,7 +611,14 @@ DOM 當中的每個點被稱為節點，分成三種：
 - 註解節點 comment nodes
 當要拿到某個 tag 底下的所有元素，DOM提供兩種節點集合：`HTMLCollection`及`NodeList`
 
-#### 差別比較
+#### 差別比較: childNode v.s. children
+
+- childNode: element node是三種節點的其中一種，每個node都有childNode屬性，**return type 是 NodeList**，內部包含此節點在 DOM tree 底下的**第一層**之所有節點，包含 elements, text, comment
+- children: 每個element node有children屬性，**return type 是 HTMLCollection**，裡面包含此節點在 DOM tree 底下之所有 element node
+
+因此 element node 這種node可以同時使用 childNodes 和 children 屬性，但其他兩種 node只能使用 childNode。 
+
+![return_type](./img/return_type.png)
 
 ## 12.Loop 迴圈
 
