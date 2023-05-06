@@ -495,7 +495,7 @@ let hello = () => {
     param => expression
     (param1, param2) => expression
     ```
-3. 若是主體不加上 `{}`，則會 return expression 的 值
+3. 若是主體不加上 `{}`，則會自動 return expression 的 值
 4. 但若是主體有多行、多個算式，`{}` 一定要加
 5. 有加上 `{}` 則必須要有 `return` 才會返回結果
     ```javascript
@@ -507,7 +507,24 @@ let hello = () => {
         return expression
     }
     ```
-6. 沒有 `this`，也不適合用來定義 object 的 method
+6. 沒有 `this`，無法也不適合用來定義 object 的 method
+
+### `forEach()`
+
+就像 Python 裡的 `apply()`，為陣列的每個元素執行一次函數，和 arrow function 協作用法如：
+- `forEach(element => ...)`
+- `forEach(element, index => ...)`
+- `forEach(callbackFn)`
+```javascript
+let num_array = [1, 2, 3, 4, 5];
+
+num_array.forEach(element => {
+    element *= 10;
+    console.log(element);
+});
+```
+
+#### `forEach()` in `NodeList`
 
 ## 9.Array 陣列
 
