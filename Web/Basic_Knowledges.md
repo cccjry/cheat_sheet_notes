@@ -48,7 +48,7 @@ Domain Name Servers網域名稱服務，轉換IP、URL的服務。瀏覽器會�
 
 World Wide Web Consortium全球資訊網協會。是主要國際標準組織，半自治非政府組織，同時也制定了XML、CSS、DOM、SVG、HTML等標準規範，但非強制。
 
-## HTML
+## [HTML]("./Web/HTML.md")
 
 HyperText Markup Language超文本標記語言，非程式語言。搭配CSS(網頁外觀)，JavaScript(功能)。
 

@@ -535,7 +535,46 @@ Math 是內建的物件，常用的 static properties：
 - `Math.floor()`：$\lfloor x \rfloor$
 - `Math.ceil()`：$\lceil x \rceil$
 
-## 11.Loop 迴圈
+### Window Object
+
+**Window object 代表目前程式碼正在運行的視窗**。常使用的 methods 如下：
+- `window.alert()`: 彈窗訊息
+- `window.addEventListener()`: 將**事件監聽器**附加到 window object
+- `window.clearInterval()`: 將 `setInterval` 所重複執行的程式碼暫停
+- `window.prompt()`: return 用戶在提示對話筐中輸入的文字，`string`
+- `window.setInterval(handler, interval(ms))`: 設定一個重複執行的動作與其間隔時間（毫秒）
+- `window.console`: return 一個 console object，經常使用的有 `log()`、`error()`
+- `window.document`: return window 包含的文檔，也就是 HTML 文件
+- `window.localStorage`: return 一個 local storage 物件
+- `window.sessionStorage`: return 一個 session storage 物件
+
+## 11.Document Object Model, DOM
+
+文件 (HTML) 物件模型提供一個文件（樹）的結構化表示法，定義讓程式可以存取並改變文件架構、風格和內容的方法。簡單來說，**DOM允許在 JavaScript 當中操作 HTML 元素**。DOM 提供文件可以用結構化表示的方式來呈現已擁有的屬性函式的節點與物件組成。
+
+- Document 是一個 object(物件)，是 window object 的一個屬性
+- Document 是指 HTML document
+- 這個模型意味 **所有document內部的HTML元素都是object，每個HTML標籤都有其屬性與方法**
+
+**Document Object Model**，加載到瀏覽器當中的樹狀表示。
+
+![DOM tree](img/DOM_Tree.png)
+
+Inside nesting structure:
+- Parent Node (Parent element)
+- Child Node (Child element)
+這兩者可以互相嵌套，形成一個樹狀的結構。
+
+### Node 節點
+
+DOM 當中的每個點被稱為節點，分成三種：
+- HTML節點元素 element nodes
+- 文字節點 text nodes
+- 註解節點 comment nodes
+DOM提供兩種節點集合：`HTMLCollection`及`NodeList`
+
+
+## 12.Loop 迴圈
 
 常見的迴圈有：
 - `for` loop：明確知道要迴圈幾次可使用
