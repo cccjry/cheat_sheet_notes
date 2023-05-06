@@ -548,6 +548,15 @@ Math 是內建的物件，常用的 static properties：
 - `window.localStorage`: return 一個 local storage 物件
 - `window.sessionStorage`: return 一個 session storage 物件
 
+### Window Document Object
+
+- `window.document.addEventListener()`
+- `window.document.createElement(tagName)`
+- `window.document.getElementById(id)`
+- `window.document.getElementsByClassName(className)`
+- `querySelector(selectors)`
+- `querySelectorAll(selectors)`
+
 ## 11.Document Object Model, DOM
 
 文件 (HTML) 物件模型提供一個文件（樹）的結構化表示法，定義讓程式可以存取並改變文件架構、風格和內容的方法。簡單來說，**DOM允許在 JavaScript 當中操作 HTML 元素**。DOM 提供文件可以用結構化表示的方式來呈現已擁有的屬性函式的節點與物件組成。
@@ -572,6 +581,7 @@ DOM 當中的每個點被稱為節點，分成三種：
 - 文字節點 text nodes
 - 註解節點 comment nodes
 DOM提供兩種節點集合：`HTMLCollection`及`NodeList`
+
 
 
 ## 12.Loop 迴圈
