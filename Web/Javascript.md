@@ -430,7 +430,7 @@ if ("") {
 
 > 重要想法：函數 **1 對多** 就不是一個函數
 
-JavaScript 的 function 語法：
+JavaScript 的 function (decalration) 語法：
 ```javascript
 function name([param[, param[, ... param]]]) {
     statement
@@ -438,6 +438,31 @@ function name([param[, param[, ... param]]]) {
 ```
 
 若沒有 `return`，函數將返回 `undefined`（JavaScript 預設的返回值）。每個函數都是一個 object，代表每個 function 都有 instance properties 和 instance methods。在 `return` 之後的程式碼都不會被執行。
+
+### Function Declaration & Funcion Expression
+
+兩者幾乎一樣，主要區別在於，expression 可以省略函數名稱以創建匿名函數：
+```javascript
+function ([param[, param[, ... param]]]) {
+    statement
+}
+```
+Function expression 的用法：
+- 創建一個未命名 function，之後在把這個function放置到其他的變數內，增加使用彈性
+    ```javascript
+    let addition = function (a, b) {
+        return a + b;
+    };
+    console.log(addition(5, 5)); //10
+    ```
+- 當作 higher order function 的 callback function使用。例如 `forEach` 或是 `addEventListener`
+    ```javascript
+    window.addEventListener("click", function(){
+    this.alert("you are clicking")
+    });
+    ```
+    > Function 包著另一個 function，外層 function 稱之為 higher order function，被包在裡面的叫做 callback function
+- 使用 IIFE(Immediately Invokied Function Expression) 的功能
 
 ## 9.Array 陣列
 
