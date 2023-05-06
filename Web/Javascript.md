@@ -550,12 +550,41 @@ Math 是內建的物件，常用的 static properties：
 
 ### Window Document Object
 
-- `window.document.addEventListener()`
-- `window.document.createElement(tagName)`
-- `window.document.getElementById(id)`
-- `window.document.getElementsByClassName(className)`
-- `querySelector(selectors)`
-- `querySelectorAll(selectors)`
+- `window.document.addEventListener()`：事件監聽
+- `window.document.createElement(tagName)`：創造一個元素
+- `window.document.getElementById(id)`：return 第一個 id 相符合的元素
+- `window.document.getElementsByClassName(className)`：return 一個動態的 HTMLCollection，內部元素包含所有具有給定的 className 的元素（一個集合）
+- `querySelector(selectors)`：return 第一個符合 特定選擇器 的元素，採用深度優先搜尋演算法
+- `querySelectorAll(selectors)`：return 一個靜態 NodeList，與 指定選擇器 匹配的元素列表
+
+  > 深度優先演算法：依序往端節點前進搜尋，到端點後折返繼續搜尋，直到找到為止（一個一個節點搜尋）
+  > 寬度優先演算法：依照樹層依序往底層搜尋，直到找到為止（一層一層搜尋）
+
+#### 動態 v.s. 靜態
+
+> 都不是 array，array-like object，一樣可以用 index 索引元素
+
+- `HTMLCollection`：會隨著 document 的變動而變化
+- `NodeList`：必須得重新宣告，才會得到改變
+    ```javascript
+    let hellos = document.getElementsByClassName("hello");
+    let helloss = document.querySelectorAll(".hello");
+    console.log(hellos.length); //2
+    console.log(helloss.length); //2
+
+    let body = document.querySelector("body");
+    let p = document.createElement("p");
+    p.innerText = "new line: Hello";
+    p.classList.add("hello");
+    body.appendChild(p);
+
+    console.log("after add new line");
+    console.log(hellos.length); //3
+    console.log(helloss.length); //2
+
+    helloss = document.querySelectorAll(".hello");
+    console.log(helloss.length); //3
+    ```
 
 ## 11.Document Object Model, DOM
 
@@ -580,9 +609,9 @@ DOM 當中的每個點被稱為節點，分成三種：
 - HTML節點元素 element nodes
 - 文字節點 text nodes
 - 註解節點 comment nodes
-DOM提供兩種節點集合：`HTMLCollection`及`NodeList`
+當要拿到某個 tag 底下的所有元素，DOM提供兩種節點集合：`HTMLCollection`及`NodeList`
 
-
+#### 差別比較
 
 ## 12.Loop 迴圈
 
