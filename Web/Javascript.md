@@ -462,7 +462,52 @@ Function expression 的用法：
     });
     ```
     > Function 包著另一個 function，外層 function 稱之為 higher order function，被包在裡面的叫做 callback function
-- 使用 IIFE(Immediately Invokied Function Expression) 的功能
+- 使用 IIFE(Immediately Invokied Function Expression) 的功能：只有在那個當下使用一次而已
+    ```javascript
+    (function (a, b) {
+        console.log(a + b);
+    }) (5, 5);
+    ```
+
+### Arrow Function Expression
+
+JavaScript 的函數是 first-class objects，意指：
+- 可以將 function 指定給一個變數
+    ```javascript
+    let my_variable = function () {...};
+    ```
+- 可以將 function 當作 argument 傳給其他 function（composite function）
+    ```javascript
+    higherOderF(callBackF());
+    ```
+
+Arrow means:
+```javascript
+let hello = () => {
+    expression
+};
+```
+使用特性：
+1. 若只有一個 argument，就不用括弧
+2. 但若是 0、2 個以上，就一定要加上括弧
+    ```javascript
+    () => expression
+    param => expression
+    (param1, param2) => expression
+    ```
+3. 若是主體不加上 `{}`，則會 return expression 的 值
+4. 但若是主體有多行、多個算式，`{}` 一定要加
+5. 有加上 `{}` 則必須要有 `return` 才會返回結果
+    ```javascript
+    () => expression //expression 的結果會被返回
+    () => {
+        expression1;
+        expression2;
+        ...
+        return expression
+    }
+    ```
+6. 沒有 `this`，也不適合用來定義 object 的 method
 
 ## 9.Array 陣列
 
