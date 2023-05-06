@@ -618,7 +618,13 @@ DOM 當中的每個點被稱為節點，分成三種：
 
 因此 element node 這種node可以同時使用 childNodes 和 children 屬性，但其他兩種 node只能使用 childNode。 
 
+#### 差別比較: return type
 ![return_type](./img/return_type.png)
+
+#### 差別比較: `HTMLCollection`、`NodeList`
+![node_compare](./img/node_compare.png)
+
+
 
 ## 12.Loop 迴圈
 
